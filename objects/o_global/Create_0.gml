@@ -26,8 +26,8 @@ global.actors_visible = true;
 global.player_data = false;
 global.static_visible = true;
 
-global.sfx_volume = 0.5;
-global.music_volume = 1;
+global.sfx_volume = 1;
+global.music_volume = 0;
 global.bboxs_visible = false;
 global.draw_hud = true;
 global.debug_keys_active = true;

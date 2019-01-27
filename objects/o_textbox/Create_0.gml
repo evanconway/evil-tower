@@ -45,10 +45,17 @@ v_textbox_ispopup = false;
 // triggered and close are used to open and close text boxes
 v_textbox_triggered = false;
 v_textbox_close = false;
-v_textbox_active = false;
+//v_textbox_active = false;
 v_textbox_collapses = true; // I don't remember what this is for
 v_textbox_ispermenant = false;
 v_textbox_isgui = false;
+enum enum_textbox_guipos {
+	center_center,
+	custom
+}
+v_textbox_guipos = enum_textbox_guipos.center_center;
+v_textbox_guiX = 0;//used for enum custom
+v_textbox_guiY = 0;//used for enum custom
 v_textbox_lockplayer = false;
 
 v_textbox_collideswithplayer = false;
@@ -61,17 +68,17 @@ v_textbox_y_offset = 0;
 v_textbox_bodycolor = c_black;
 v_textbox_bordercolor = c_navy;
 
-// might be best to use enumerator for style choice?
-// room means box location is in room (
-enum enum_text_style {
-	room_static,
-	room_dialog,
-	gui_static,
-	gui_dialog
-}
-
 v_textbox_border_width = 2;
 v_textbox_xpad = 2;
+
+//textbox states
+enum enum_textbox_state {
+	off,
+	opening,
+	active,
+	closing
+}
+v_textbox_state = enum_textbox_state.off;
 
 /* 
 This width and height max values include the border.
@@ -80,7 +87,7 @@ the actual space allowed inside the box for text is 16
 box width (20) - 2 * border width (2)
 */
 v_textbox_width_max = 0;// this will be resized if a word (segment) is too big
-v_textbox_height_max = 0;//this is automatically calculated
+v_textbox_height_max = 0;// this will be resized if there are too many lines
 
 v_textbox_width = v_textbox_width_max;
 v_textbox_height = v_textbox_height_max;
@@ -90,7 +97,9 @@ v_textbox_height_min = 1;
 
 v_textbox_recalculate = true;
 
-v_textbox_expandrate = 7;
+//expand rate is automatically adjusted to the size of the box.
+v_textbox_expandrate = 0;
+v_textbox_expanddiv = 30;
 
 v_textbox_typed = false;
 v_textbox_char_delay = 1;

@@ -14,6 +14,14 @@ v_scene_run_scr = scr_scene_popup_collide_run;
 v_scene_pc_textbox = instance_create_layer(x, y, "Text", o_textbox);
 v_scene_pc_textbox.v_textbox_ispopup = true;
 
+v_scene_pc_textbox.v_textbox_width_max = 100;
+v_scene_pc_textbox.v_textbox_height_max = 100;
+v_scene_pc_textbox.v_textbox_isgui = true;
+v_scene_pc_textbox.v_textbox_guipos = enum_textbox_guipos.center_center;
+
 scr_scene_popup_collide_settext(id, "This is a popup!");
 
 ds_list_add(v_scene_run_args, v_scene_pc_textbox);
+
+v_scene_pc_buttonpressed = false;
+ds_list_add(v_scene_run_args, v_scene_pc_buttonpressed);

@@ -4,11 +4,12 @@
 //as well as the max width and height values if necessary
 if (v_textbox_recalculate) {
 	v_textbox_recalculate = false
-	v_textbox_height_max = 0;
+	//v_textbox_height_max = 0;
 	ds_list_clear(v_textbox_lines);
 	var line = ds_list_create();//list of segment objects
 	var line_width = 0;
 	var line_height = 0;
+	var text_height = 0;//the height of all lines combined
 	
 	// iterate through each list of segments in the chunk
 	for (var chunk_i = 0; chunk_i < ds_list_size(v_textbox_chunks); chunk_i++) {
@@ -52,7 +53,8 @@ if (v_textbox_recalculate) {
 					
 					// it doesn't, add current line to lines list and start new line and add current segment
 					ds_list_add(v_textbox_lines, line);
-					v_textbox_height_max += line_height;
+					text_height += line_height;
+					if (v_textbox_height_max < text_height) v_textbox_height_max = text_height;
 					line = ds_list_create();//do not call clear! this erases the value just added to v_textbox_lines
 					ds_list_add(line, t_o_segment);
 					line_width = t_o_segment.v_segment_width;
@@ -61,7 +63,8 @@ if (v_textbox_recalculate) {
 				
 				// if this is the last segment, increase textbox height and add the current line
 				if (seg_i == ds_list_size(segments) - 1) {
-					v_textbox_height_max += line_height;
+					text_height += line_height;
+					if (v_textbox_height_max < text_height) v_textbox_height_max = text_height;
 					ds_list_add(v_textbox_lines, line);
 				}
 			}
@@ -69,60 +72,57 @@ if (v_textbox_recalculate) {
 	}
 	line = ds_list_create();
 	ds_list_destroy(line);
-}
-
-/*
-This may never be used, but this allows a collision with the player to trigger 
-a textbox to popup
-*/
-
-if (v_textbox_collideswithplayer && place_meeting(x, y, o_player) && !v_textbox_active) {
-	v_textbox_triggered = true;
-}
-
-if (v_textbox_collideswithplayer && !place_meeting(x, y, o_player) && v_textbox_active) {
-	v_textbox_close = true;	
-}
-
-/*
-There are two variables to handle a textbox being activated. The first is triggered,
-the second is activated. We set triggered to true to activate a textbox. For popups,
-the most common kind of textbox we'll have, this means we start the expansion of the
-textbox. Either way, we need to have something that determines a textbox to
-interpret triggered to activate gets set to true, but only once. This is that code.
-*/
-
-if (!v_textbox_active && v_textbox_triggered) {
-	v_textbox_active = true;
-	v_textbox_triggered = false;
 	
-	// unique code for popup
-	if (v_textbox_ispopup) {
-		scr_playsfx(snd_txt_open);
-		v_textbox_width = v_textbox_width_min;
-		v_textbox_height = v_textbox_height_min;
-	}
+	//auto adjust expande rate
+	if (v_textbox_width_max > v_textbox_height_max) v_textbox_expandrate = v_textbox_width_max/v_textbox_expanddiv;
+	else v_textbox_expandrate = v_textbox_height_max/v_textbox_expanddiv;
 }
 
-if (v_textbox_active && v_textbox_close && !v_textbox_ispermenant) {
-	v_textbox_active = false;
-	v_textbox_close = false;
+
+switch (v_textbox_state) {
+	case enum_textbox_state.off:
+		//for triggering textbox if it can collide with player
+		if (v_textbox_collideswithplayer && place_meeting(x, y, o_player)) {
+			v_textbox_triggered = true;
+		}
 	
-	// unique code for popup
-	if (v_textbox_ispopup) {
-		scr_playsfx(snd_txt_close);
-	}
-}
-
-//this code is only relevant if the textbox is a popup.
-//determines whether or not it is time for the box to expand
-if (v_textbox_ispopup) {
-	if (v_textbox_active) {
+		//check for textbox trigger
+		if (v_textbox_triggered) {
+			v_textbox_triggered = false;//doesn't need to stay on
+			v_textbox_state = enum_textbox_state.active;//this gets overriden if popup
+			if (v_textbox_ispopup) {
+				scr_playsfx(snd_txt_open);
+				v_textbox_state = enum_textbox_state.opening;
+				v_textbox_width = v_textbox_width_min;
+				v_textbox_height = v_textbox_height_min;
+			}
+		}
+	break;
+	case enum_textbox_state.opening:
 		if (v_textbox_width < v_textbox_width_max) v_textbox_width += v_textbox_expandrate;
 		if (v_textbox_width > v_textbox_width_max) v_textbox_width = v_textbox_width_max;
 		if (v_textbox_height < v_textbox_height_max) v_textbox_height += v_textbox_expandrate;
 		if (v_textbox_height > v_textbox_height_max) v_textbox_height = v_textbox_height_max;
-	} else {
+	
+		if (v_textbox_height == v_textbox_height_max && v_textbox_width == v_textbox_width_max) {
+			v_textbox_state = enum_textbox_state.active;
+		}
+	break;
+	case enum_textbox_state.active:
+		if (v_textbox_collideswithplayer && !place_meeting(x, y, o_player)) {
+			v_textbox_close = true;
+		}
+	
+		if (v_textbox_close && !v_textbox_ispermenant) {
+			v_textbox_close = false;//turn of the close trigger
+			v_textbox_state = enum_textbox_state.off;
+			if (v_textbox_ispopup) {
+				v_textbox_state = enum_textbox_state.closing;
+				scr_playsfx(snd_txt_close);
+			}
+		}
+	break;
+	case enum_textbox_state.closing:
 		if (v_textbox_width > v_textbox_width_min) v_textbox_width -= v_textbox_expandrate;
 		if (v_textbox_width <= v_textbox_width_min) v_textbox_width = v_textbox_width_min;
 		if (v_textbox_height > v_textbox_height_min) v_textbox_height -= v_textbox_expandrate;
@@ -131,11 +131,10 @@ if (v_textbox_ispopup) {
 		if (v_textbox_width == v_textbox_width_min && v_textbox_height == v_textbox_height_min) {
 			v_textbox_width = 0;
 			v_textbox_height = 0;
+			v_textbox_state = enum_textbox_state.off;
 		}
-	}
-} else {
-	v_textbox_width = v_textbox_width_max;
-	v_textbox_height = v_textbox_height_max;
+	break;
+	
 }
 
 //if box is at full size, prepare text

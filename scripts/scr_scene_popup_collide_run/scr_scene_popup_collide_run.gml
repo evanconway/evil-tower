@@ -9,23 +9,22 @@ args list of values in args:
 */
 
 var sceneID = ds_list_find_value(argument[0], 0);
-var textbox = ds_list_find_value(argument[0], 1);
+var textbox = sceneID.v_scene_pc_textbox; //ds_list_find_value(argument[0], 1);
+var buttonpressed = sceneID.v_scene_pc_buttonpressed; //ds_list_find_value(argument[0], 2);
 
-/*
-For the popup scene, if there textbox isn't running, activate it.
-This is the only aspect of this scene.
-*/
-if (!textbox.v_textbox_active) {
+//For the popup scene, if there textbox isn't running, activate it.
+if (textbox.v_textbox_state == enum_textbox_state.off && !buttonpressed) {
 	textbox.v_textbox_triggered = true;
 }
 
 if (scr_input_check(true, enum_input.button1) ||
 	scr_input_check(true, enum_input.select)) {
-	if (textbox.v_textbox_active) {
-		textbox.v_textbox_close = true;	
-		sceneID.v_scene_running = false;
+	if (textbox.v_textbox_state == enum_textbox_state.active) {
+		textbox.v_textbox_close = true;
+		sceneID.v_scene_pc_buttonpressed = true;
 	}
 }
 
-// adding comment here to test github
-// adding another comment here to test github
+if (textbox.v_textbox_state == enum_textbox_state.off && sceneID.v_scene_pc_buttonpressed) {
+	sceneID.v_scene_running = false;
+}
