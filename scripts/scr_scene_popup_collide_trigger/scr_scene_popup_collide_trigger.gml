@@ -13,7 +13,7 @@ var my_x = ds_list_find_value(argument[0], 0);
 
 */
 
-var collide_trigger_result = false;
-var cpt_sceneID = ds_list_find_value(argument[0], 0);
-if (place_meeting(cpt_sceneID.x, cpt_sceneID.y, o_player)) collide_trigger_result = true;
-return collide_trigger_result;
+var result = false;
+var sceneID = ds_list_find_value(argument[0], 0);
+if (place_meeting(sceneID.x, sceneID.y, o_player)) result = true;
+return result;
