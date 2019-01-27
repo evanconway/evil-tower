@@ -1,6 +1,6 @@
 /// @description Gui Var Menu Setup
-v_menu_title[1] = "The Wizard's";
-v_menu_title[0] = "Tower";
+v_menu_title[1] = "Work In";
+v_menu_title[0] = "Progress";
 
 v_menu[3] = "New Game";
 v_menu[2] = "Continue";
