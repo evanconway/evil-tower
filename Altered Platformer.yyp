@@ -1655,6 +1655,14 @@
             }
         },
         {
+            "Key": "deee85fb-bab3-4c1b-9878-4b198d8968b4",
+            "Value": {
+                "id": "3e851c7d-1eeb-43d6-b6a4-66121be36a64",
+                "resourcePath": "scripts\\scr_plr_walljump\\scr_plr_walljump.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e0027641-4ab3-4576-93ff-a9dcd846ec2b",
             "Value": {
                 "id": "f08e236f-abe4-42dc-94ed-e61ee7d58a85",
@@ -1894,6 +1902,7 @@
         "b57ca110-efe9-47b7-81bc-9e4730796921",
         "3b51ca43-d0f4-4c03-9de9-cd371d1aaa12",
         "abb04029-3ba9-4bb2-8cd7-cb3668b64428",
+        "deee85fb-bab3-4c1b-9878-4b198d8968b4",
         "1f7934a0-45f7-4ab9-99d6-928e85bb9db9",
         "63a512e9-e2c0-4dfc-88f3-6c05ced52caf",
         "e9b533f6-be6b-46bd-8576-99c4726a4e70",

@@ -427,24 +427,10 @@ if (!global.freezeplayer && !global.pauseactive && !global.scene_active) {
 		*/
 		if (new_vel_y >= 0) new_vel_y = 0;
 		
-		//check for wall jump, otherwise continue with all other state checks
-		var touch_wall = false;
-		var wall_x_dist = 0;
-		for (ti = 1; ti <= v_plr_walljump_dist; ti++) {
-			if (place_meeting(x + (sign(v_act_input_x) * ti), y, o_wall)) {
-				touch_wall = true;
-				wall_x_dist = ti * sign(v_act_input_x);
-				ti = v_plr_walljump_dist;
-			}
-		}
-		if (scr_input_check(true, enum_input.button1) && touch_wall && 
-		(v_act_input_x != v_plr_walljump_prev || v_plr_jump_committime <= 0)) {		
-			v_plr_walljump_prev = v_act_input_x;//disables immediate wall jump on same wall
-			v_act_vel_x = wall_x_dist;
-			v_act_vel_y = 0;
-			scr_plr_setstate(id, enum_plr_state.wall_slide);
-			scr_playsfx(snd_tick);
-		} else {
+		scr_plr_walljump(id);
+		
+		// if the characters state is still air up, they didn't wall jump
+		if (v_plr_state == enum_plr_state.air_up) {
 			if (new_vel_x != 0) {
 				if (new_vel_y != 0) {
 					if (place_meeting(scr_act_potxpos(id, new_vel_x), y, o_wall) || place_meeting(x + sign(new_vel_x), y, o_wall)) {
@@ -508,24 +494,11 @@ if (!global.freezeplayer && !global.pauseactive && !global.scene_active) {
 		var new_vel_y = clamp(v_act_vel_y + v_act_grv, v_act_vel_y_max * -1, v_act_vel_y_max);
 		if (v_plr_canfastfall) && (scr_input_check(true, enum_input.down)) new_vel_y = v_plr_fastfallspd;//clamp(new_vel_y + v_act_grv, v_act_vel_y_max * -1, v_act_vel_y_max);
 		if (new_vel_y < 0) new_vel_y = 0;
-		//check for wall jump, otherwise continue with all other state checks
-		var touch_wall = false;
-		var wall_x_dist = 0;
-		for (ti = 1; ti <= v_plr_walljump_dist; ti++) {
-			if (place_meeting(x + (sign(v_act_input_x) * ti), y, o_wall)) {
-				touch_wall = true;
-				wall_x_dist = ti * sign(v_act_input_x);
-				ti = v_plr_walljump_dist;
-			}
-		}
-		if (scr_input_check(true, enum_input.button1) && touch_wall && 
-		(v_act_input_x != v_plr_walljump_prev || v_plr_jump_committime <= 0)) {
-			v_plr_walljump_prev = v_act_input_x;
-			v_act_vel_x = wall_x_dist;
-			v_act_vel_y = 0;
-			scr_plr_setstate(id, enum_plr_state.wall_slide);
-			scr_playsfx(snd_tick);
-		} else {
+
+		scr_plr_walljump(id);
+
+		// if the characters state is still air dn, then they didn't wall jump
+		if (v_plr_state = enum_plr_state.air_dn) {
 			if (new_vel_x != 0) {
 				if (new_vel_y != 0) {
 					var potentialx = scr_act_potxpos(id, new_vel_x)
