@@ -1759,6 +1759,14 @@
             }
         },
         {
+            "Key": "ec9d28ea-6e49-45ec-9c12-b1451ff1fec7",
+            "Value": {
+                "id": "225ebb2b-782c-4ef6-b870-60578dfb43ce",
+                "resourcePath": "scripts\\scr_textbox_calclines\\scr_textbox_calclines.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ecf488b1-871f-46e5-b4c6-94bb5658f534",
             "Value": {
                 "id": "a30b4e90-6e7e-40c6-89ed-eba6423ae3f9",
@@ -1938,6 +1946,7 @@
         "9d393fcc-f6a4-4482-a025-2356f213b6d3",
         "184b34b2-1e53-45ed-8610-bf963301a484",
         "8102538a-fe03-49e8-8b50-cc06fc37880d",
+        "ec9d28ea-6e49-45ec-9c12-b1451ff1fec7",
         "951b1b24-da9a-4b4a-93d4-3ec2bac07b2d",
         "a05ec162-4779-4a84-a7d1-f286f295ac2c",
         "1cb30935-97c3-498e-8ecf-c53754a88e0f",
