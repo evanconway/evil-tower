@@ -1,11 +1,13 @@
-/// @description scr_list_addsegment_multi(list, text, color)
+/// @description scr_list_addsegment_multi(list, text, color, startnewline)
 
 /// @param list
 /// @param text
 /// @param color
+/// @param startnewline
 
 var addword_multi_char;
 var addword_multi_word = "";
+var first_segment_added = false;
 
 /*
 We have a huge ass variable name for "i" here because game maker has stupid ass scoping for variables.
@@ -28,6 +30,12 @@ for (var addsegment_multi_i = 1; addsegment_multi_i <= string_length(argument[1]
 		scr_txt_set_colr(addword_multi_txt, argument[2]);
 		var addword_multi_segment = instance_create_layer(0, 0, "Text", o_segment);
 		scr_segment_addtxt(addword_multi_segment, addword_multi_txt);
+		
+		if (argument_count >= 4 && !first_segment_added) {
+			addword_multi_segment.v_segment_startnewline = argument[3];
+			first_segment_added = true;
+		}
+		
 		ds_list_add(argument[0], addword_multi_segment);
 		addword_multi_word = "";
 	}

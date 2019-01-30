@@ -19,20 +19,16 @@ var txt = ["Call me ",
 			"watery ",//blue index = 7
 			"part of the world."]
 
-var t_chunk = ds_list_create();
-
-scr_list_addsegment_multi(t_chunk, txt[txt_index++], color_default);
-scr_list_addsegment_period(t_chunk, txt[txt_index++], c_red, color_default);
-scr_list_addsegment_multi(t_chunk, txt[txt_index++], color_default);
-scr_list_addsegment(t_chunk, txt[txt_index++], c_yellow, color_default);
-scr_list_addsegment_multi(t_chunk, txt[txt_index++], color_default);
-scr_list_addsegment(t_chunk, txt[txt_index++], c_green, color_default);
-scr_list_addsegment_multi(t_chunk, txt[txt_index++], color_default);
-scr_list_addsegment(t_chunk, txt[txt_index++], c_blue, color_default);
-scr_list_addsegment_multi(t_chunk, txt[txt_index++], color_default);
-
-v_textbox_segments = t_chunk;
-
-//ds_list_add(v_textbox_chunks, t_chunk);
-t_chunk = ds_list_create();
-ds_list_destroy(t_chunk);
+scr_list_addsegment_multi(v_textbox_segments, txt[txt_index++], color_default);
+scr_list_addsegment_period(v_textbox_segments, txt[txt_index++], c_red, color_default);
+scr_list_addsegment_multi(v_textbox_segments, txt[txt_index++], color_default);
+scr_list_addsegment(v_textbox_segments, txt[txt_index++], c_yellow);
+scr_list_addsegment_multi(v_textbox_segments, txt[txt_index++], color_default);
+scr_list_addsegment(v_textbox_segments, txt[txt_index++], c_green);
+scr_list_addsegment_multi(v_textbox_segments, txt[txt_index++], color_default);
+scr_list_addsegment(v_textbox_segments, txt[txt_index++], c_blue);
+scr_list_addsegment_multi(v_textbox_segments, txt[txt_index++], color_default);
+scr_list_addsegment_blankline(v_textbox_segments);
+scr_list_addsegment_multi(v_textbox_segments, "New Line Test", color_default, true);
+scr_list_addsegment_blankline(v_textbox_segments);
+scr_list_addsegment_multi(v_textbox_segments, "another new line?", color_default, true);

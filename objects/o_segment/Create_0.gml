@@ -10,8 +10,8 @@ v_segment_txts = ds_list_create();// store o_txt
 v_segment_width = 0;
 v_segment_height = 0;
 
-//Set true to mark new line.
-v_segment_newline = false;
+//Set true to mark beginning of new line.
+v_segment_startnewline = false;
 /*
 We'll also need a way to determine how high the segment is for blank lines
 

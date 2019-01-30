@@ -45,23 +45,6 @@ global.firstroom = room_zombie;
 // scenes
 global.scene_active = false;
 
-//dialog
-enum enum_txt_fx_phys {
-	none,
-	shake,
-	hover,
-	wobble,
-	zoominout
-}
-
-enum enum_txt_fx_colr {
-	none,
-	pulse,
-	rainbow,
-	rnbowfade,
-	rnbowflicker
-}
-
 global.transition_state = 0;
 
 //menus

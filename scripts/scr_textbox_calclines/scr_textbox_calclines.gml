@@ -42,26 +42,45 @@ for (var seg_i = 0; seg_i < ds_list_size(v_textbox_segments); seg_i++) {
 		seg_i = ds_list_size(ID.v_textbox_segments);
 	} else {
 				
-		// segment is normal sized, check to see if it fits on current line
-		if ((line_width + scr_get_width_segment_nospace(t_o_segment)) < max_segment_width) {
-					
-			// it does, add it to the line and increase line width (and height if necessary)
-			ds_list_add(line, t_o_segment);
-			line_width += t_o_segment.v_segment_width;
-			if (t_o_segment.v_segment_height > line_height) line_height = t_o_segment.v_segment_height;
-		} else {
-					
-			// it doesn't, add current line to lines list and start new line and add current segment
-			ds_list_add(ID.v_textbox_lines, line);
-			text_height += line_height;
-			if (ID.v_textbox_height_max < text_height) ID.v_textbox_height_max = text_height;
-			line = ds_list_create();//do not call clear! this erases the value just added to v_textbox_lines
+		// we need to check if the segment marks a new line
+		if (t_o_segment.v_segment_startnewline) {
+			
+			// it does, if the current line is not empty, add it to the textbox lines list
+			if (!ds_list_empty(line)) {
+				ds_list_add(ID.v_textbox_lines, line);
+				text_height += line_height;
+				if (ID.v_textbox_height_max < text_height) ID.v_textbox_height_max = text_height;
+				line = ds_list_create(); // make new line
+			}
+
+			// and add segment to new line
 			ds_list_add(line, t_o_segment);
 			line_width = t_o_segment.v_segment_width;
 			line_height = t_o_segment.v_segment_height;
+		} else {
+				
+			// it is not a new line, normal calculations
+			// segment is normal sized, check to see if it fits on current line
+			if ((line_width + scr_get_width_segment_nospace(t_o_segment)) < max_segment_width) {
+					
+				// it does, add it to the line and increase line width (and height if necessary)
+				ds_list_add(line, t_o_segment);
+				line_width += t_o_segment.v_segment_width;
+				if (t_o_segment.v_segment_height > line_height) line_height = t_o_segment.v_segment_height;
+			} else {
+					
+				// it doesn't, add current line to lines list and start new line and add current segment
+				ds_list_add(ID.v_textbox_lines, line);
+				text_height += line_height;
+				if (ID.v_textbox_height_max < text_height) ID.v_textbox_height_max = text_height;
+				line = ds_list_create();//do not call clear! this erases the value just added to v_textbox_lines
+				ds_list_add(line, t_o_segment);
+				line_width = t_o_segment.v_segment_width;
+				line_height = t_o_segment.v_segment_height;
+			}
 		}
 				
-		// if this is the last segment, increase textbox height and add the current line
+		// if this is the last segment, increase textbox height (if needed) and add the current line
 		if (seg_i == ds_list_size(ID.v_textbox_segments) - 1) {
 			text_height += line_height;
 			if (ID.v_textbox_height_max < text_height) ID.v_textbox_height_max = text_height;
