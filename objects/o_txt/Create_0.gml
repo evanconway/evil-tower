@@ -15,6 +15,9 @@ enum enum_txt_fx_phys {
 	zoominout
 }
 v_txt_fx_phys = enum_txt_fx_phys.none;
+v_txt_hoverspd = 0.05;
+v_txt_hoverdist = 2;
+v_txt_hoverdir = 1;// is only ever 1 or -1
 v_txt_x_ofst = 0;
 v_txt_y_ofst = 0;
 

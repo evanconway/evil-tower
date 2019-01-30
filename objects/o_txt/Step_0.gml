@@ -1,7 +1,16 @@
 /// @description Calculate fx
 
 switch (v_txt_fx_phys) {
-	case 0:
+	case enum_txt_fx_phys.hover:
+		v_txt_y_ofst += v_txt_hoverspd * v_txt_hoverdir;
+		if (v_txt_y_ofst < 0) {
+			v_txt_hoverdir = 1;
+			v_txt_y_ofst = 0;
+		}
+		if (v_txt_y_ofst > v_txt_hoverdist) {
+			v_txt_hoverdir = -1;
+			v_txt_y_ofst = v_txt_hoverdist;
+		}
 	break;
 }
 
