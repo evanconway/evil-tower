@@ -51,7 +51,7 @@ if (v_textbox_visible) && (!v_textbox_recalculate) && (global.static_visible) {
 				if (t_segment.v_segment_height > biggest_segment_height) biggest_segment_height = t_segment.v_segment_height;
 				for (var i3 = 0; i3 < ds_list_size(t_segment.v_segment_txts); i3++) {
 					var t_txt = ds_list_find_value(t_segment.v_segment_txts, i3);
-					draw_set_alpha(1);
+					draw_set_alpha(t_txt.v_txt_alpha);
 					draw_set_font(t_txt.v_txt_font);
 					draw_set_color(t_txt.v_txt_color);
 					draw_text(curs_x + t_txt.v_txt_x_ofst, curs_y + t_txt.v_txt_y_ofst, t_txt.v_txt_text);
