@@ -12,6 +12,9 @@ var test_text = "Call me Ishmael. Some years ago--never mind how long precisely 
 
 var t_chunk = ds_list_create();
 scr_list_addsegment_multi(t_chunk, test_text, c_white);
-ds_list_add(v_textbox_chunks, t_chunk);
+
+v_textbox_segments = t_chunk;
+
+//ds_list_add(v_textbox_chunks, t_chunk);
 t_chunk = ds_list_create();
 ds_list_destroy(t_chunk);

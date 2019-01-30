@@ -34,10 +34,18 @@ scr_textbox_addchunk(v_mytextbox, t_chunk);
 t_chunk = ds_list_create(); // last two lines are just for deleting the list
 ds_list_destroy(t_chunk);
 */
+/*
+BEHOLD!!!
+We're going to redo how this works. Forget chunks and lists of lists. It's a supid idea.
+Textboxes now will just have a list called "segments". And it is a great big list of...
+you guessed it... segments. We started with the idea of "chunks" as a way to organize 
+paragraphs. However, it is easier to simply add "new line" flags to segments. So that's
+how we're going to do this from now on. 
+*/
 
-v_textbox_chunks = ds_list_create(); // a list of lists of o_segment objects
-//v_textbox_segments = ds_list_create();//auto generated in step
-v_textbox_lines = ds_list_create();//auto generated in step
+// REMOVING: v_textbox_chunks = ds_list_create(); // a list of lists of o_segment objects
+v_textbox_segments = ds_list_create();
+v_textbox_lines = ds_list_create();//auto generated list of segments (from segments) that line wrap correctly
 
 v_textbox_visible = true;
 v_textbox_ispopup = false;
@@ -101,7 +109,12 @@ v_textbox_recalculate = true;
 v_textbox_expandrate = 0;
 v_textbox_expanddiv = 30;
 
-v_textbox_typed = false;
+//variables for typing text
+v_textbox_typeto_chunk = 0;
+v_textbox_typeto_line = 0;
+v_textbox_typeto_segment = 0;
+v_textbox_typeto_char = 0;
+
 v_textbox_char_delay = 1;
 
 event_inherited();

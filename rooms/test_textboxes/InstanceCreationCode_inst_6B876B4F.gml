@@ -31,6 +31,8 @@ scr_list_addsegment_multi(t_chunk, txt[txt_index++], color_default);
 scr_list_addsegment(t_chunk, txt[txt_index++], c_blue, color_default);
 scr_list_addsegment_multi(t_chunk, txt[txt_index++], color_default);
 
-ds_list_add(v_textbox_chunks, t_chunk);
+v_textbox_segments = t_chunk;
+
+//ds_list_add(v_textbox_chunks, t_chunk);
 t_chunk = ds_list_create();
 ds_list_destroy(t_chunk);

@@ -46,7 +46,6 @@ if (v_textbox_visible) && (!v_textbox_recalculate) && (global.static_visible) {
 			var line = ds_list_find_value(v_textbox_lines, i1);
 			biggest_segment_height = 0;
 			curs_x = start_x;
-			curs_y += biggest_segment_height;
 			for (var i2 = 0; i2 < ds_list_size(line); i2++) {
 				var t_segment = ds_list_find_value(line, i2);
 				if (t_segment.v_segment_height > biggest_segment_height) biggest_segment_height = t_segment.v_segment_height;
@@ -59,6 +58,7 @@ if (v_textbox_visible) && (!v_textbox_recalculate) && (global.static_visible) {
 					curs_x += t_txt.v_txt_width;
 				}
 			}
+			curs_y += biggest_segment_height;
 		}
 	}
 }
