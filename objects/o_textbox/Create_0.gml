@@ -110,12 +110,15 @@ v_textbox_expandrate = 0;
 v_textbox_expanddiv = 30;
 
 //variables for typing text
-v_textbox_typeto_chunk = 0;
 v_textbox_typeto_line = 0;
-v_textbox_typeto_segment = 0;
+v_textbox_typeto_sgmt = 0;
+v_textbox_typeto_otxt = 0;
 v_textbox_typeto_char = 0;
 
+v_textbox_typetimer = 0;
+
 v_textbox_char_delay = 1;
+v_textbox_punc_delay = 2;
 
 event_inherited();
 v_static_bbox_color = c_yellow;

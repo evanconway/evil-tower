@@ -1,8 +1,9 @@
-/// @description scr_list_addsegment_multi(list, text, color, startnewline)
+/// @description scr_list_addsegment_multi(list, text, color, typed, startnewline)
 
 /// @param list
 /// @param text
 /// @param color
+/// @param typed
 /// @param startnewline
 
 var addword_multi_char;
@@ -31,8 +32,12 @@ for (var addsegment_multi_i = 1; addsegment_multi_i <= string_length(argument[1]
 		var addword_multi_segment = instance_create_layer(0, 0, "Text", o_segment);
 		scr_segment_addtxt(addword_multi_segment, addword_multi_txt);
 		
-		if (argument_count >= 4 && !first_segment_added) {
-			addword_multi_segment.v_segment_startnewline = argument[3];
+		if (argument_count >= 4) {
+			addword_multi_segment.v_segment_typed = argument[3];
+		}
+		
+		if (argument_count >= 5 && !first_segment_added) {
+			addword_multi_segment.v_segment_startnewline = argument[4];
 			first_segment_added = true;
 		}
 		

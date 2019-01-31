@@ -5,12 +5,12 @@ reworking textboxes:
 	
 	Textboxes will now just have a list of segments instead of a list of lists of segments.
 	These are the sections of code that need to be redone:
-	textbox create event
-	textbox calclines script
-	places we have already created textboxes
+	-textbox create event (done)
+	-textbox calclines script (done)
+	-places we have already created textboxes
 
 
-Add scene objects
+(done)Add scene objects
 Add "continue" functionality to text boxes
 add "typing" effect to text boxes
 Narrative Screen, rework to use text boxes
@@ -58,3 +58,11 @@ I think we should make some children scenes that we'll be using a lot. Like tuto
 RETHINKING TEXTBOXES
 
 Ooh... the way I have text now might be kind of dumb. You see... the textbox stores a list of LISTS of segments. I did it that way to organize paragraphs of text. So like each list of segments is a paragraph. However lists of lists are really annoying to deal with in this context. It's confusing. Instead... I think I can just have the textbox have one simple list of segment objects. But we will add variables to the segment object like "new line" or "new paragraph" or something. Then... when the textbox calculates its lines for line wrapping, it will start new lines if it also reads that the segment has this "new line" variable marked as true. 
+
+TYPING TEXT IN TEXTBOXES
+
+Alright. So the way text currently draws: it loops through each line, through each segment, through each o_txt. We should be able to setup limits for each of these (line, segment, txt, and also character) that determine how far in the text the draw cycle will go. like:
+v_textbox_typeto_line = 0;
+v_textbox_typeto_segment = 0;
+v_textbox_typeto_txt = 0;
+v_textbox_typeto_char = 0;

@@ -1695,10 +1695,26 @@
             }
         },
         {
+            "Key": "e5c35dd7-7476-4433-bdb4-a6abd64c2720",
+            "Value": {
+                "id": "e816c2a5-a539-4c6e-adb9-2665b2e7915e",
+                "resourcePath": "scripts\\scr_char_ispunc\\scr_char_ispunc.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e5dd8781-4b90-4b38-b3e2-ff92da91b478",
             "Value": {
                 "id": "f977fc26-92ec-4df0-9732-bdb094591709",
                 "resourcePath": "scripts\\scr_obj_approachedgeofoff_obj__dist_y_at_x\\scr_obj_approachedgeofoff_obj__dist_y_at_x.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "e67eea83-1898-45c1-86b9-8401407ea7f5",
+            "Value": {
+                "id": "08ec0b4a-8586-4166-9ed7-67ff17989f6e",
+                "resourcePath": "scripts\\scr_char_isletter\\scr_char_isletter.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1956,6 +1972,8 @@
         "8102538a-fe03-49e8-8b50-cc06fc37880d",
         "ec9d28ea-6e49-45ec-9c12-b1451ff1fec7",
         "2b084d9e-2649-424c-ac53-86212b4c3b67",
+        "e67eea83-1898-45c1-86b9-8401407ea7f5",
+        "e5c35dd7-7476-4433-bdb4-a6abd64c2720",
         "951b1b24-da9a-4b4a-93d4-3ec2bac07b2d",
         "a05ec162-4779-4a84-a7d1-f286f295ac2c",
         "1cb30935-97c3-498e-8ecf-c53754a88e0f",
