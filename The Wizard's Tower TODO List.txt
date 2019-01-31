@@ -12,7 +12,7 @@ reworking textboxes:
 
 (done)Add scene objects
 Add "continue" functionality to text boxes
-add "typing" effect to text boxes
+add "typing" effect to text boxes (look at draw event, it's not reading limits right)
 Narrative Screen, rework to use text boxes
 Between level score card
 Air attacks
@@ -66,3 +66,5 @@ v_textbox_typeto_line = 0;
 v_textbox_typeto_segment = 0;
 v_textbox_typeto_txt = 0;
 v_textbox_typeto_char = 0;
+
+Then these limits could be updated in the step event. 

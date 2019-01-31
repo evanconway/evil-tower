@@ -15,6 +15,7 @@ if (string_length(argument[0]) == 1) {
 	test_letter == "?" ||
 	test_letter == "," ||
 	test_letter == ";" ||
+	test_letter == "-" ||
 	test_letter == ":") {
 		result = true;
 	}

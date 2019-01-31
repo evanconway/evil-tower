@@ -117,8 +117,9 @@ v_textbox_typeto_char = 0;
 
 v_textbox_typetimer = 0;
 
+v_textbox_typestart_delay = 70;
 v_textbox_char_delay = 1;
-v_textbox_punc_delay = 2;
+v_textbox_punc_delay = 45;
 
 event_inherited();
 v_static_bbox_color = c_yellow;

@@ -52,14 +52,14 @@ if (v_textbox_visible) && (!v_textbox_recalculate) && (global.static_visible) {
 				var t_segment = ds_list_find_value(line, i2);
 				if (t_segment.v_segment_height > biggest_segment_height) biggest_segment_height = t_segment.v_segment_height;
 				var txt_limit = ds_list_size(t_segment.v_segment_txts) - 1;
-				if (i2 == v_textbox_typeto_sgmt) txt_limit = v_textbox_typeto_otxt;
+				if (i1 == v_textbox_typeto_line && i2 == segment_limit) txt_limit = v_textbox_typeto_otxt;
 				for (var i3 = 0; i3 <= txt_limit; i3++) {
 					var t_txt = ds_list_find_value(t_segment.v_segment_txts, i3);
 					draw_set_alpha(t_txt.v_txt_alpha);
 					draw_set_font(t_txt.v_txt_font);
 					draw_set_color(t_txt.v_txt_color);
 					var char_limit = string_length(t_txt.v_txt_text);
-					if (i3 == v_textbox_typeto_otxt) char_limit = v_textbox_typeto_char;
+					if (i1 == v_textbox_typeto_line && i2 == segment_limit && i3 == v_textbox_typeto_otxt) char_limit = v_textbox_typeto_char;
 					var text_to_draw = string_copy(t_txt.v_txt_text, 1, char_limit);
 					draw_text(curs_x + t_txt.v_txt_x_ofst, curs_y + t_txt.v_txt_y_ofst, text_to_draw);
 					curs_x += t_txt.v_txt_width;
