@@ -3,10 +3,7 @@
 //this object only has a sprite to make it easier to see where
 //we're placing it in the game world
 
-// Only use this event if the textbox is not a gui textbox.
-if (!v_textbox_isgui) {
-	scr_textbox_draw(id);
-}
+if (!v_textbox_isgui) scr_textbox_draw(id);
 
 //bbox drawn over text box
 //we can't use event_inherited() because we don't want to draw the sprite;

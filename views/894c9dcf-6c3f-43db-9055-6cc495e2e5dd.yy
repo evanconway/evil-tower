@@ -18,7 +18,9 @@
         "ec9d28ea-6e49-45ec-9c12-b1451ff1fec7",
         "2b084d9e-2649-424c-ac53-86212b4c3b67",
         "e67eea83-1898-45c1-86b9-8401407ea7f5",
-        "e5c35dd7-7476-4433-bdb4-a6abd64c2720"
+        "e5c35dd7-7476-4433-bdb4-a6abd64c2720",
+        "263e78f9-4677-4cd8-9bdb-ac2dbf44cc29",
+        "7025eea8-b3b9-45c1-927c-e97a6a6947d9"
     ],
     "filterType": "GMScript",
     "folderName": "Text",

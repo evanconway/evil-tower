@@ -12,7 +12,8 @@ reworking textboxes:
 
 (done)Add scene objects
 Add "continue" functionality to text boxes
-add "typing" effect to text boxes (look at draw event, it's not reading limits right)
+(done)add "typing" effect to text boxes (look at draw event, it's not reading limits right)
+Make a complete scene to test what we've added.
 Narrative Screen, rework to use text boxes
 Between level score card
 Air attacks

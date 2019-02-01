@@ -19,9 +19,9 @@ var txt = ["Call me ",
 			"watery ",//blue index = 7
 			"part of the world."]
 
-scr_list_addsegment_multi(v_textbox_segments, txt[txt_index++], color_default);
-scr_list_addsegment_period_fx(v_textbox_segments, txt[txt_index++], c_red, color_default, false, enum_txt_fx_phys.hover, enum_txt_fx_colr.none);
 scr_list_addsegment_multi(v_textbox_segments, txt[txt_index++], color_default, true);
+scr_list_addsegment_period_fx(v_textbox_segments, txt[txt_index++], c_red, color_default, false, enum_txt_fx_phys.hover, enum_txt_fx_colr.none);
+scr_list_addsegment_multi(v_textbox_segments, txt[txt_index++], color_default);
 scr_list_addsegment_fx(v_textbox_segments, txt[txt_index++], c_yellow, false, enum_txt_fx_phys.none, enum_txt_fx_colr.pulse);
 scr_list_addsegment_multi(v_textbox_segments, txt[txt_index++], color_default);
 scr_list_addsegment(v_textbox_segments, txt[txt_index++], c_green);

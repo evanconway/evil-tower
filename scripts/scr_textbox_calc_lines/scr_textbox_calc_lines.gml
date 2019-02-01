@@ -14,9 +14,10 @@ ds_list_clear(ID.v_textbox_lines);
 var line = ds_list_create();//list of segment objects
 var line_width = 0;
 var line_height = 0;
-var text_height = 0;//the height of all lines combined
+// text normally draws onto border, ypad ensures enough space.
+var text_height = v_textbox_ypad;
 	
-//now iterate through segments
+// now iterate through segments
 for (var seg_i = 0; seg_i < ds_list_size(v_textbox_segments); seg_i++) {
 		
 	/* 

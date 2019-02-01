@@ -15,26 +15,6 @@ stuff like spaces and puncuation in them, it felt wrong to call them words.
 Also, the o-txt object should've been "chars" or something since o_txt
 objects are almost always complete words or parts of a word. 
 
-Finally there are chunks. A chunk is a list of o_segment objects. It might have
-made sense to call them "paragraphs" instead, since that's how I'm thinking about them.
-Whatever, the most confusing aspect here is that "chunks" is a list of LISTS of segments.
-
-The process for creating textboxes and adding text is kind of annoying. First you create 
-the textbox object with "instance_create_layer(x, y, "Text", o_textbox)". Then you create 
-a list. Conceptually this list is a "chunk" which we will add segments to. We have a number
-of scripts that simplify the process of making segments and adding o_txt to them. For
-example, scr_list_addsegment_multi will automatically take a string and make segments and 
-o_txt objects and add them to the chunk list. Here's an example of creating a textbox and 
-adding text to it. 
-
-v_mytextbox = instance_create_layer(x, y, "Text", o_textbox);
-var t_chunk = ds_list_create();
-scr_list_addsegment_multi(t_chunk, "This is some example text!", c_white);
-scr_textbox_addchunk(v_mytextbox, t_chunk);
-t_chunk = ds_list_create(); // last two lines are just for deleting the list
-ds_list_destroy(t_chunk);
-*/
-/*
 BEHOLD!!!
 We're going to redo how this works. Forget chunks and lists of lists. It's a supid idea.
 Textboxes now will just have a list called "segments". And it is a great big list of...
@@ -43,7 +23,6 @@ paragraphs. However, it is easier to simply add "new line" flags to segments. So
 how we're going to do this from now on. 
 */
 
-// REMOVING: v_textbox_chunks = ds_list_create(); // a list of lists of o_segment objects
 v_textbox_segments = ds_list_create();
 v_textbox_lines = ds_list_create();//auto generated list of segments (from segments) that line wrap correctly
 
@@ -58,7 +37,15 @@ v_textbox_collapses = true; // I don't remember what this is for
 v_textbox_ispermenant = false;
 v_textbox_isgui = false;
 enum enum_textbox_guipos {
+	top_left,
+	top_center,
+	top_right,
+	center_left,
 	center_center,
+	center_right,
+	bottom_left,
+	bottom_center,
+	bottom_right,
 	custom
 }
 v_textbox_guipos = enum_textbox_guipos.center_center;
@@ -101,9 +88,13 @@ v_textbox_width = v_textbox_width_max;
 v_textbox_height = v_textbox_height_max;
 
 v_textbox_width_min = 5;
-v_textbox_height_min = 1;
+v_textbox_height_min = 5;
 
+v_textbox_hasportrait = false;
+v_textbox_portraitsprite = undefined;
 v_textbox_recalculate = true;
+
+v_textbox_ypad = 4;//text naturally goes over bounds, this stops that.
 
 //expand rate is automatically adjusted to the size of the box.
 v_textbox_expandrate = 0;
@@ -117,9 +108,9 @@ v_textbox_typeto_char = 0;
 
 v_textbox_typetimer = 0;
 
-v_textbox_typestart_delay = 70;
+v_textbox_typestart_delay = 0;
 v_textbox_char_delay = 1;
-v_textbox_punc_delay = 45;
+v_textbox_punc_delay = 20;
 
 event_inherited();
 v_static_bbox_color = c_yellow;

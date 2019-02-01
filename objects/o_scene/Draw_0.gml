@@ -1,7 +1,4 @@
-/// @description No Draw
+/// @description Insert description here
+// You can write your code in this editor
 
-/* 
-This event exists only to prevent the scene from drawing its sprite.
-Scenes only have sprites to make them easier to place in the game
-world.
-*/
+if (sprite_index != s_static) draw_self();
