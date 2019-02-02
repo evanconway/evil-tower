@@ -1,47 +1,48 @@
-/// @description scr_list_addsegment_multi(list, text, color, typed, startnewline)
+/// @description scr_list_addsegment_multi(list, text, typed, chirp, font, color, startnewline, centered, fx_phys, fx_colr)
 
 /// @param list
 /// @param text
-/// @param color
 /// @param typed
+/// @param chirp
+/// @param font
+/// @param color
 /// @param startnewline
+/// @param centered
+/// @param fx_phys
+/// @param fx_colr
 
 var addword_multi_char;
-var addword_multi_word = "";
+var word = "";
 var first_segment_added = false;
-
 /*
 We have a huge ass variable name for "i" here because game maker has stupid ass scoping for variables.
 This script gets called inside of a for loop, and if that outer for loop uses "i", then making another "i"
 in here overwrites the outer "i". Fuck.
 */
-
 for (var addsegment_multi_i = 1; addsegment_multi_i <= string_length(argument[1]); addsegment_multi_i++)
 {
 	/*
 	Don't let the giant variable names confuse you. We're just iterating through the string "text" (argument[1])
-	and adding each character to a variable (addword_multi_word)
+	and adding each character to a variable (word)
 	*/
 	addword_multi_char = string_char_at(argument[1], addsegment_multi_i);
-	addword_multi_word += addword_multi_char;
+	word += addword_multi_char;
 	if (addword_multi_char == " " || addsegment_multi_i >= string_length(argument[1])) 
 	{
-		var addword_multi_txt = instance_create_layer(0, 0, "Text", o_txt);
-		scr_txt_set_text(addword_multi_txt, addword_multi_word);
-		scr_txt_set_colr(addword_multi_txt, argument[2]);
-		var addword_multi_segment = instance_create_layer(0, 0, "Text", o_segment);
-		scr_segment_addtxt(addword_multi_segment, addword_multi_txt);
-		
-		if (argument_count >= 4) {
-			addword_multi_segment.v_segment_typed = argument[3];
+		if (argument_count == 2) scr_list_addsegment(argument[0], word);
+		if (argument_count == 3) scr_list_addsegment(argument[0], word, argument[2]);
+		if (argument_count == 4) scr_list_addsegment(argument[0], word, argument[2], argument[3]);
+		if (argument_count == 5) scr_list_addsegment(argument[0], word, argument[2], argument[3], argument[4]);
+		if (argument_count == 6) scr_list_addsegment(argument[0], word, argument[2], argument[3], argument[4], argument[5]);
+		if (argument_count == 7) {
+			if (!first_segment_added) {
+				scr_list_addsegment(argument[0], word, argument[2], argument[3], argument[4], argument[5], argument[6]);
+				first_segment_added = true;
+			} else scr_list_addsegment(argument[0], word, argument[2], argument[3], argument[4], argument[5]);
 		}
-		
-		if (argument_count >= 5 && !first_segment_added) {
-			addword_multi_segment.v_segment_startnewline = argument[4];
-			first_segment_added = true;
-		}
-		
-		ds_list_add(argument[0], addword_multi_segment);
-		addword_multi_word = "";
+		if (argument_count == 8) scr_list_addsegment(argument[0], word, argument[2], argument[3], argument[4], argument[5], argument[6], argument[7]);
+		if (argument_count == 9) scr_list_addsegment(argument[0], word, argument[2], argument[3], argument[4], argument[5], argument[6], argument[7], argument[8]);
+		if (argument_count == 10) scr_list_addsegment(argument[0], word, argument[2], argument[3], argument[4], argument[5], argument[6], argument[7], argument[8], argument[9]);
+		word = "";
 	}
 }

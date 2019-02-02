@@ -4,6 +4,7 @@
 /// @param segmentlist
 
 ds_list_clear(argument[0].v_textbox_segments);
+argument[0].v_textbox_typeto_finish = false;
 argument[0].v_textbox_recalculate = true;
 
 argument[0].v_textbox_typetimer = argument[0].v_textbox_typestart_delay;

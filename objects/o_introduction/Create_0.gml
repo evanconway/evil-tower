@@ -73,7 +73,7 @@ introtext[2, 1] = paragraph1;
 pagenum = 0;
 paragraphnum = 0;
 linenum = 0;
-charnum = 1;//for some fucking reason strings are not 0 based index.
+charnum = 1;// for some fucking reason strings are not 0 based index.
 
 printdelay = 0;
 

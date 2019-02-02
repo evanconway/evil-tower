@@ -12,11 +12,7 @@ v_segment_height = 0;
 
 //Set true to mark beginning of new line.
 v_segment_startnewline = false;
-/*
-We'll also need a way to determine how high the segment is for blank lines
-
-like that one. Text is not a universal size here.We can probably just
-set it though...
-*/
+v_segment_blankline = false;
 
 v_segment_typed = false;
+v_segment_centered = false;

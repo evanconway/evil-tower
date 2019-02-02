@@ -17,7 +17,7 @@ var ID = argument[0];//may not need this
 // x and y of the box is treated as top center. 
 
 if (v_textbox_visible) && (global.static_visible) {
-	if (v_textbox_width != 0 || v_textbox_height != 0) {
+	if (v_textbox_width != 0 && v_textbox_height != 0) {
 		//box
 		draw_set_alpha(1);
 		draw_set_color(v_textbox_bordercolor);
@@ -31,6 +31,12 @@ if (v_textbox_visible) && (global.static_visible) {
 	if (v_textbox_width == v_textbox_width_max) && (v_textbox_height == v_textbox_height_max) {
 		var start_x = t_x + v_textbox_border_width + v_textbox_xpad;
 		var start_y = t_y + v_textbox_border_width;
+		
+		if (v_textbox_hasportrait && v_textbox_portrait != undefined) {
+			draw_sprite(v_textbox_portrait, v_textbox_portrait_index, start_x + 2, start_y + 5);
+		}
+		
+		if (v_textbox_hasportrait) start_x += v_textbox_portrait_buffer;
 		
 		//text drawn fromt top left down
 		draw_set_halign(fa_left);

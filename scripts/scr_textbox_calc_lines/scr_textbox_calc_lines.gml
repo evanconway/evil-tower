@@ -13,6 +13,7 @@ var ID = argument[0];
 ds_list_clear(ID.v_textbox_lines);
 var line = ds_list_create();//list of segment objects
 var line_width = 0;
+if (ID.v_textbox_hasportrait) line_width += ID.v_textbox_portrait_buffer;
 var line_height = 0;
 // text normally draws onto border, ypad ensures enough space.
 var text_height = v_textbox_ypad;
@@ -57,6 +58,7 @@ for (var seg_i = 0; seg_i < ds_list_size(v_textbox_segments); seg_i++) {
 			// and add segment to new line
 			ds_list_add(line, t_o_segment);
 			line_width = t_o_segment.v_segment_width;
+			if (ID.v_textbox_hasportrait) line_width += ID.v_textbox_portrait_buffer;
 			line_height = t_o_segment.v_segment_height;
 		} else {
 				
@@ -77,6 +79,7 @@ for (var seg_i = 0; seg_i < ds_list_size(v_textbox_segments); seg_i++) {
 				line = ds_list_create();//do not call clear! this erases the value just added to v_textbox_lines
 				ds_list_add(line, t_o_segment);
 				line_width = t_o_segment.v_segment_width;
+				if (ID.v_textbox_hasportrait) line_width += ID.v_textbox_portrait_buffer;
 				line_height = t_o_segment.v_segment_height;
 			}
 		}

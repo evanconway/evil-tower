@@ -91,7 +91,9 @@ v_textbox_width_min = 5;
 v_textbox_height_min = 5;
 
 v_textbox_hasportrait = false;
-v_textbox_portraitsprite = undefined;
+v_textbox_portrait = undefined;
+v_textbox_portrait_index = 0;
+v_textbox_portrait_buffer = 40;
 v_textbox_recalculate = true;
 
 v_textbox_ypad = 4;//text naturally goes over bounds, this stops that.
@@ -106,11 +108,16 @@ v_textbox_typeto_sgmt = 0;
 v_textbox_typeto_otxt = 0;
 v_textbox_typeto_char = 0;
 
+// set to true out of box to put limits at maximum (end typing)
+// is automatically set to true when limits are reached
+v_textbox_typeto_finish = false;
+
 v_textbox_typetimer = 0;
 
 v_textbox_typestart_delay = 0;
 v_textbox_char_delay = 1;
 v_textbox_punc_delay = 20;
+v_textbox_blank_delay = 60;
 
 event_inherited();
 v_static_bbox_color = c_yellow;

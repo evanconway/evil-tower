@@ -29,6 +29,10 @@ switch (v_textbox_state) {
 				v_textbox_state = enum_textbox_state.opening;
 				v_textbox_width = v_textbox_width_min;
 				v_textbox_height = v_textbox_height_min;
+			} else {
+				v_textbox_state = enum_textbox_state.active;
+				v_textbox_width = v_textbox_width_max;
+				v_textbox_height = v_textbox_height_max;
 			}
 		}
 	break;
@@ -55,6 +59,10 @@ switch (v_textbox_state) {
 			if (v_textbox_ispopup) {
 				v_textbox_state = enum_textbox_state.closing;
 				scr_playsfx(snd_txt_close);
+			} else {
+				v_textbox_state = enum_textbox_state.off;
+				v_textbox_width = 0;
+				v_textbox_height = 0;
 			}
 		}
 	break;

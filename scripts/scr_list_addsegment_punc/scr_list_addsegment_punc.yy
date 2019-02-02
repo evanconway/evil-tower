@@ -1,8 +1,8 @@
 {
-    "id": "309ad829-cdca-48a9-b983-28e57473e696",
+    "id": "6b867d1b-78f7-44dc-88ea-0ae81ffa0ce3",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scr_list_addsegment_fx",
+    "name": "scr_list_addsegment_punc",
     "IsCompatibility": false,
     "IsDnD": false
 }

@@ -39,7 +39,7 @@ if (v_menu_committed != global.novalue) {
 		global.v_menu_control = true;
 		break;
 		case 3://new game
-		scr_transition(enum_transition_state.goto, Intro);
+		scr_transition(enum_transition_state.goto, Intro2);
 		break;
 		case 4:
 		if (!global.optionsactive)  {
