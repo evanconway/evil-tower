@@ -6,7 +6,7 @@ v_txt_height = 0;// auto generated
 v_txt_alpha = 1;
 v_txt_font = f_dialog;
 v_txt_color = c_white;
-v_txt_chirp = undefined;//snd_chirp_default;
+v_txt_chirp = undefined;
 
 enum enum_txt_fx_phys {
 	none,

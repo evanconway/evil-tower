@@ -18,13 +18,16 @@ var ID = argument[0];//may not need this
 
 if (v_textbox_visible) && (global.static_visible) {
 	if (v_textbox_width != 0 && v_textbox_height != 0) {
-		//box
 		draw_set_alpha(1);
-		draw_set_color(v_textbox_bordercolor);
-		draw_rectangle(t_x, t_y, t_x + v_textbox_width, t_y + v_textbox_height, false);	
-		draw_set_color(v_textbox_bodycolor);
-		draw_rectangle(t_x + v_textbox_border_width, t_y + v_textbox_border_width,
-		t_x + v_textbox_width - v_textbox_border_width, t_y + v_textbox_height - v_textbox_border_width, false);
+		if (v_textbox_bordercolor != undefined) {
+			draw_set_color(v_textbox_bordercolor);
+			draw_rectangle(t_x, t_y, t_x + v_textbox_width, t_y + v_textbox_height, false);	
+		}
+		if (v_textbox_bodycolor != undefined) {
+			draw_set_color(v_textbox_bodycolor);
+			draw_rectangle(t_x + v_textbox_border_width, t_y + v_textbox_border_width,
+			t_x + v_textbox_width - v_textbox_border_width, t_y + v_textbox_height - v_textbox_border_width, false);
+		}
 	}
 	
 	//text
@@ -53,6 +56,15 @@ if (v_textbox_visible) && (global.static_visible) {
 				var line = ds_list_find_value(v_textbox_lines, i1);
 				biggest_segment_height = 0;
 				curs_x = start_x;
+				// check to see if this line is centered
+				if (ds_list_find_value(line, 0).v_segment_centered) {
+					// determine line width
+					var line_width = 0;
+					for (var wi = 0; wi < ds_list_size(line); wi++) {
+						line_width += ds_list_find_value(line, wi).v_segment_width;
+					}
+					curs_x = x - floor(line_width/2);
+				}
 				var segment_limit = ds_list_size(line) - 1;
 				if (i1 == v_textbox_typeto_line) segment_limit = v_textbox_typeto_sgmt;
 				for (var i2 = 0; i2 <= segment_limit; i2++) {

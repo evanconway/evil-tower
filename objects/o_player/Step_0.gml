@@ -9,7 +9,7 @@ if (!global.freezeplayer && !global.pauseactive && !global.scene_active) {
 	v_plr_key_dn = scr_input_check(false, enum_input.down);
 	v_plr_key_jump = scr_input_check(true, enum_input.button1);
 
-	v_plr_key_pause = scr_input_check(true, enum_input.start);
+	v_plr_key_pause = scr_input_check(true, enum_input.start);// why do I have this?
 	v_plr_key_constant_left = keyboard_check_pressed(vk_left);
 	v_plr_key_constant_right = keyboard_check_pressed(vk_right);
 	v_plr_key_constant_up = keyboard_check_pressed(vk_up);

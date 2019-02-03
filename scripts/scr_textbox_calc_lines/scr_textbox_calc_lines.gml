@@ -26,6 +26,7 @@ for (var seg_i = 0; seg_i < ds_list_size(v_textbox_segments); seg_i++) {
 	the actual amount of space allowed inside the texbox and store it in a var.
 	*/
 	var max_segment_width = ID.v_textbox_width_max - 2 * ID.v_textbox_border_width;
+	if (ID.v_textbox_hasportrait) max_segment_width -= ID.v_textbox_portrait_buffer;
 	var t_o_segment = ds_list_find_value(ID.v_textbox_segments, seg_i);
 		
 	/*
@@ -38,10 +39,14 @@ for (var seg_i = 0; seg_i < ds_list_size(v_textbox_segments); seg_i++) {
 	if (scr_get_width_segment_nospace(t_o_segment) >= max_segment_width) {
 		// segment is too big, adjust width_max
 		ID.v_textbox_width_max = scr_get_width_segment_nospace(t_o_segment) + 2 * ID.v_textbox_border_width + 1;
-		ID.v_textbox_recalculate = true; // recalculate everything again
-				
-		// set both index to max value to break loop
-		seg_i = ds_list_size(ID.v_textbox_segments);
+		// reset everything to calculate again:
+		seg_i = -1;// needs to be 0 at start of loop. The increment will bring this back to 0
+		ds_list_destroy(line);
+		line = ds_list_create();
+		line_width = 0;
+		if (ID.v_textbox_hasportrait) line_width += ID.v_textbox_portrait_buffer;
+		line_height = 0;
+		var text_height = v_textbox_ypad;
 	} else {
 				
 		// we need to check if the segment marks a new line

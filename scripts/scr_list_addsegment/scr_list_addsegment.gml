@@ -16,7 +16,7 @@ if (argument_count > 3 && argument[3] != undefined) t_o_txt.v_txt_chirp = argume
 if (argument_count > 4 && argument[4] != undefined) t_o_txt.v_txt_font = argument[4];
 if (argument_count > 5 && argument[5] != undefined) t_o_txt.v_txt_color = argument[5];
 if (argument_count > 8 && argument[8] != undefined) t_o_txt.v_txt_fx_phys = argument[8];
-if (argument_count > 9 && argument[9] != undefined) t_o_txt.v_txt_fx_phys = argument[9];
+if (argument_count > 9 && argument[9] != undefined) t_o_txt.v_txt_fx_colr = argument[9];
 scr_txt_set_text(t_o_txt, argument[1]);
 var t_segment = instance_create_layer(0, 0, "Text", o_segment);
 scr_segment_addtxt(t_segment, t_o_txt);

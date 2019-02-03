@@ -1,6 +1,12 @@
 /// @description Insert description here
 
 if (global.screenmenuactive) {
+	
+	if (v_screenmenu_windowchanged) {
+		v_screenmenu_windowchanged = false;
+		window_center();
+	}
+	
 	if (v_screenmenu_control) {
 		if (scr_input_ui_check(enum_input.up)) {
 			scr_playsfx(snd_UI1);
@@ -39,14 +45,16 @@ if (global.screenmenuactive) {
 				global.windowsize = 1;
 				v_screenmenu[1] = "Windowed " + string(global.windowsize) + "X";
 			} else {
-				if ((global.windowsize+1)*global.resolution_width < display_get_width() && (global.windowsize+1)*global.resolution_height < display_get_height()) {
-					global.windowsize+=1
+				// windowsize is a multiplier, the reason we have a bunch of + 1's here is because we are about to increase this variable by 1
+				if ((global.windowsize + 1)*global.resolution_width < display_get_width() && (global.windowsize + 1)*global.resolution_height < display_get_height()) {
+					global.windowsize += 1
 					v_screenmenu[1] = "Windowed " + string(global.windowsize) + "X";
 				} else {
 					window_set_fullscreen(true);
 					v_screenmenu[1] = "Full Screen";
 				}
 			}
+			if (!window_get_fullscreen()) v_screenmenu_windowchanged = true;
 			window_set_size(global.resolution_width*global.windowsize, global.resolution_height*global.windowsize);
 			break;
 		}

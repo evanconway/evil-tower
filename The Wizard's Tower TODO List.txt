@@ -11,11 +11,11 @@ reworking textboxes:
 
 
 (done)Add scene objects
-Add "continue" functionality to text boxes
+(done) (accomplished through scene objects instead)Add "continue" functionality to text boxes
 (done)add "typing" effect to text boxes (look at draw event, it's not reading limits right)
-Make a complete scene to test what we've added.
-Narrative Screen, rework to use text boxes
-Between level score card
+(done) (example dialogue scene added) Make a complete scene to test what we've added.
+(done) Narrative Screen, rework to use text boxes
+Between level score card (might remove this goal)
 Air attacks
 Blocking (shield)
 

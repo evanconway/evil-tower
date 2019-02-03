@@ -35,3 +35,5 @@ v_screenmenu_recty = 0;
 v_screenmenu_border = 2;
 
 v_screenmenu_yoffset = 10;
+
+v_screenmenu_windowchanged = false;
