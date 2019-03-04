@@ -1,0 +1,17 @@
+So here's the issue with "states". Damn near every moving object in the game will have states. And a lot of them are going to have states that are nearly identical. For example: walking. We need to create a system that allows us to create one "walking" state, and reuse it for different characters. 
+
+This wouldn't be too difficult EXCEPT that all the different characters will be capable of different actions, like jumping, crouching, attacking, blocking, whatever. Right now the player's idle state code has a bunch of player unique state changes for things like jumping, moving, whatever. We need to setup states so that we can be flexible with what states a state can change to. 
+
+So let's try to clarify some things about this problem to help us solve it. First off, we can't have states change state. There can be nothing like:
+
+if (jump_pressed) set_state(air_up);
+
+because perhaps we don't need a character to jump. The states have to not link. However, we still need a way to determine when a character will change from one state to another. 
+
+Often a state will move a character a certain vertical and horizontal distance. Then, often there may be conditions that, if true, require a state change. A perfect example is walking off a cliff (in the walking state moving to standing on nothing). 
+
+In other instances, a button press means the state could be completely ignored. If the jump button is pressed while in the walking state, there is no need to check the rest of the code since the character is no longer "walking". 
+
+Furthermore, there are some states that are always checked for, like getting hurt.
+
+I also want to bring up a problem with my current state code that makes it more bloated than I think it needs to be. When the player enters a new state, the code also has to run checks for the new state. So let's say the player jumps while right under a wall. The "walking" state code has to check for ceilings, and put the character in the air_dn state if he hits any. That's kind of silly since that's something the air_up should be doing. 

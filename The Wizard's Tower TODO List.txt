@@ -1,5 +1,5 @@
 
-To Do:
+TO DO:
 
 reworking textboxes:
 	
@@ -15,7 +15,9 @@ reworking textboxes:
 (done)add "typing" effect to text boxes (look at draw event, it's not reading limits right)
 (done) (example dialogue scene added) Make a complete scene to test what we've added.
 (done) Narrative Screen, rework to use text boxes
-Between level score card (might remove this goal)
+(removing, not sure I care about this)Between level score card (might remove this goal)
+
+Rework states/actions: Make actor states objects that can be added to new actors
 Air attacks
 Blocking (shield)
 
@@ -69,3 +71,7 @@ v_textbox_typeto_txt = 0;
 v_textbox_typeto_char = 0;
 
 Then these limits could be updated in the step event. 
+
+BOSS BATTLE IDEAS
+
+I want the player to walk out into a black space. Nothing but a simple flat ground at the bottom of the screen, and blackness. Then... a single angry red monster eye opens above the player. Intense music starts. Eye looks at player, closes, then appears again but at a side angle, and this time somehow a mouth opens revealing white teeth. But only white teeth. So, all we can see is this red eye, and the white teeth of a mouth. The white teeth slam down on the ground like it's biting, player has to dodge. Maybe this happens again from the other side. Then maybe both eyes finally open from above, and a mouth slams down front facing the screen. I don't know where to go from here. Maybe teeth start shooting at the player? Point is... creepy red eyes and white teeth against black void. ya.
