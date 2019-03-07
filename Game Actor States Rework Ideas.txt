@@ -12,6 +12,140 @@ Often a state will move a character a certain vertical and horizontal distance. 
 
 In other instances, a button press means the state could be completely ignored. If the jump button is pressed while in the walking state, there is no need to check the rest of the code since the character is no longer "walking". 
 
-Furthermore, there are some states that are always checked for, like getting hurt.
+Furthermore, there are some states that are always checked for, like getting hurt. How do we incorporate those?
 
-I also want to bring up a problem with my current state code that makes it more bloated than I think it needs to be. When the player enters a new state, the code also has to run checks for the new state. So let's say the player jumps while right under a wall. The "walking" state code has to check for ceilings, and put the character in the air_dn state if he hits any. That's kind of silly since that's something the air_up should be doing. 
+I also want to bring up a problem with my current state code that makes it more bloated than I think it needs to be. When the player enters a new state, the code also has to run checks for the new state. So let's say the player jumps while right under a wall. The "walking" state code has to check for ceilings, and put the character in the air_dn state if he hits any. That's kind of silly since that's something the air_up should be doing. Our new solution should solve this silly issue so one state is checking for a bunch of stuff it shouldn't have to. 
+
+So let's lay down some ideas that might fix all this:
+
+What if we had a state object. A state object would contain:
+
+1. A list of "before" triggers that change the state
+2. The state code itself which determines how the character moves/changes.
+3. A list of "after" triggers that change the state
+
+The triggers would most likely be all checks for input like jumping and attacking. I suppose triggers could do stuff to the character like move them or change sprites, but I'm not going to worry too much about those details. They key point is the before triggers would skip the state code. Perfect example: pressing the jump button is a before trigger for the walking state. Once the jump button is pressed, don't bother executing the walking code, execute the air_up code. 
+
+After triggers would let the state code finish, but then check to see if we are still in that state. For example, if the character walks off of a surface during the walk state, we need an after trigger to check for that, and then put the character in the air_dn state. 
+
+Maybe I shouldn't call these "triggers". Because they aren't really triggers, they're more like checks. Maybe I should just called them checks??
+
+Perhaps before checks shouldn't automatically skip the state code. Looking back at the example of jumping, we actually still need to check state code, just not the walking state code. In that example, the state code would change to air_up, and that should be the code that runs to check movement. This solves our problem we mentioned earlier about states having to make checks that other states should be making. 
+
+So how can we actually change states though? We may have to name each state created for each character, and specifically refer to the in the checks we add. Also it's not clear right now if checks should be scripts or objects or what. 
+
+Here's a rough idea of what an actors run code would look like if we implemented this:
+
+for (i = 0; i < before_checks.size(); i++) {
+	execute_script(before_checks[i]);
+	// Here we'll assume the check code changes states?
+}
+
+execute_script(current_state.state_script);
+
+for (i = 0; i < after_checks.size(); i++) {
+	execute_script(after_checks[i]);
+}
+
+If we decide that checks need to be objects, then it would just look like:
+execute_script(before_checks[i].script);
+But I don't think checks need any variables that can't be easily made in a script? Also we need to remember to break the check loops if we change states since the checks will not be the same for each state.
+
+So an example state made in an actor might be something like:
+
+v_myact_state_idle = instance_create_layer(o_state, enemies);
+
+scr_state_addbeforecheck(run, v_myact_state_idle);
+scr_state_addbeforecheck(jump, v_myact_state_idle);
+scr_state_addbeforecheck(attack, v_myact_state_idle);
+
+Wait hold on, we've just uncovered a problem. In theory the before check "jump" would be able to change the actor state to an air_up state. But it can't do that since it doesn't exist yet right? So I guess we'd have to make all the states before we made the checks.
+
+v_myact_state_idle = instance_create_layer(o_state, enemies);
+v_myact_state_airup = instance_create_layer(o_state, enemies);
+v_myact_state_airdn = instance_create_layer(o_state, enemies);
+v_myact_state_run = instance_create_layer(o_state, enemies);
+v_myact_state_attack = instance_create_layer(o_state, enemies);
+
+A quick note about the above code. I think we're just going to have to know from experience that if we want the character to be able to jump, we need to add an air_up and air_dn state. There are likely going to be dozens of other scenarios like that. 
+
+So we've made our states. This actor should be able to idle, run, jump, and attack (on the ground). So now we should be able to add checks like this:
+
+scr_state_addbeforecheck(run, v_myact_state_idle);
+
+But how does this link to the run state? Maybe our add check script needs to be something like:
+
+scr_state_addbeforecheck(stateAddTo, triggerScript, stateChangeTo);
+
+so the run check would look like: 
+scr_state_addbeforecheck(v_myact_state_idle, run, v_myact_state_run);
+where state_idle is the state we're adding the check to, run is a script that determines if the actor has started running, and state_run is the state we'll change to if run returns true.
+
+So I guess this means that check scripts will only ever return true or false?? And also I think this mean that checks can only change to one state. That's probably a more elegant way to do it anyway since it keeps scripts smaller and with clearer intention. However this is 3 pieces of important data we're storing in a "check". I don't think checks can just be scripts, they'll have to be objects with variables. Not very many, but vars no less. The script we used above had 3 variables, but one of those was the state we were adding the check to. So the check object really only has two variables: script, and state to change to. I guess this is our check object:
+
+o_check
+v_check_script = script;
+v_check_tostate = o_state;
+
+I think that works. So we'll have o_state which contains a list of before checks, a list of after checks, and the actual state script. It will also need to have data about sprite animation. Then we also have o_check which contain an o_state as the state to change to, and a script that returns true or false if the conditions to change states are met. Let's try making our character again. 
+
+(interrupted myself while typing)
+
+Wait, do we really need before and after checks? I think I'm over complicating it. I can't think of a reason you would need to change states within a frame. We should be able to execute state code, always, and then check to see if the state has changed for the next frame. All checks are done after state code, so we'll just have "checks". Take 2:
+
+// add states
+v_myact_state_idle = instance_create_layer(o_state, enemies);
+v_myact_state_airup = instance_create_layer(o_state, enemies);
+v_myact_state_airdn = instance_create_layer(o_state, enemies);
+v_myact_state_run = instance_create_layer(o_state, enemies);
+v_myact_state_attack = instance_create_layer(o_state, enemies);
+
+// assign states scripts
+scr_state_setscript(v_myact_state_idle, scr_state_run);
+scr_state_setscript(v_myact_state_airup, scr_state_run);
+scr_state_setscript(v_myact_state_airdn, scr_state_run);
+scr_state_setscript(v_myact_state_run, scr_state_run);
+scr_state_setscript(v_myact_state_attack, scr_state_run);
+
+// add checks
+// idle
+scr_state_addcheck(v_myact_state_idle, scr_statecheck_run, v_myact_state_run);
+scr_state_addcheck(v_myact_state_idle, scr_statecheck_jump, v_myact_state_airup);
+scr_state_addcheck(v_myact_state_idle, scr_statecheck_attack, v_myact_state_attack);
+
+// run
+scr_state_addcheck(v_myact_state_run, scr_statecheck_idle, v_myact_state_idle);
+scr_state_addcheck(v_myact_state_run, scr_statecheck_jump, v_myact_state_airup);
+scr_state_addcheck(v_myact_state_run, scr_statecheck_attack, v_myact_state_attack);
+
+// airup
+scr_state_addcheck(v_myact_state_airup, scr_statecheck_airdn, v_myact_state_airdn);
+scr_state_addcheck(v_myact_state_airup, scr_statecheck_run, v_myact_state_run); // technically possible
+
+// airdn
+scr_state_addcheck(v_myact_state_airdn, scr_statecheck_idle, v_myact_state_idle);
+scr_state_addcheck(v_myact_state_airdn, scr_statecheck_run, v_myact_state_run);
+scr_state_addcheck(v_myact_state_airdn, scr_statecheck_attack, v_myact_state_attack); // requires frame perfect input
+
+Ok... that seems pretty good. However, I'm noticing a pattern, every check script matches with the same state. I had initially thought I would need different checks for the same state. Do I? Are there situations where the same state would need different conditions to be true to enter it? Even if that was true, what I'm thinking is we can just include check scripts in the state objects themselves, and the states will hold a list of states they can change to. So instead of adding a bunch of checks our code would look like:
+
+//connect states
+scr_state_addconnect(v_state_gettingConnection, v_state_connectedto);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
