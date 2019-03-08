@@ -132,20 +132,94 @@ Ok... that seems pretty good. However, I'm noticing a pattern, every check scrip
 //connect states
 scr_state_addconnect(v_state_gettingConnection, v_state_connectedto);
 
+I don't really know how to determine this, so let's just assume we can get away with it since it's less work ;)
+So after establishing our states, the connections would look like:
+
+//idle
+scr_state_addconnect(v_myact_state_idle, v_myact_state_run);
+scr_state_addconnect(v_myact_state_idle, v_myact_state_airup);
+scr_state_addconnect(v_myact_state_idle, v_myact_state_attack);
+
+//run
+scr_state_addconnect(v_myact_state_run, v_myact_state_idle);
+scr_state_addconnect(v_myact_state_run, v_myact_state_airup);
+scr_state_addconnect(v_myact_state_run, v_myact_state_attack);
+
+//airup
+scr_state_addconnect(v_myact_state_airup, v_myact_state_airdn);
+scr_state_addconnect(v_myact_state_airup, v_myact_state_run); // technically possible
+
+//airdn
+scr_state_addconnect(v_myact_state_airdn, v_myact_state_idle);
+scr_state_addconnect(v_myact_state_airdn, v_myact_state_run);
+scr_state_addconnect(v_myact_state_airdn, v_myact_state_attack); //requires frame perfect input
+
+//attack
+scr_state_addconnect(v_myact_state_attack, v_myact_state_idle);
+scr_state_addconnect(v_myact_state_attack, v_myact_state_run);
+
+I think we're getting somewhere. We need to address something we may have done wrong earlier, and that is when to do checks for state changes and when to do state code. First let's review how input and frames interact. Basically, all inputs cause a change on the next frame. You press the attack button on frame 100, then on frame 101 the character will be in the first frame of their attack animation. I don't know exactly how game maker handles update code relative to the actual rendering loop, but I think it's ok to think of the logic happening between frames (even though I know that's wrong). 
+
+If we want our attack to show up on frame 101, our code will have to execute checks for state changes, change the state if necessary, then execute the state code. If we do the check afterwards, then the character will still show whatever was executed for idle/run on frame 101, but somehow they'd technically be in the attack state since the check and change has happened. 
+
+Let's review what we've designed (haven't written any code yet lol). Our new state system will use o_state objects. It contains the following variables:
+
+v_state_checkscript; // a script that determines if the actor can enter this state
+v_state_connections; // a list of other o_state objects that this state can change to
+v_state_script; // the script code the actor executes when in this state
+
+Actors will now have slightly different variables which to maintain states
+v_act_curstate; // the state the actor is currently in
+v_act_states; // a list of states the actor can be in
+
+To setup actor states, the code looks like this:
+
+// make all states (the state objects can be children of a parent state object)
+v_myact_state_idle = instance_create_layer(o_state_idle, enemies);
+v_myact_state_airup = instance_create_layer(o_state_airup, enemies);
+v_myact_state_airdn = instance_create_layer(o_state_airdn, enemies);
+v_myact_state_run = instance_create_layer(o_state_run, enemies);
+v_myact_state_attack = instance_create_layer(o_state_attack, enemies);
+
+// assign connections
+//idle
+scr_state_addconnect(v_myact_state_idle, v_myact_state_run);
+scr_state_addconnect(v_myact_state_idle, v_myact_state_airup);
+scr_state_addconnect(v_myact_state_idle, v_myact_state_attack);
+
+//run
+scr_state_addconnect(v_myact_state_run, v_myact_state_idle);
+scr_state_addconnect(v_myact_state_run, v_myact_state_airup);
+scr_state_addconnect(v_myact_state_run, v_myact_state_attack);
+
+//airup
+scr_state_addconnect(v_myact_state_airup, v_myact_state_airdn);
+scr_state_addconnect(v_myact_state_airup, v_myact_state_run); // technically possible
+
+//airdn
+scr_state_addconnect(v_myact_state_airdn, v_myact_state_idle);
+scr_state_addconnect(v_myact_state_airdn, v_myact_state_run);
+scr_state_addconnect(v_myact_state_airdn, v_myact_state_attack); //requires frame perfect input
+
+//attack
+scr_state_addconnect(v_myact_state_attack, v_myact_state_idle);
+scr_state_addconnect(v_myact_state_attack, v_myact_state_run);
+
+
+And the main step event code will look like this:
+
+// check if state has changed
+for (i = 0; i < ds_list_size(v_act_curstate.v_state_connections); i++) {
+	var checkstate = ds_list_element_at(v_act_curstate.v_state_connections, i); // this is a state object
+	if (script_execute(checkstate.v_state_checkscript)) {
+		i = ds_list_size(v_act_curstate.v_state_connections); // break loop
+		v_act_curstate = checkstate;
+	}
+}
+
+// then run state script
+script_execute(v_act_curstate.v_state_script);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+I think that just about does it.
