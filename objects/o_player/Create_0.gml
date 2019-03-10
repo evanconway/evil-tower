@@ -2,6 +2,65 @@
 
 event_inherited();
 
+v_act_aiscript = scr_actor_getuserinput;
+
+// states
+v_plr_state_gnd_idle = instance_create_layer(x, y, "Player", o_state_gnd_idle);
+v_plr_state_gnd_idle.v_state_sprite = s_plr_gnd_idle_sword;
+v_plr_state_gnd_idle.v_state_sprite_left = s_plr_gnd_idle_sword_left
+
+v_act_state_default = v_plr_state_gnd_idle;
+
+v_plr_state_gnd_run = instance_create_layer(x, y, "Player", o_state_gnd_run);
+v_plr_state_gnd_run.v_state_sprite = s_plr_gnd_run_sword;
+v_plr_state_gnd_run.v_state_sprite_left = s_plr_gnd_run_sword_left;
+
+//v_plr_state_airup = instance_create_layer(o_state_airup, "Player");
+//v_plr_state_airdn = instance_create_layer(o_state_airdn, "Player");
+//v_plr_state_run = instance_create_layer(o_state_run, "Player");
+//v_plr_state_attack = instance_create_layer(o_state_attack, "Player");
+
+// state connections
+// idle
+scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_gnd_run);
+
+// run
+scr_state_addconnect(v_plr_state_gnd_run, v_plr_state_gnd_idle);
+
+// enumerators must be left in-tact or scripts break and game won't compile
+// We should be able to delete all the set state scripts at some point. 
+enum enum_plr_ladder_check_move {
+	stillonladder,
+	hitwall,
+	touchingnothing,
+	nothingbutonground
+}
+
+//states
+enum enum_plr_state {//animation (anm)
+	gnd_idle,
+	gnd_run,
+	gnd_struggle,
+	gnd_crouch,
+	gnd_attack,
+	gnd_crouchattack,
+	air_up,
+	air_dn,
+	air_atack,
+	wall_slide,
+	ladder_idle,
+	ladder_up,
+	ladder_dn,
+	ladder_fall,
+	hurt,
+	hurt_ladder,
+	dead,
+	door,
+	elevator,
+	spawn
+}
+
+/* OLD CODE 
 v_act_bbox_color = c_aqua;
 //movement
 v_act_vel_x_max = 1.6;//run speed

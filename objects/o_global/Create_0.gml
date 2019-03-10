@@ -26,7 +26,7 @@ global.actors_visible = true;
 global.player_data = false;
 global.static_visible = true;
 
-global.sfx_volume = 1;
+global.sfx_volume = 0.7;
 global.music_volume = 0;
 global.bboxs_visible = false;
 global.draw_hud = true;
@@ -40,7 +40,7 @@ global.player_sword_dmg = 1;
 global.currentroom = room;
 global.prevroom = global.novalue;
 
-global.firstroom = room_zombie;
+global.firstroom = test_scenechar;
 
 // scenes
 global.scene_active = false;

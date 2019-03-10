@@ -1,5 +1,9 @@
 /// @description Main Logic
 
+event_inherited();
+
+// OLD CODE
+if (false) { // I guess I can't easily comment this all out. This is easier.
 if (!global.freezeplayer && !global.pauseactive && !global.scene_active) {
 	#region//input
 
@@ -868,3 +872,4 @@ if (v_plr_state != enum_plr_state.dead) && (v_plr_state != enum_plr_state.elevat
 	if (bbox_top < 0) || (bbox_bottom > room_height) scr_plr_setstate(id, enum_plr_state.dead);
 }
 #endregion
+}

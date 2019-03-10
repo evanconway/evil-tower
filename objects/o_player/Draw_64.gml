@@ -1,5 +1,6 @@
 /// @description Debug Info
 
+/*OLD CODE
 if (global.draw_hud) && (v_plr_state != enum_plr_state.dead)
 {
 	draw_set_halign(fa_left);

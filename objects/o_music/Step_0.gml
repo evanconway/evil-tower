@@ -20,6 +20,7 @@ if (newtrack != v_music_currenttrack) {
 	if (!instance_exists(o_player) && v_music_currenttrack != global.novalue) audio_play_sound(v_music_currenttrack, 1, true);
 }
 
+/*
 if (instance_exists(o_player)) && (v_music_currenttrack != global.novalue) {
 	if (o_player.v_plr_state == enum_plr_state.dead) && (audio_is_playing(v_music_currenttrack)) audio_stop_sound(v_music_currenttrack);
 	if (o_player.v_plr_state == enum_plr_state.gnd_idle) && (!audio_is_playing(v_music_currenttrack)) audio_play_sound(v_music_currenttrack, 1, true);
