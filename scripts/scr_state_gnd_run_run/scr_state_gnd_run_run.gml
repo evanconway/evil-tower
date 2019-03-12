@@ -6,6 +6,9 @@ var ID = argument[0];
 var state = ID.v_act_state_cur;
 var act_controller = ID.v_act_controller;
 
+// Note that it's a good idea to set a velocity to 0 for a state if you know it won't change in that state
+ID.v_act_vel_y = 0;
+
 // determine sprite direction
 if (act_controller.v_actcon_right && !act_controller.v_actcon_left) {
 	ID.v_act_faceright = true;

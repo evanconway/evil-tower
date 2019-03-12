@@ -15,17 +15,41 @@ v_plr_state_gnd_run = instance_create_layer(x, y, "Player", o_state_gnd_run);
 v_plr_state_gnd_run.v_state_sprite = s_plr_gnd_run_sword;
 v_plr_state_gnd_run.v_state_sprite_left = s_plr_gnd_run_sword_left;
 
-//v_plr_state_airup = instance_create_layer(o_state_airup, "Player");
-//v_plr_state_airdn = instance_create_layer(o_state_airdn, "Player");
-//v_plr_state_run = instance_create_layer(o_state_run, "Player");
+v_plr_state_gnd_crouch = instance_create_layer(x, y, "Player", o_state_gnd_crouch);
+v_plr_state_gnd_crouch.v_state_sprite = s_plr_gnd_crouch_sword;
+v_plr_state_gnd_crouch.v_state_sprite_left = s_plr_gnd_crouch_sword_left;
+
+v_plr_state_air_up = instance_create_layer(x, y, "Player", o_state_air_up);
+v_plr_state_air_up.v_state_sprite = s_plr_air_up_sword;
+v_plr_state_air_up.v_state_sprite_left = s_plr_air_up_sword_left;
+
+v_plr_state_air_dn = instance_create_layer(x, y, "Player", o_state_air_dn);
+v_plr_state_air_dn.v_state_sprite = s_plr_air_dn_sword;
+v_plr_state_air_dn.v_state_sprite_left = s_plr_air_dn_sword_left;
+
 //v_plr_state_attack = instance_create_layer(o_state_attack, "Player");
 
 // state connections
 // idle
+scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_gnd_crouch);
 scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_gnd_run);
+scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_air_up);
 
 // run
+scr_state_addconnect(v_plr_state_gnd_run, v_plr_state_gnd_crouch);
 scr_state_addconnect(v_plr_state_gnd_run, v_plr_state_gnd_idle);
+scr_state_addconnect(v_plr_state_gnd_run, v_plr_state_air_up);
+
+// crouch
+scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_idle);
+scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_run);
+
+// air_up
+scr_state_addconnect(v_plr_state_air_up, v_plr_state_air_dn);
+
+// air_dn
+scr_state_addconnect(v_plr_state_air_dn, v_plr_state_gnd_idle);
+scr_state_addconnect(v_plr_state_air_dn, v_plr_state_gnd_run);
 
 // enumerators must be left in-tact or scripts break and game won't compile
 // We should be able to delete all the set state scripts at some point. 

@@ -13,3 +13,4 @@ if (v_plr_state == enum_plr_state.dead)
 }
 
 event_inherited();
+*/

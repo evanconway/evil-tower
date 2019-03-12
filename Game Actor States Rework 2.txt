@@ -1,0 +1,25 @@
+We have begun the task of reworking actors. It is going well. However, our system is not perfect. First, it turns out we do need to do checks after executing state code. There are situations where the actor needs to be in a different after state code. Perfect example: player runs off cliff. Even though the conditions to run were met, and the run movement executed no problem, if the play is no longer on a surface, it doesn't make sense for the next frame to still have the player in the run state. In that specific case, the player needs to be set to the air_dn state. 
+Also, we've encountered situations where a state needs to be able to check for itself before checking other states. The example here is crouching. We want the player to be able to enter crouch from the run and idle states by pressing down. But to remain in the crouch state, the player needs to be holding down. Press vs. "on" need to be handled very different. The run state is entered by holding either left or right. So, if the player presses down while running right, and doesn't let go of right. The conditions to enter crouch will be true for one frame, but on the next frame the conditions to run are true, so the player enters run. To solve this we added a script_continue variable to the state object which is checked before all other connects. Like other connects, if true then all other connects are ignored. 
+
+A very important note here: we have not resolved how to handle states that can always be entered, like hurt. I'm pretty sure we can just add another list of states that are always checked first, even before the continue state. We will resolve this later, but it's good to be aware of it.
+
+Currently, we run the exact same connect code twice, once before and once after the run script. This is probably a dumb idea because the connect script also runs the change script for a state if the conditions are true. Some of the change scripts alter actor velocity, and we can't do that at the end of a frame. We're very likely to run into problems. So, we need to add a second change script to the state object, a post_run change script. I'm pretty sure for most states, we can just set this to the sprite change script I made. But there will no doubt be some states in the future that need other things changed as well. Maybe an attack state where we need to also make a hitbox or something. 
+
+Quick overview of what we need. States should include at least:
+
+script_connect;
+script_continue;
+script_change;
+script_run;
+script_change_post;
+
+actor loop should be:
+
+script_checkstateconnections();
+script_staterun();
+scr_moveactor();
+script_checkstateconnections_post();
+
+It's possible that in addition to having a different change script for after run, we need a different connect check. Not sure yet, just need to be aware.
+Did some more messing around and, yes, it looks like we'll need a different connect check after the run script. I'm starting to notice a trend we should experiment with. The connect that executes before run seems to need to check inputs and actor position, but the connect after run seems to need to just check position. Also, the change after run seems to only need to change the sprite. Do we also need a post run continue? I think we do. Take our cliff example and compare it to crouching. In the run script of state_run, the actor will move off the cliff. But in something like crouch or idle, where the actor isn't moved and nothing else is done during the state, there's nothing to check for. Might as well make a script that returns true always. 
+Perhaps it makes sense to redo the state connect/checks even further. An idea, maybe there's 3 things that need to be checked for: buttons, actor position, and actor velocities. 
