@@ -12,6 +12,12 @@ if (vel_y < state.v_state_air_vely_max) {
 	vel_y += state.v_state_air_accy;
 	if (vel_y > state.v_state_air_vely_max) vel_y = state.v_state_air_vely_max;
 }
+
+// fast fall for y vel
+if (state.v_state_air_dn_canfastfall && ID.v_act_controller.v_actcon_pressed_down) {
+	vel_y = state.v_state_air_vely_max;
+}
+
 vel_y = scr_obj_approachdist_y_at_x_against_obj(ID, vel_y, ID.x, o_wall);
 state.v_state_air_vely = vel_y;
 ID.v_act_vel_y = vel_y;

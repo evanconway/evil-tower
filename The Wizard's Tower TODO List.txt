@@ -17,7 +17,7 @@ reworking textboxes:
 (done) Narrative Screen, rework to use text boxes
 (removing, not sure I care about this)Between level score card (might remove this goal)
 
-Rework states/actions: Make actor states objects that can be added to new actors
+(in progress, huge task )Rework states/actions: Make actor states objects that can be added to new actors
 Air attacks
 Blocking (shield)
 

@@ -49,3 +49,5 @@ v_act_xmovedist = 0;
 v_act_ymovedist = 0;
 v_act_faceright = true;
 v_act_faceright_prev = v_act_faceright;
+v_act_inputlocktime_max = 0;
+v_act_inputlocktime = v_act_inputlocktime_max;

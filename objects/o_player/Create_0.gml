@@ -14,6 +14,21 @@ v_act_state_default = v_plr_state_gnd_idle;
 v_plr_state_gnd_run = instance_create_layer(x, y, "Player", o_state_gnd_run);
 v_plr_state_gnd_run.v_state_sprite = s_plr_gnd_run_sword;
 v_plr_state_gnd_run.v_state_sprite_left = s_plr_gnd_run_sword_left;
+#region airdntorun "link state"
+/* 
+This state only exists to cover a specific state-to-state transition. The run 
+animation looks good when going from idle to run, but not from air_dn to run. 
+This run is exactly the same as the regular run, but it's change script has 
+been altered to set the starting frame to something that looks better (frame 
+2 instead of frame 0).
+*/
+v_plr_state_airdntorun = instance_create_layer(x, y, "Player", o_state_gnd_run);
+v_plr_state_airdntorun.v_state_name = "airdntorun";
+v_plr_state_airdntorun.v_state_sprite = s_plr_gnd_run_sword;
+v_plr_state_airdntorun.v_state_sprite_left = s_plr_gnd_run_sword_left;
+v_plr_state_airdntorun.v_state_script_change = scr_state_plr_airdntorun_change;
+v_plr_state_airdntorun.v_state_script_change_postrun = scr_state_plr_airdntorun_change;
+#endregion
 
 v_plr_state_gnd_crouch = instance_create_layer(x, y, "Player", o_state_gnd_crouch);
 v_plr_state_gnd_crouch.v_state_sprite = s_plr_gnd_crouch_sword;
@@ -27,6 +42,14 @@ v_plr_state_air_dn = instance_create_layer(x, y, "Player", o_state_air_dn);
 v_plr_state_air_dn.v_state_sprite = s_plr_air_dn_sword;
 v_plr_state_air_dn.v_state_sprite_left = s_plr_air_dn_sword_left;
 
+v_plr_state_wall_stick = instance_create_layer(x, y, "Player", o_state_wall_stick);
+v_plr_state_wall_stick.v_state_sprite = s_plr_walljump_sword;
+v_plr_state_wall_stick.v_state_sprite_left = s_plr_walljump_left_sword;
+
+v_plr_state_wall_jump = instance_create_layer(x, y, "Player", o_state_wall_jump);
+v_plr_state_wall_jump.v_state_sprite = s_plr_air_up_sword;
+v_plr_state_wall_jump.v_state_sprite_left = s_plr_air_up_sword_left;
+
 //v_plr_state_attack = instance_create_layer(o_state_attack, "Player");
 
 // state connections
@@ -39,6 +62,8 @@ scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_air_up);
 scr_state_addconnect(v_plr_state_gnd_run, v_plr_state_gnd_crouch);
 scr_state_addconnect(v_plr_state_gnd_run, v_plr_state_gnd_idle);
 scr_state_addconnect(v_plr_state_gnd_run, v_plr_state_air_up);
+scr_state_addconnect(v_plr_state_gnd_run, v_plr_state_air_dn);
+scr_state_setconnects(v_plr_state_airdntorun, v_plr_state_gnd_run);
 
 // crouch
 scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_idle);
@@ -46,10 +71,28 @@ scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_run);
 
 // air_up
 scr_state_addconnect(v_plr_state_air_up, v_plr_state_air_dn);
+scr_state_addconnect(v_plr_state_air_up, v_plr_state_wall_stick);
 
 // air_dn
 scr_state_addconnect(v_plr_state_air_dn, v_plr_state_gnd_idle);
-scr_state_addconnect(v_plr_state_air_dn, v_plr_state_gnd_run);
+scr_state_addconnect(v_plr_state_air_dn, v_plr_state_airdntorun);// note we do our unique run instead of regular run
+scr_state_addconnect(v_plr_state_air_dn, v_plr_state_wall_stick);
+
+// wall_stick
+scr_state_addconnect(v_plr_state_wall_stick, v_plr_state_wall_jump);
+
+// wall_jump
+scr_state_addconnect(v_plr_state_wall_jump, v_plr_state_air_dn);
+scr_state_addconnect(v_plr_state_wall_jump, v_plr_state_wall_stick);
+
+
+// altrun scripts
+scr_state_addaltrun(v_plr_state_gnd_idle, v_plr_state_wall_stick);
+scr_state_addaltrun(v_plr_state_gnd_crouch, v_plr_state_wall_stick);
+scr_state_addaltrun(v_plr_state_gnd_run, v_plr_state_wall_stick);
+scr_state_addaltrun(v_plr_state_airdntorun, v_plr_state_wall_stick);
+
+// alwaysrun? (we may need to add a script to states that run every frame)
 
 // enumerators must be left in-tact or scripts break and game won't compile
 // We should be able to delete all the set state scripts at some point. 

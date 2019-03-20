@@ -20,6 +20,8 @@ if (global.player_data) {
 	
 	if (v_act_state_cur != undefined) draw_text(x_offset, y_offset++ * s_height, v_act_state_cur.v_state_name);
 	else draw_text(x_offset, y_offset++ * s_height, "Undefined");
+	
+	draw_text(x_offset, y_offset++ * s_height, "I Lock: " + string(v_act_inputlocktime));
 }
 
 /*OLD CODE
