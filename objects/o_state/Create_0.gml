@@ -24,11 +24,12 @@ run
 connect_postrun
 	Returns true/false. Same function as the pre-run connect. However as a design choice, we never check
 	controller input here. This is because it's not possible for the controller input to have changed
-	between the pre-run connect and the connect_postrun. All that really matter is actore position 
+	between the pre-run connect and the connect_postrun. All that really matter is actor position 
 	relative to other objects, and actor velocities.
 change_postrun
 	No return. Same function as pre-run change. As a design choice we do not change actor velocities here.
-	The only code that can change actor velocity is pre-run change and the run script.
+	The only code that can change actor velocity is pre-run change and the run script. 99% of the time 
+	this will likely only be to change sprite.
 continue_postrun
 	Returns true/false. Once again, same as pre-run continue, and like connect_postrun we do not check for
 	button input.

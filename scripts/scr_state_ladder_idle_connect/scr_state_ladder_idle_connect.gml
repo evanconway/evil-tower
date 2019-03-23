@@ -5,14 +5,16 @@ var ID = argument[0];
 var actcon = ID.v_act_controller;
 var result = false;
 
-if (actcon.v_actcon_pressed_up && place_meeting(x, y, o_ladder)) result = true;
+if (place_meeting(x, y, o_ladder)) result = true;
 
-if (place_meeting(ID.x, ID.y, o_wall)) result = false;
-if (!place_meeting(ID.x, ID.y + 1, o_wall)) result = false;
-if (actcon.v_actcon_pressed_button1 ||
-	actcon.v_actcon_pressed_button2 ||
-	actcon.v_actcon_pressed_button3 ||
+//if (ID.v_act_vel_x != 0 || ID.v_act_vel_y != 0) result = false;
+
+if (actcon.v_actcon_pressed_up ||
+	actcon.v_actcon_pressed_down ||
 	actcon.v_actcon_pressed_left ||
-	actcon.v_actcon_pressed_right) result = false;
+	actcon.v_actcon_pressed_right ||
+	actcon.v_actcon_pressed_button1 ||
+	actcon.v_actcon_pressed_button2 ||
+	actcon.v_actcon_pressed_button3) result = false;
 
 return result;

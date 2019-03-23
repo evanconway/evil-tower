@@ -10,10 +10,11 @@ if (ID.v_act_state_cur.v_state_script_continue != undefined && script_execute(ID
 }	
 
 if (checkconnects) {
-	for (var i = 0; i < ds_list_size(ID.v_act_state_cur.v_state_connections); i++) {
+	var connect_list_size = ds_list_size(ID.v_act_state_cur.v_state_connections)
+	for (var i = 0; i < connect_list_size; i++) {
 		var state_connection = ds_list_find_value(ID.v_act_state_cur.v_state_connections, i);
 		if (script_execute(state_connection.v_state_script_connect, ID, state_connection)) {
-			i = ds_list_size(ID.v_act_state_cur.v_state_connections);
+			i = connect_list_size;
 			ID.v_act_state_cur = state_connection;
 			script_execute(ID.v_act_state_cur.v_state_script_change, ID);
 		}

@@ -1,7 +1,6 @@
 /// @description Declare Actor Variables
 
 v_act_health = 3;
-v_act_state = 0; // we may need to delete this
 v_act_state_beforehit = 0;
 v_act_stuntime = 0;
 v_act_hitboxes_struck = ds_list_create();

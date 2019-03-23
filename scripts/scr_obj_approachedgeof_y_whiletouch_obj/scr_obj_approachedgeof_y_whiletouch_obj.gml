@@ -3,24 +3,30 @@
 /// @param ymove
 /// @param objb
 
-if (argument1 != 0)
-{
-	if (argument1 > 0)
-	{
-		while (position_meeting(argument0.x, argument0.bbox_bottom + sign(argument1), argument2))
+/*
+Returns the distance to move obja closer to edge of objb with y change. 
+*/
+
+// remember that positive y vel moves down
+
+var obja = argument[0];
+var ymove = argument[1];
+var objb = argument[2];
+var result = false;
+
+if (ymove != 0) {
+	if (ymove > 0) {
+		while (position_meeting(obja.x, obja.bbox_bottom + sign(ymove), objb))
 		{
-			argument0.y += sign(argument1);
+			obja.y += sign(ymove);
 		}
-		return true;
-	} else
-	{
-		while (position_meeting(argument0.x, argument0.bbox_top + sign(argument1), argument2))
-		{
-			argument0.y += sign(argument1);
+		result = true;
+	} else {
+		while (position_meeting(obja.x, obja.bbox_top + sign(ymove), objb)) {
+			obja.y += sign(ymove);
 		}
-		return true;
+		result = true;
 	}
-} else
-{
-	return false; 
-}
+} else result = false; 
+
+return result;

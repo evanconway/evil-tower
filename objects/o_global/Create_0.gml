@@ -108,10 +108,10 @@ global.axis_right_v_prev = 0;
 
 global.axis_deadzone = 0.6;
 
-global.input_controller_up = gp_padu;//enum_axis.left_up;//axis inputs must be assigned with our enumerator, not gml 
-global.input_controller_down = gp_padd;//enum_axis.left_down;
-global.input_controller_left = gp_padl;//enum_axis.left_left;
-global.input_controller_right = gp_padr;//enum_axis.left_right;
+global.input_controller_up = enum_axis.left_up;//axis inputs must be assigned with our enumerator, not gml 
+global.input_controller_down = enum_axis.left_down;
+global.input_controller_left = enum_axis.left_left;
+global.input_controller_right = enum_axis.left_right;
 global.input_controller_button1 = gp_face1;
 global.input_controller_button2 = gp_face2;
 global.input_controller_button3 = gp_face3;
