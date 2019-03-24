@@ -1,9 +1,9 @@
 event_inherited();
 
-v_plr_vel_x_max = 1.6;
-v_plr_vel_y_max = 3.5;
 v_act_aiscript = scr_actor_getuserinput;
 
+v_plr_vel_x_max = 1.6;
+v_plr_vel_y_max = 3.5;
 v_plr_jump_pwr = -3.7;
 
 // states

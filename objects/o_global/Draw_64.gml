@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Draw Debug
 
 if (global.debug_keys_active) {
 	draw_set_halign(fa_right);
