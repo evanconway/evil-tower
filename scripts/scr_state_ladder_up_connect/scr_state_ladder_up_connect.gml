@@ -7,11 +7,11 @@ var state = ID.v_act_state_cur;
 var actcon = ID.v_act_controller;
 var result = false;
 
-if (actcon.v_actcon_pressed_up) result = true;
+if (actcon.v_actcon_up) result = true;
 
 if (actcon.v_actcon_down ||
-	actcon.v_actcon_left ||
-	actcon.v_actcon_right ||
+	actcon.v_actcon_pressed_left ||
+	actcon.v_actcon_pressed_right ||
 	actcon.v_actcon_button1 ||
 	actcon.v_actcon_button2 ||
 	actcon.v_actcon_button3) result = false;

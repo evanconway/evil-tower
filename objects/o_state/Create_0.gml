@@ -21,6 +21,13 @@ continue
 run
 	Do whatever we need for the state. This usually involves changing/setting velocity values and creating
 	hitboxes for attacks.
+altrun
+	Some states need the actor to run code for it even when the actor is not in that state. States can be
+	added to a states altruns list, and during the states step event, the altrun scripts of the states
+	in that list will be run.
+	
+// WE ARE GOING TO DELETE ALL POSTRUN SCRIPTS
+
 connect_postrun
 	Returns true/false. Same function as the pre-run connect. However as a design choice, we never check
 	controller input here. This is because it's not possible for the controller input to have changed
@@ -33,10 +40,6 @@ change_postrun
 continue_postrun
 	Returns true/false. Once again, same as pre-run continue, and like connect_postrun we do not check for
 	button input.
-altrun
-	Some states need the actor to run code for it even when the actor is not in that state. States can be
-	added to a states altruns list, and during the states step event, the altrun scripts of the states
-	in that list will be run.
 */
 
 v_state_connections = ds_list_create(); // this list is filled with o_state objects
@@ -44,9 +47,11 @@ v_state_script_connect = undefined; // determines if actor can enter this state
 v_state_script_continue = undefined; // determines if other connects are checked
 v_state_script_change = scr_state_changesprite; // executed when changing to this state
 v_state_script_run = undefined;
+/*
 v_state_script_connect_postrun = undefined; // determines if actor can enter this state after movement and other state code has executed
 v_state_script_continue_postrun = scr_state_returntrue; // determines if other connects are check after run script
 v_state_script_change_postrun = scr_state_changesprite; // executed when changing state after run
+*/
 v_state_script_altrun = undefined; // any code the state needs run while actor is not in this state.
 v_state_altruns = ds_list_create(); // list of states whos altrun scripts will be run while in this state
 v_state_sprite = undefined;

@@ -5,4 +5,4 @@ v_state_air_vely = 0;
 v_state_air_accx = 0.15;
 v_state_air_accy = 0.15;// gravity
 v_state_air_velx_max = 2;
-v_state_air_vely_max = 3.5;
+v_state_air_vely_max = 5;

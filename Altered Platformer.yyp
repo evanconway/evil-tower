@@ -695,6 +695,14 @@
             }
         },
         {
+            "Key": "4533330e-6366-436a-9c22-8561d71df67a",
+            "Value": {
+                "id": "b6a9dfea-602d-4957-be3a-f33201d0e29b",
+                "resourcePath": "scripts\\scr_state_ladder_fall_connect\\scr_state_ladder_fall_connect.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "457c5043-0f4f-4e1d-92d3-1f212a9f28bc",
             "Value": {
                 "id": "837ee534-24ec-49d8-8c13-c839875a3801",
@@ -1012,6 +1020,14 @@
                 "id": "1fe4a901-2ca5-430e-ac40-c787d8a9a905",
                 "resourcePath": "sprites\\s_plr_gnd_run_sword_left\\s_plr_gnd_run_sword_left.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "665d857b-f7c5-454c-a2d4-4f676768efc9",
+            "Value": {
+                "id": "d8370f4f-ad42-4acf-8b90-948ceb956778",
+                "resourcePath": "scripts\\scr_state_ladder_fall_continue\\scr_state_ladder_fall_continue.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1799,6 +1815,14 @@
             }
         },
         {
+            "Key": "b32a0b25-7b01-4d63-81fd-25f99e46f4ab",
+            "Value": {
+                "id": "1ca66de9-6f8b-4bec-90ad-938c04bfdd6f",
+                "resourcePath": "scripts\\scr_state_ladder_fall_change\\scr_state_ladder_fall_change.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "b54d84a1-f7eb-430c-9b4b-09781997d25e",
             "Value": {
                 "id": "67ef267b-cb4b-456c-8493-d5a1d2b05a96",
@@ -1884,6 +1908,14 @@
                 "id": "9e82a060-ffe1-4dbe-9ee5-9789dba1b197",
                 "resourcePath": "sounds\\snd_UIBack\\snd_UIBack.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "bcf1f83a-960e-424c-9218-fd5262dcedb5",
+            "Value": {
+                "id": "b0880679-6055-4ffc-b0d1-c16f5dd10690",
+                "resourcePath": "scripts\\scr_state_ladder_fall_run\\scr_state_ladder_fall_run.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2650,7 +2682,11 @@
         "b6d9bb42-0d93-4be5-954e-9c2a9b833323",
         "37145d72-21d5-40d5-bec6-252d1aaec4f9",
         "787ae03f-8683-4caa-af61-891d451f070b",
-        "d84f52d2-0fe7-4cd3-a560-3b4a0fa15e9b"
+        "d84f52d2-0fe7-4cd3-a560-3b4a0fa15e9b",
+        "4533330e-6366-436a-9c22-8561d71df67a",
+        "665d857b-f7c5-454c-a2d4-4f676768efc9",
+        "b32a0b25-7b01-4d63-81fd-25f99e46f4ab",
+        "bcf1f83a-960e-424c-9218-fd5262dcedb5"
     ],
     "tutorial": ""
 }

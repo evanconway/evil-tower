@@ -17,7 +17,11 @@
         "b6d9bb42-0d93-4be5-954e-9c2a9b833323",
         "37145d72-21d5-40d5-bec6-252d1aaec4f9",
         "787ae03f-8683-4caa-af61-891d451f070b",
-        "d84f52d2-0fe7-4cd3-a560-3b4a0fa15e9b"
+        "d84f52d2-0fe7-4cd3-a560-3b4a0fa15e9b",
+        "4533330e-6366-436a-9c22-8561d71df67a",
+        "665d857b-f7c5-454c-a2d4-4f676768efc9",
+        "b32a0b25-7b01-4d63-81fd-25f99e46f4ab",
+        "bcf1f83a-960e-424c-9218-fd5262dcedb5"
     ],
     "filterType": "GMScript",
     "folderName": "ladder",

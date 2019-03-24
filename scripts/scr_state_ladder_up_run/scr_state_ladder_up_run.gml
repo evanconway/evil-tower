@@ -59,7 +59,6 @@ if (actcon.v_actcon_up && !actcon.v_actcon_down && place_meeting(ID.x, ID.y, o_l
 
 ID.v_act_vel_y = vel_y;
 
-if (floor(ID.image_index) != state.v_state_ladder_imageindex) {
-	state.v_state_ladder_imageindex = floor(ID.image_index);
+if (ID.v_act_image_change || ID.v_act_sprite_change) {
 	scr_playsfx(snd_tick);
 }

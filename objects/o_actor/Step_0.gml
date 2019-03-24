@@ -19,13 +19,26 @@ if (!global.freezeactors) {
 	} else v_act_inputlocktime--;
 
 	if (v_act_state_cur != undefined) {
-		// this is just for debugging, let's us easily see what state actor is in from debugger
-		var statename = v_act_state_cur.v_state_name;
+		var statename = v_act_state_cur.v_state_name; // this is just for debugging, let's us easily see what state actor is in from debugger
 		
 		scr_act_checkstateconnects(id);
 		statename = v_act_state_cur.v_state_name;
 		
-		// execute run script
+		/*
+		Here we check for and set sprite and image changes booleans. We do this after our
+		state connects script because that loop calls change scripts that often change
+		the sprite index of our actor. And there are run scripts that check to see 
+		if the sprite has changed.
+		*/
+		if (floor(sprite_index) != v_act_sprite_prev) {
+			v_act_sprite_change = true;
+			v_act_sprite_prev = floor(sprite_index);
+		} else v_act_sprite_change = false;
+		if (floor(image_index) != v_act_image_prev) {
+			v_act_image_change = true;
+			v_act_image_prev = floor(image_index);
+		} else v_act_image_change = false;
+		
 		if (v_act_state_cur.v_state_script_run != undefined) script_execute(v_act_state_cur.v_state_script_run, id);
 		
 		// state scripts do not actually move the actor, it just sets velocites
@@ -43,8 +56,11 @@ if (!global.freezeactors) {
 			}
 		}
 		
+		/* Do we even need a post run check?????
 		scr_act_checkstateconnects_postrun(id);
 		statename = v_act_state_cur.v_state_name;
+		*/
+		
 		// states will determine faceright (direction)	
 		v_act_faceright_prev = v_act_faceright;
 		

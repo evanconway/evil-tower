@@ -25,6 +25,12 @@ if (global.player_data) {
 	else draw_text(x_offset, y_offset++ * s_height, "Undefined");
 	
 	draw_text(x_offset, y_offset++ * s_height, "I Lock: " + string(v_act_inputlocktime));
+	
+	if (v_act_image_change) draw_text(x_offset, y_offset++ * s_height, "img c: true");
+	else draw_text(x_offset, y_offset++ * s_height, "img c:");
+	
+	if (v_act_sprite_change) draw_text(x_offset, y_offset++ * s_height, "spr c: true");
+	else draw_text(x_offset, y_offset++ * s_height, "spr c:");
 }
 
 /*OLD CODE

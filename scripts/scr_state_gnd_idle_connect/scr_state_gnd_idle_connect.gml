@@ -7,7 +7,7 @@ var result = false;
 var actcontroller = argument[0].v_act_controller;
 
 if (argument[0].v_act_vel_x == 0
-&& argument[0].v_act_vel_y == 0
+&& argument[0].v_act_vel_y >= 0
 // Only checking for presses seems to make more sense. 
 /*
 && actcontroller.v_actcon_up == false

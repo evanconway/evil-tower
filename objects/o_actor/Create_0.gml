@@ -1,5 +1,6 @@
 /// @description Declare Actor Variables
 
+// Old variables we may remove when actors have been reworked
 v_act_health = 3;
 v_act_state_beforehit = 0;
 v_act_stuntime = 0;
@@ -8,6 +9,8 @@ v_act_hitboxes_struck = ds_list_create();
 //movement
 v_act_vel_x_max = 1;
 v_act_vel_y_max = 1;
+v_act_vel_x_acc = 0.15;
+v_act_vel_y_acc = 0.15;
 v_act_vel_runaccel = v_act_vel_x_max;
 v_act_jumppwr = -1;//jump power
 v_act_grv = 0.1;//gravity
@@ -37,6 +40,12 @@ v_act_controller = instance_create_layer(x, y, "Enemies", o_actor_controller);
 v_act_states = ds_list_create();
 v_act_state_cur= undefined; // assign after all states are made
 v_act_state_default = undefined;
+v_act_sprite_change = false; // set to true on frame sprite_index changes
+v_act_sprite_prev = sprite_index; // used to check against current sprite_index
+v_act_image_change = false; // set to true on frame image_index changes
+v_act_image_prev = image_index; // used to check against current image_index
+v_act_inputlocktime_max = 0;
+v_act_inputlocktime = v_act_inputlocktime_max;
 
 // the following are old variables that we are 100% going to continue using
 v_act_bbox_color = c_lime;
@@ -48,5 +57,3 @@ v_act_xmovedist = 0;
 v_act_ymovedist = 0;
 v_act_faceright = true;
 v_act_faceright_prev = v_act_faceright;
-v_act_inputlocktime_max = 0;
-v_act_inputlocktime = v_act_inputlocktime_max;
