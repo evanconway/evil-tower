@@ -119,7 +119,5 @@ v_textbox_char_delay = 1;
 v_textbox_punc_delay = 20;
 v_textbox_blank_delay = 60;
 
-/* removing o_static parent
 event_inherited();
 v_static_bbox_color = c_yellow;
-*/

@@ -79,3 +79,8 @@ switch (v_textbox_state) {
 		}
 	break;
 }
+
+/*
+Depending on what segments have the typed variable set true, we will not display all text.
+This is where we determine how much of the text we're displaying.
+*/

@@ -2,6 +2,26 @@
 
 global.novalue = undefined;
 
+global.resolution_width = 384; //1920 divided by 5
+global.resolution_height = 216; //1080 divided by 5
+
+global.view_room = false;
+
+/* After a Game Maker Studio update, display_get_gui_width() and
+display_get_gui_height() began returning different values than before.
+I replaced all instances of those functions with these variables. 
+If the menus disappear again this is the first thing to look at
+*/
+global.gui_width = global.resolution_width;//display_get_gui_width();
+global.gui_height = global.resolution_height;//display_get_gui_height();
+
+enum enum_window_size {
+	one_x = 1,
+	two_x = 2,
+	three_x = 3
+}
+global.windowsize = enum_window_size.three_x;//multiplier for resolution.
+
 global.actors_visible = true;
 global.player_data = false;
 global.static_visible = true;
@@ -30,9 +50,6 @@ global.transition_state = 0;
 //menus
 global.menu_blinkrate = 0.02;
 global.menu_maxalpha = 0.6;
-global.menu_scale_x = 1; //global.gui_width / global.resolution_width;
-global.menu_scale_y = 1; //global.gui_width / global.resolution_height;
-
 
 global.canpause = false;
 global.pauseactive = false;
@@ -43,8 +60,12 @@ global.screenmenuactive = false;
 
 //lvl
 global.lvl_completed = false;
+
 global.lvlintro_active = false;
 global.lvlfinished = false;
+
+global.menu_scale_x = global.gui_width / global.resolution_width;
+global.menu_scale_y = global.gui_width / global.resolution_height;
 
 //input
 global.input_keyboard_left = ord("A");

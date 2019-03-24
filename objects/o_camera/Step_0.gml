@@ -1,4 +1,4 @@
-/// @description Update Camera Position
+/// @description Insert description here
 
 v_camera = view_camera[0];
 
@@ -18,7 +18,7 @@ v_camera_view_width_half = camera_get_view_width(v_camera) * 0.5;
 v_camera_view_height_half = camera_get_view_height(v_camera) * 0.5;
 
 //determine destination
-if (v_camera_follow != undefined && instance_exists(v_camera_follow)) {
+if (v_camera_follow != global.novalue && instance_exists(v_camera_follow)) {
 	v_camera_to_x = v_camera_follow.x;
 	v_camera_to_y = v_camera_follow.y;
 
@@ -57,4 +57,3 @@ This script moves it, assuming x/y is the exact center of where we want the came
 */
 
 camera_set_view_pos(v_camera, x - v_camera_view_width_half, y - v_camera_view_height_half);
-
