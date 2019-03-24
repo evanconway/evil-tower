@@ -1,77 +1,24 @@
+Nothing is this list is true forever. This is just where we are right now.
 
 TO DO:
 
-reworking textboxes:
-	
-	Textboxes will now just have a list of segments instead of a list of lists of segments.
-	These are the sections of code that need to be redone:
-	-textbox create event (done)
-	-textbox calclines script (done)
-	-places we have already created textboxes
-
-
-(done)Add scene objects
-(done) (accomplished through scene objects instead)Add "continue" functionality to text boxes
-(done)add "typing" effect to text boxes (look at draw event, it's not reading limits right)
-(done) (example dialogue scene added) Make a complete scene to test what we've added.
-(done) Narrative Screen, rework to use text boxes
-(removing, not sure I care about this)Between level score card (might remove this goal)
-
-(in progress, huge task )Rework states/actions: Make actor states objects that can be added to new actors
+Remove all camera-related elements from o_global and put them in o_camera
+Rework states/actions: Make actor states objects that can be added to new actors (in progress, huge task)
+Update Doors to use new o_state
+Update Elevators to use new o_state or o_scene? Need to figure out which makes more sense.
+Re-implement hit/hurt boxes using new o_state system.
 Air attacks
 Blocking (shield)
 
-consider reworking child and parent objects so things are less confusing:
-from discord help chat:
+DONE:
 
-(in parent object)
-private variable child_script_one;
-private variable child_script_two;
+Rework Textboxes
+Add scene objects
+Add "continue" functionality to text boxes (accomplished through scene objects instead)
+add "typing" effect to text boxes (look at draw event, it's not reading limits right)
+Make a complete scene to test what we've added. (example dialogue scene added)
+Narrative Screen, rework to use text boxes
 
-// a boat load of code that all children of this object will execute 
+REMOVED:
 
-script_execute(child_script_one);
-
-// then a bunch more code that needs to run for all children of this parent
-
-if (someVariable) {
-    //more generic parent code
-
-    script_execute(child_script_two);
-
-    //more generic parent code
-}
-
-Random thoughts:
-
-We need to create the ability to take control away from the player, move the player around, move characters around, and display text that can vary in color, effects, and can be typed out. We can make text boxes type out by giving segments or txt objects a "isTyped" variable and setting it to true. Then the textBox code will type out segments that have this set to true. 
-
-I think we need to make another object called a "scene" that controls the player, and determines when text boxes appear and disappear. Originally I was thinking of giving textboxes the ability to control the player, but it might make more sense to create a scene object that controls the player, and give the scene object text boxes that it opens up and closes as needed. 
-
-Since scenes will control actors, it may be necessary to to wrap the input code of all actors in a if (!sceneActive) bracket. This way we could still give a character (like the player) input commands, and they're movement code would execute as normal. So if we had a scene where wanted to take control from the player, it could work like this:
-
-The scene exists in the room with an invisible hit box. Player runs into it, and "sceneActive" gets set to true. Suddenly the player can't receive input from the user, but the scene can still assign the players x, y, and button inputs to whatever is needed. The camera could also be set to follow whatever object we want, or look wherever we want. Whatever code we put in the scene object executes, then it sets "sceneActive" to false. Scene is officially over and user has control over the player again.
-
-It might make sense to regular freeze enemies by setting freezeActors to true. I can't think of a scene where I'd want a regular enemy to be controlled. If we did want a generic enemy in the scene, we'd probably just custom code one for it.
-
-We will probably need to make the code for each scene in the room editor, which is kinda weird. Make sure to look into the script_execute command. It may allow us to simply create a "sceneScript" variable for scene objects. For each scene, we'll create a unique script for just that scene. Then in the room editor we simply set the sceneScript variable for the unique scene.
-
-I think we should make some children scenes that we'll be using a lot. Like tutorial pop ups, reading sign posts, or maybe simple character interactions. 
-
-RETHINKING TEXTBOXES
-
-Ooh... the way I have text now might be kind of dumb. You see... the textbox stores a list of LISTS of segments. I did it that way to organize paragraphs of text. So like each list of segments is a paragraph. However lists of lists are really annoying to deal with in this context. It's confusing. Instead... I think I can just have the textbox have one simple list of segment objects. But we will add variables to the segment object like "new line" or "new paragraph" or something. Then... when the textbox calculates its lines for line wrapping, it will start new lines if it also reads that the segment has this "new line" variable marked as true. 
-
-TYPING TEXT IN TEXTBOXES
-
-Alright. So the way text currently draws: it loops through each line, through each segment, through each o_txt. We should be able to setup limits for each of these (line, segment, txt, and also character) that determine how far in the text the draw cycle will go. like:
-v_textbox_typeto_line = 0;
-v_textbox_typeto_segment = 0;
-v_textbox_typeto_txt = 0;
-v_textbox_typeto_char = 0;
-
-Then these limits could be updated in the step event. 
-
-BOSS BATTLE IDEAS
-
-I want the player to walk out into a black space. Nothing but a simple flat ground at the bottom of the screen, and blackness. Then... a single angry red monster eye opens above the player. Intense music starts. Eye looks at player, closes, then appears again but at a side angle, and this time somehow a mouth opens revealing white teeth. But only white teeth. So, all we can see is this red eye, and the white teeth of a mouth. The white teeth slam down on the ground like it's biting, player has to dodge. Maybe this happens again from the other side. Then maybe both eyes finally open from above, and a mouth slams down front facing the screen. I don't know where to go from here. Maybe teeth start shooting at the player? Point is... creepy red eyes and white teeth against black void. ya.
+Between level score card

@@ -1,5 +1,6 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Sets Prev Vars
+
+// Trigger and axis prev values, needed to determine "pressed"
 if (global.usecontroller) {
 	global.trigger_left_prev = gamepad_button_value(global.controllerport, gp_shoulderlb);
 	global.trigger_right_prev = gamepad_button_value(global.controllerport, gp_shoulderrb);
@@ -10,6 +11,5 @@ if (global.usecontroller) {
 }
 
 if (global.prevroom != room) global.prevroom = room;
-
 
 if (room == 0) room_goto_next();

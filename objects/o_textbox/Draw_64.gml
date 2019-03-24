@@ -1,7 +1,6 @@
-/// @description Draw On GUI
+/// @description Textbox In GUI
 
 if (v_textbox_isgui) {
-	
 	// adjust box to gui location
 	switch (v_textbox_guipos) {
 		case enum_textbox_guipos.top_left:
