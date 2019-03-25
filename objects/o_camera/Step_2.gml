@@ -6,6 +6,8 @@ v_camera = view_camera[0];
 //the resolution of the game is changed through the viewport settings
 //of the first room
 
+display_set_gui_size(global.resolution_width, global.resolution_height);
+
 if (global.view_room) {
 	v_camera_width = room_width;
 	v_camera_height = room_height;

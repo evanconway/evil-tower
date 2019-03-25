@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description 
 
 if (global.transition_state != enum_transition_state.off) {
 	global.v_wsmenu_control = false;
