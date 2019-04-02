@@ -61,7 +61,7 @@ if (global.soundmenuactive) {
 			global.music_volume += soundchangeamount;
 			if (global.music_volume > 1) global.music_volume = 0;
 			if (global.music_volume < 0) global.music_volume = 1;
-			audio_sound_gain(o_music.v_music_currenttrack, global.music_volume, 0);
+			if (o_music.v_music_currenttrack != undefined) audio_sound_gain(o_music.v_music_currenttrack, global.music_volume, 0);
 			break;
 		}
 		scr_playsfx(snd_select);

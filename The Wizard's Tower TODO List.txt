@@ -1,17 +1,17 @@
 Nothing is this list is true forever. This is just where we are right now.
 
 TO DO:
-
-Remove all camera-related elements from o_global and put them in o_camera
+move variables from o_global to new more specific objects if possible
+Re-implement hit/hurt boxes using new o_state system.
 Rework states/actions: Make actor states objects that can be added to new actors (in progress, huge task)
 Update Doors to use new o_state
 Update Elevators to use new o_state or o_scene? Need to figure out which makes more sense.
-Re-implement hit/hurt boxes using new o_state system.
 Air attacks
 Blocking (shield)
 
 DONE:
 
+Remove all camera-related elements from o_global and put them in o_camera
 Rework Textboxes
 Add scene objects
 Add "continue" functionality to text boxes (accomplished through scene objects instead)

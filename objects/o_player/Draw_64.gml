@@ -1,6 +1,6 @@
 /// @description Debug Info
 
-if (global.player_data) {
+if (v_plr_data) {
 	//debug states
 	var x_offset = 1;
 	draw_set_font(f_debug);

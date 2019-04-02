@@ -1,5 +1,7 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description
+
+global.pauseactive = false;
+global.canpause = false;
 
 v_pausemenu[3] = "Return To Game";
 v_pausemenu[2] = "Options";

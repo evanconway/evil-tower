@@ -16,6 +16,7 @@ if (global.view_room) {
 	v_camera_height = global.resolution_height;
 }
 camera_set_view_size(v_camera, v_camera_width, v_camera_height);
+
 v_camera_view_width_half = camera_get_view_width(v_camera) * 0.5;
 v_camera_view_height_half = camera_get_view_height(v_camera) * 0.5;
 
@@ -47,6 +48,9 @@ if (v_camera_follow != undefined && instance_exists(v_camera_follow)) {
 	}
 	x += camera_x_move;
 	y += camera_y_move;
+} else {
+	x = global.resolution_width / 2;
+	y = global.resolution_height / 2;
 }
 
 x = clamp(x, v_camera_view_width_half, room_width - v_camera_view_width_half);

@@ -1,10 +1,13 @@
 event_inherited();
 
+v_plr_data = false;
+
 v_act_aiscript = scr_actor_getuserinput;
 
 v_plr_vel_x_max = 1.6;
 v_plr_vel_y_max = 3.5;
 v_plr_jump_pwr = -3.7;
+v_plr_climbspd = v_plr_vel_x_max * 0.7;
 
 // states
 v_plr_state_gnd_idle = instance_create_layer(x, y, "Player", o_state_gnd_idle);
@@ -64,11 +67,11 @@ v_plr_state_wall_jump.v_state_air_up_jumppwr = v_plr_jump_pwr;
 
 v_plr_state_ladder_up = instance_create_layer(x, y, "Player", o_state_ladder_up);
 v_plr_state_ladder_up.v_state_sprite = s_plr_ladder_climbing;
-v_plr_state_ladder_up.v_state_ladder_climbspd = v_plr_vel_x_max;
+v_plr_state_ladder_up.v_state_ladder_climbspd = v_plr_climbspd;
 
 v_plr_state_ladder_down = instance_create_layer(x, y, "Player", o_state_ladder_down);
 v_plr_state_ladder_down.v_state_sprite = s_plr_ladder_climbing;
-v_plr_state_ladder_down.v_state_ladder_climbspd = v_plr_vel_x_max;
+v_plr_state_ladder_down.v_state_ladder_climbspd = v_plr_climbspd;
 
 v_plr_state_ladder_idle = instance_create_layer(x, y, "Player", o_state_ladder_idle);
 v_plr_state_ladder_idle.v_state_sprite = s_plr_ladder_climbing;

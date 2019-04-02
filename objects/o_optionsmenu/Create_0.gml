@@ -1,5 +1,7 @@
-/// @description Insert description here
-// This object needs to be above the pause menu for some reason?
+/// @description 
+
+global.optionsactive = false;
+depth -= 1;
 
 v_optionsmenu[3] = "Controls";
 v_optionsmenu[2] = "Screen";
@@ -22,7 +24,7 @@ v_optionsmenu_blinkrate = global.menu_blinkrate;
 v_optionsmenu_maxalpha = global.menu_maxalpha;
 
 v_optionsmenu_control = true;
-v_optionsmenu_committed = global.novalue;
+v_optionsmenu_committed = undefined;
 
 v_optionsmenu_rectwidth_max = 180;
 v_optionsmenu_rectheight_max = 80;

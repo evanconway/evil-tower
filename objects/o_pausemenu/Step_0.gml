@@ -1,5 +1,11 @@
 /// @description Insert description here
 
+if (room > 3) && (global.transition_state == enum_transition_state.off) {
+	global.canpause = true;
+} else {
+	global.canpause = false;
+}
+
 if (global.pauseactive) {
 	if (v_pausemenu_control) {
 		if (scr_input_ui_check(enum_input.up)) {

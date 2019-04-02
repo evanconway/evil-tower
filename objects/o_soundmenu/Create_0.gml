@@ -1,5 +1,10 @@
-/// @description Insert description here
-// This object needs to be above the pause menu for some reason?
+/// @description
+
+global.soundmenuactive = false;
+depth -= 2;
+
+global.sfx_volume = 0.7;
+global.music_volume = 0;
 
 v_soundmenu[2] = "Music Volume ";
 v_soundmenu[1] = "Effects Volume ";
