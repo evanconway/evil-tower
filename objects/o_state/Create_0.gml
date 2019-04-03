@@ -62,3 +62,4 @@ v_state_name = undefined;
 v_state_count_max = 10; // only used in some states
 v_state_count_min = 0;
 v_state_count = v_state_count_max;
+v_state_sound = undefined;

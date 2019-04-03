@@ -1,11 +1,6 @@
 event_inherited();
 
 v_act_aiscript = scr_actor_getuserinput;
-v_act_state_hurt = instance_create_layer(x, y, "Player", o_state_hurt);
-v_act_state_hurt.v_state_sprite = s_plr_hurt;
-v_act_state_hurt.v_state_count_max = 2;
-v_act_state_hurt.v_state_hurt_knock_y = -7;
-v_act_state_hurt.v_state_hurt_vel_y_max = 3;
 
 v_plr_data = false;
 
@@ -15,6 +10,12 @@ v_plr_jump_pwr = -3.7;
 v_plr_climbspd = v_plr_vel_x_max * 0.7;
 
 // states
+v_act_state_hurt = instance_create_layer(x, y, "Player", o_state_hurt);
+v_act_state_hurt.v_state_sprite = s_plr_hurt;
+v_act_state_hurt.v_state_count_max = 20;
+v_act_state_hurt.v_state_hurt_knock_y = -3;
+v_act_state_hurt.v_state_hurt_vel_y_max = 3;
+
 v_plr_state_gnd_idle = instance_create_layer(x, y, "Player", o_state_gnd_idle);
 v_plr_state_gnd_idle.v_state_sprite = s_plr_gnd_idle_sword;
 v_plr_state_gnd_idle.v_state_sprite_left = s_plr_gnd_idle_sword_left
@@ -52,6 +53,16 @@ v_plr_state_air_up.v_state_sprite_left = s_plr_air_up_sword_left;
 v_plr_state_air_up.v_state_air_velx_max = v_plr_vel_x_max;
 v_plr_state_air_up.v_state_air_vely_max = v_plr_vel_y_max;
 v_plr_state_air_up.v_state_air_up_jumppwr = v_plr_jump_pwr;
+v_plr_state_air_up.v_state_sound = snd_jump;
+#region hurttoairup
+v_plr_state_hurttoairup = instance_create_layer(x, y, "Player", o_state_air_up);
+v_plr_state_hurttoairup.v_state_sprite = v_plr_state_air_up.v_state_sprite;
+v_plr_state_hurttoairup.v_state_sprite_left = v_plr_state_air_up.v_state_sprite_left;
+v_plr_state_hurttoairup.v_state_air_velx_max = v_plr_vel_x_max;
+v_plr_state_hurttoairup.v_state_air_vely_max = v_plr_vel_y_max;
+v_plr_state_hurttoairup.v_state_air_up_jumppwr = 0;
+// no sound for hurt up
+#endregion
 
 v_plr_state_air_dn = instance_create_layer(x, y, "Player", o_state_air_dn);
 v_plr_state_air_dn.v_state_sprite = s_plr_air_dn_sword;
@@ -113,6 +124,7 @@ scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_run);
 // air_up
 scr_state_addconnect(v_plr_state_air_up, v_plr_state_air_dn);
 scr_state_addconnect(v_plr_state_air_up, v_plr_state_wall_stick);
+scr_state_setconnects(v_plr_state_hurttoairup, v_plr_state_air_up);
 
 // air_dn
 scr_state_addconnect(v_plr_state_air_dn, v_plr_state_gnd_idle);
@@ -151,10 +163,11 @@ scr_state_addconnect(v_plr_state_ladder_fall, v_plr_state_air_dn);
 scr_state_addconnect(v_plr_state_ladder_fall, v_plr_state_ladder_idle);
 
 // hurt state
-scr_state_addconnect(v_act_state_hurt, v_plr_state_air_up);
+scr_state_addconnect(v_act_state_hurt, v_plr_state_hurttoairup);
 scr_state_addconnect(v_act_state_hurt, v_plr_state_air_dn);
 scr_state_addconnect(v_act_state_hurt, v_plr_state_gnd_idle);
 scr_state_addconnect(v_act_state_hurt, v_plr_state_gnd_run);
+scr_state_addconnect(v_act_state_hurt, v_plr_state_ladder_idle);
 
 // altrun scripts
 scr_state_addaltrun(v_plr_state_gnd_idle, v_plr_state_wall_stick);

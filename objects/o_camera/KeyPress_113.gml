@@ -1,6 +1,6 @@
 /// @description Toggle Full Room View
 
 if (global.debug_keys_active) {
-	if (global.view_room) global.view_room = false;
-	else global.view_room = true;
+	if (v_camera_viewroom) v_camera_viewroom = false;
+	else v_camera_viewroom = true;
 }

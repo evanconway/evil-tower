@@ -1,24 +1,18 @@
 /// @description Update Camera Position
 
-v_camera = view_camera[0];
-
-//camera_width and camera_height are the dimensions of the port shown to the player;
-//the resolution of the game is changed through the viewport settings
-//of the first room
-
-display_set_gui_size(global.resolution_width, global.resolution_height);
-
-if (global.view_room) {
+if (v_camera_viewroom) {
 	v_camera_width = room_width;
 	v_camera_height = room_height;
 } else {
 	v_camera_width = global.resolution_width;
 	v_camera_height = global.resolution_height;
 }
-camera_set_view_size(v_camera, v_camera_width, v_camera_height);
 
-v_camera_view_width_half = camera_get_view_width(v_camera) * 0.5;
-v_camera_view_height_half = camera_get_view_height(v_camera) * 0.5;
+camera_set_view_size(v_camera, v_camera_width, v_camera_height);
+/*
+surface_resize changes the pixel density of both the normal layer and the gui layer. 
+*/
+surface_resize(application_surface, global.resolution_width, global.resolution_height);
 
 //determine destination
 if (v_camera_follow != undefined && instance_exists(v_camera_follow)) {
@@ -53,8 +47,8 @@ if (v_camera_follow != undefined && instance_exists(v_camera_follow)) {
 	y = global.resolution_height / 2;
 }
 
-x = clamp(x, v_camera_view_width_half, room_width - v_camera_view_width_half);
-y = clamp(y, v_camera_view_height_half, room_height - v_camera_view_height_half);
+x = clamp(x, camera_get_view_width(v_camera) * 0.5, room_width - camera_get_view_width(v_camera) * 0.5);
+y = clamp(y, camera_get_view_height(v_camera) * 0.5, room_height - camera_get_view_height(v_camera) * 0.5);
 
 /*
 Our camera object is not the actual "camera" the engine uses to display the game.
@@ -62,5 +56,4 @@ even though we've moved it around in the game space, the true engine camera hasn
 This script moves it, assuming x/y is the exact center of where we want the camera.
 */
 
-camera_set_view_pos(v_camera, x - v_camera_view_width_half, y - v_camera_view_height_half);
-
+camera_set_view_pos(v_camera, x - camera_get_view_width(v_camera) * 0.5, y - camera_get_view_height(v_camera) * 0.5);

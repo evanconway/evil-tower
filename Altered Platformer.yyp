@@ -2079,6 +2079,14 @@
             }
         },
         {
+            "Key": "c6016486-a718-4399-95c5-406a3f6b8d82",
+            "Value": {
+                "id": "691da130-9a74-4703-bf5d-0b09a1f511aa",
+                "resourcePath": "scripts\\scr_state_hurt_ladder_run\\scr_state_hurt_ladder_run.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "c6adfb54-f624-4e55-9583-bdec66c12aaa",
             "Value": {
                 "id": "ba63e0a6-e57d-430e-80fa-65cec911c6ab",
@@ -2710,6 +2718,7 @@
         "a1f48099-54f1-4052-b8dd-bd3dd0eff001",
         "a7d08ae1-5e7f-4d60-9510-ee6ca1821416",
         "e84cb4be-fb90-4ef6-b029-50119ab423b9",
+        "78f71b0f-9ca9-49d4-abbc-e450b7b3c8b0",
         "a66d2e09-0289-4820-804e-3bad736a930d",
         "c05d8086-1a34-49d5-806f-5afe36152fd8",
         "d92ff201-82dc-4603-945c-9b89c775aa8f",
@@ -2719,7 +2728,6 @@
         "b6711525-3bc0-411a-bbf9-f74e1bb89f20",
         "44120f4a-2378-4a60-a4f1-1f58eaf9e00a",
         "3ebfdf07-8070-4c50-b060-f1fa817e98a5",
-        "78f71b0f-9ca9-49d4-abbc-e450b7b3c8b0",
         "67358728-ec25-4ecf-9a76-c8b0d6e26148",
         "63b20db8-560e-4b32-8a7d-537e264ed9e6",
         "f6089be8-f63c-4d03-b174-945ec604da6b",
@@ -2801,7 +2809,8 @@
         "b32a0b25-7b01-4d63-81fd-25f99e46f4ab",
         "bcf1f83a-960e-424c-9218-fd5262dcedb5",
         "0955ef19-1dce-4041-9939-e0701c35af13",
-        "31e6638d-91c2-4c85-bc22-dc6aa64cb8da"
+        "31e6638d-91c2-4c85-bc22-dc6aa64cb8da",
+        "c6016486-a718-4399-95c5-406a3f6b8d82"
     ],
     "tutorial": ""
 }
