@@ -1,8 +1,13 @@
 event_inherited();
 
-v_plr_data = false;
-
 v_act_aiscript = scr_actor_getuserinput;
+v_act_state_hurt = instance_create_layer(x, y, "Player", o_state_hurt);
+v_act_state_hurt.v_state_sprite = s_plr_hurt;
+v_act_state_hurt.v_state_count_max = 2;
+v_act_state_hurt.v_state_hurt_knock_y = -7;
+v_act_state_hurt.v_state_hurt_vel_y_max = 3;
+
+v_plr_data = false;
 
 v_plr_vel_x_max = 1.6;
 v_plr_vel_y_max = 3.5;
@@ -145,12 +150,18 @@ scr_state_addconnect(v_plr_state_ladder_idle, v_plr_state_air_dn);
 scr_state_addconnect(v_plr_state_ladder_fall, v_plr_state_air_dn);
 scr_state_addconnect(v_plr_state_ladder_fall, v_plr_state_ladder_idle);
 
+// hurt state
+scr_state_addconnect(v_act_state_hurt, v_plr_state_air_up);
+scr_state_addconnect(v_act_state_hurt, v_plr_state_air_dn);
+scr_state_addconnect(v_act_state_hurt, v_plr_state_gnd_idle);
+scr_state_addconnect(v_act_state_hurt, v_plr_state_gnd_run);
 
 // altrun scripts
 scr_state_addaltrun(v_plr_state_gnd_idle, v_plr_state_wall_stick);
 scr_state_addaltrun(v_plr_state_gnd_crouch, v_plr_state_wall_stick);
 scr_state_addaltrun(v_plr_state_gnd_run, v_plr_state_wall_stick);
 scr_state_addaltrun(v_plr_state_airdntorun, v_plr_state_wall_stick);
+
 
 // alwaysrun? (we may need to add a script to states that run every frame)
 

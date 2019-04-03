@@ -1,5 +1,7 @@
 /// @description Insert description here
-// You can write your code in this editor
+
+// OLD, not sure what we'll take from here.
+/*
 if (!global.freezeactors) {
 	image_speed = 1;
 	var new_vel_x = 0
@@ -145,3 +147,4 @@ if (!global.freezeactors) {
 	v_act_vel_y = new_vel_y;
 	event_inherited();
 } else image_speed = 0;
+*/

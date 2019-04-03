@@ -1,5 +1,8 @@
 event_inherited();
 
+
+// OLD, not sure what we'll take back from here.
+/*
 v_act_health = 3;
 
 v_act_vel_x_max = 0.4;
@@ -29,3 +32,4 @@ v_zombie_stuntime = v_zombie_stuntime_max;
 v_act_state_beforehit = global.novalue;
 
 v_act_explosion_y_offset = 3;
+*/

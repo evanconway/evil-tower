@@ -1,7 +1,7 @@
 Nothing is this list is true forever. This is just where we are right now.
 
 TO DO:
-move variables from o_global to new more specific objects if possible
+re-make some simple enemies to prepare for testing hit/hurt boxes
 Re-implement hit/hurt boxes using new o_state system.
 Rework states/actions: Make actor states objects that can be added to new actors (in progress, huge task)
 Update Doors to use new o_state
@@ -11,6 +11,7 @@ Blocking (shield)
 
 DONE:
 
+move variables from o_global to new more specific objects if possible
 Remove all camera-related elements from o_global and put them in o_camera
 Rework Textboxes
 Add scene objects

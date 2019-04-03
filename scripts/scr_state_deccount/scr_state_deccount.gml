@@ -1,5 +1,5 @@
-/// @description scr_state_deccount(actor_id)
+/// @description scr_state_deccount(o_state)
 
-/// @param o_actor
+/// @param state_id
 
-argument[0].v_act_state_cur.v_state_count--;
+argument[0].v_state_count--;

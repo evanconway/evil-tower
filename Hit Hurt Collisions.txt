@@ -1,0 +1,7 @@
+Here we need to collect on our thoughts on how collisions between hit and hurt boxes should work
+
+Firstly, we'll have to do collisions during the end step, that way we're sure all actors have had their positions updated. Part of the problem here is we need to commit to a design choice. Should characters be able to be hit by more than one hitbox while injured? We may need to make a system that's flexible so we can easily do either. It makes a lot of sense for the enemies to be vulnerable to hits during their hurt state since it's fun to beat up on enemies, but the player should be invulnerable while hurt since it's not fun to get hit while you're already "hit". 
+
+We're going to make hitboxes detect and affect the target rather than the actor detecting hitboxes. The reason for doing this is because projectiles are annoying if we want them to be destroyed after hitting something. If the projectile does all the work, the projectile can set the actor to its hit state, create an explosion effect in its place, and then delete itself.
+
+To handle detecting if an actor has already hit a hitbox, actors will have a list of hitboxes they have hit. When a hitbox collides with an actor, the hitbox will check to see if the actor already has the hitbox in its list. If it doesn't, it adds itself to that list and executes its code. Every frame, actors will check to see if all the hitboxes in their list still exist, and delete the ones that don't.
