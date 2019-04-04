@@ -1,5 +1,6 @@
 event_inherited();
 
+/*
 v_act_vel_x_max = 0.4;
 v_act_vel_runaccel = v_act_vel_x_max;
 

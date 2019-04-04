@@ -1,5 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
+event_inherited();
+/*
 if (!global.freezeactors) {
 	var new_vel_x = 0
 	var new_vel_y = 0;

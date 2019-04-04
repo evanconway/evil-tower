@@ -1,4 +1,4 @@
-/// @description Insert description here
+event_inherited();
 
 // OLD, not sure what we'll take from here.
 /*

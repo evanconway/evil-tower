@@ -1,35 +1,15 @@
 event_inherited();
 
+// zombie states
+v_act_state_hurt = instance_create_layer(x, y, "Enemies", o_state_hurt);
+v_act_state_hurt.v_state_count_max = 20;
+v_act_state_hurt.v_state_hurt_knock_y = -3;
+v_act_state_hurt.v_state_hurt_vel_y_max = 3;
 
-// OLD, not sure what we'll take back from here.
-/*
-v_act_health = 3;
+v_emy_zombie_state_gnd_idle = instance_create_layer(x, y, "Enemies", o_state_gnd_idle);
+v_emy_zombie_state_gnd_idle.v_state_sprite = s_emy_zombie_gnd_idle;
+v_emy_zombie_state_gnd_idle.v_state_sprite_left = s_emy_zombie_gnd_idle_left;
 
-v_act_vel_x_max = 0.4;
-v_act_vel_runaccel = v_act_vel_x_max;
+v_act_state_default = v_emy_zombie_state_gnd_idle;
 
-enum enum_zombie_state {
-	idle,
-	moving,
-	hit
-}
-
-v_act_state = enum_zombie_state.idle;
-
-enum enum_zombie_idlesprite {
-	face,
-	side
-}
-
-v_zombie_idle_sprite = 0;
-
-v_zombie_time_max = 120;
-v_zombie_time_min = 60;
-v_act_statetime = 0;
-
-v_zombie_stuntime_max = 8;
-v_zombie_stuntime = v_zombie_stuntime_max;
-v_act_state_beforehit = global.novalue;
-
-v_act_explosion_y_offset = 3;
-*/
+scr_state_addconnect(v_act_state_hurt, v_emy_zombie_state_gnd_idle);

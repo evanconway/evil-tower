@@ -28,12 +28,6 @@ enum enum_axis {
 	right_down = -1
 }
 
-enum enum_attack_stage {
-	startup,
-	swing,
-	recovery
-}
-
 global.trigger_left_prev = 0;
 global.trigger_right_prev = 0;
 global.axis_left_h_prev = 0;
