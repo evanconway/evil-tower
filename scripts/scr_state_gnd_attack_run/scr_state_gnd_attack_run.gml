@@ -13,16 +13,18 @@ switch (state.v_state_attack_stage) {
 	ID.image_index = 0;
 	if (state.v_state_count <= 0) {	
 		var hitbox = instance_create_layer(ID.x, ID.y, "Hitboxes", state.v_state_attack_hitbox); 
+		hitbox.v_hitbox_hitter = ID;
 		hitbox.v_hitbox_target = state.v_state_attack_target;
+		hitbox.v_hitbox_time = state.v_state_attack_recovery + 2; // +1 because state doesn't count down till next frame
 		if (ID.v_act_faceright) hitbox.x += state.v_state_attack_offset_x;
 		else hitbox.x -= state.v_state_attack_offset_x;
 		hitbox.y += state.v_state_attack_offset_y;
+		ID.image_index = 1;
 		state.v_state_attack_stage = enum_attack_stage.recovery;
 		state.v_state_count = state.v_state_attack_recovery;
 	}
 	break;
 	case enum_attack_stage.recovery:
-	ID.image_index = 1;
 	if (state.v_state_count <= 0) {
 		state.v_state_attack_stage = enum_attack_stage.finished;
 	}

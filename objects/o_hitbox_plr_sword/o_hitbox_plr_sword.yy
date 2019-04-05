@@ -13,31 +13,11 @@
             "enumb": 0,
             "eventtype": 0,
             "m_owner": "f41582f8-ba62-44ce-b7f5-6390e7d6590a"
-        },
-        {
-            "id": "92346a47-aecd-49af-adb2-a1f2a22f3946",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "f41582f8-ba62-44ce-b7f5-6390e7d6590a"
-        },
-        {
-            "id": "5fa2a0cb-d533-4700-92b8-783a6d6b0d5d",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 8,
-            "m_owner": "f41582f8-ba62-44ce-b7f5-6390e7d6590a"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "ae64a97c-c8e9-4fd2-932f-f268feefb6e3",
+    "parentObjectId": "8a854d0f-2153-4a08-8465-06aec9a6e77b",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,

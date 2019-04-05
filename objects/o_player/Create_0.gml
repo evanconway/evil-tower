@@ -12,6 +12,8 @@ v_plr_climbspd = v_plr_vel_x_max * 0.7;
 // states
 v_act_state_hurt = instance_create_layer(x, y, "Player", o_state_hurt);
 v_act_state_hurt.v_state_sprite = s_plr_hurt;
+v_act_state_hurt.v_state_sound = snd_hurt;
+v_act_state_hurt.v_state_hurt_health = 9999;
 v_act_state_hurt.v_state_count_max = 20;
 v_act_state_hurt.v_state_hurt_knock_y = -3;
 v_act_state_hurt.v_state_hurt_vel_y_max = 3;
@@ -101,7 +103,10 @@ v_plr_state_ladder_fall.v_state_ladder_fallspd_max = v_plr_vel_y_max;
 v_plr_state_gnd_attack = instance_create_layer(x, y, "Player", o_state_attack);
 v_plr_state_gnd_attack.v_state_sprite = s_plr_gnd_attack_sword;
 v_plr_state_gnd_attack.v_state_sprite_left = s_plr_gnd_attack_sword_left;
+v_plr_state_gnd_attack.v_state_attack_startup = 13;
+v_plr_state_gnd_attack.v_state_attack_recovery = 12;
 v_plr_state_gnd_attack.v_state_attack_target = o_emy;
+v_plr_state_gnd_attack.v_state_attack_hitbox = o_hitbox_plr_sword;
 
 
 // state connections

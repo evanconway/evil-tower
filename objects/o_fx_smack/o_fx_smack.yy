@@ -2,7 +2,7 @@
     "id": "0b691b1b-1460-4905-b086-05f65c73a8a4",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_hit_effect",
+    "name": "o_fx_smack",
     "eventList": [
         {
             "id": "2e4e1531-8e8b-4372-ab19-070c8aa67ba0",

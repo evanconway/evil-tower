@@ -1,7 +1,6 @@
 Nothing is this list is true forever. This is just where we are right now.
 
 TO DO:
-Re-implement hit/hurt boxes using new o_state system.
 Rework states/actions: Make actor states objects that can be added to new actors (in progress, huge task)
 Update Doors to use new o_state
 Update Elevators to use new o_state or o_scene? Need to figure out which makes more sense.
@@ -9,6 +8,7 @@ Air attacks
 Blocking (shield)
 
 DONE:
+Re-implement hit/hurt boxes using new o_state system. (still needs tweaking, but it's done for now)
 re-make some simple enemies to prepare for testing hit/hurt boxes
 move variables from o_global to new more specific objects if possible
 Remove all camera-related elements from o_global and put them in o_camera

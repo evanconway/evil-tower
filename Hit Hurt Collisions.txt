@@ -11,3 +11,17 @@ Getting hurt system:
 First, an actor (hitbox, enemy, whatever) detects if it has hit its target during its end step. For example, o_emy objects will detect if they have are colliding with o_player. If true, then the act_hurt_act script will be called. This script is what checks if they actor has a state_hurt, and if the actor already has the offending actor stored in its hitboxes_struck list. If the offending actor is not in the list, the script continues.
 
 The act_hurt_act script is essentially the script_change of the hurt state. But unlike the change script we can call this from different places depending on what's hurting the actor. We want actors to get flung around when they get hit, like smash brothers, so this script will set velocities for the actor. We also lock input for this state. It will also reset the count timer to whatever the state is set for. This count time is the amount of frames the actor will be "hurt". 
+
+___________________________________________
+############################################################################################
+FATAL ERROR in
+action number 1
+of  Step Event2
+for object o_hitbox:
+
+DoConv :1: illegal undefined/null use
+ at gml_Object_o_hitbox_Step_2 (line 6) -               scr_hitbox_hurt_act(id, target, v_hitbox_damage, v_hitbox_hitter.x, v_hitbox_stun);
+############################################################################################
+--------------------------------------------------------------------------------------------
+stack frame is
+gml_Object_o_hitbox_Step_2 (line 6)

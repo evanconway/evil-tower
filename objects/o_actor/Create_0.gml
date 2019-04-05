@@ -45,6 +45,7 @@ v_act_image_change = false; // set to true on frame image_index changes
 v_act_image_prev = image_index; // used to check against current image_index
 v_act_inputlocktime_max = 0;
 v_act_inputlocktime = v_act_inputlocktime_max;
+v_act_freezetime = 0;
 
 /*
 The hurt state is an interesting state. It will connect to other states, but other 
@@ -52,6 +53,19 @@ states will not connect to it. Hitboxes from other actors will set an actor to
 this state. 
 */
 v_act_state_hurt = undefined;
+
+/*
+Some actors will need special things to happen when they die, like the player 
+and bosses. Normal enemies just need a cool explosion.
+*/
+v_act_dead_scene = undefined;
+v_act_dead_fx = undefined;
+
+/*
+To allow actors to hurt other actors just by running into them, we are giving 
+actors a hitbox that will move with them.
+*/
+v_act_hitbox = undefined;
 
 // the following are old variables that we are 100% going to continue using
 v_act_bbox_color = c_lime;
