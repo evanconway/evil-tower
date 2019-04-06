@@ -1,5 +1,4 @@
-/// @description scr_transition_elevator(o_elevator)
-/// @param exit_elevator
+/// @description scr_spawn_elevator()
 
 if (!instance_exists(o_transition)) {
 	with (instance_create_depth(x, y, 90, o_transition_elevator))

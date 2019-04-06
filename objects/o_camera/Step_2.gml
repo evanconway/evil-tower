@@ -43,8 +43,14 @@ if (v_camera_follow != undefined && instance_exists(v_camera_follow)) {
 	x += camera_x_move;
 	y += camera_y_move;
 } else {
-	x = global.resolution_width / 2;
-	y = global.resolution_height / 2;
+	/*
+	The camera needs to be repositioned on screens with no player, there are so few
+	of them though, we're just going to take care of them here.
+	*/
+	if (room == main_menu) {
+		x = 0;
+		y = 0;
+	}
 }
 
 x = clamp(x, camera_get_view_width(v_camera) * 0.5, room_width - camera_get_view_width(v_camera) * 0.5);

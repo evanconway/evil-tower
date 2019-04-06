@@ -59,6 +59,7 @@ if (global.pauseactive) {
 } else {
 	if (scr_input_check(true, enum_input.start) && global.canpause) {
 		audio_pause_all();
+		if (o_music.v_music_currenttrack != undefined) audio_resume_sound(o_music.v_music_currenttrack);
 		scr_playsfx(snd_pause);
 		global.pauseactive = true;
 		v_pausemenu_control = true;

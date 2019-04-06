@@ -1135,6 +1135,14 @@
             }
         },
         {
+            "Key": "6da57aa5-5107-41fb-a079-09c151229614",
+            "Value": {
+                "id": "df795e06-3c91-4e4a-bef5-1c988860db2c",
+                "resourcePath": "scripts\\scr_set_camera_pos\\scr_set_camera_pos.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "6dda84e6-db4f-40c2-9dfe-1d308f890b75",
             "Value": {
                 "id": "2a212e2f-88b0-41b0-be15-e68b648cca76",
@@ -1588,6 +1596,14 @@
                 "id": "8e7f8728-b6de-4b46-bfae-53477b3b3944",
                 "resourcePath": "sprites\\s_plr_gnd_attack_sword_left\\s_plr_gnd_attack_sword_left.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "926f8375-904f-4101-92a5-b9a062282c8f",
+            "Value": {
+                "id": "b498a25c-5dd4-4608-bb67-c06f1b903644",
+                "resourcePath": "scripts\\scr_spawn\\scr_spawn.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2847,7 +2863,9 @@
         "5008d749-6983-43e6-bf7c-51da3f73801e",
         "d346951b-7c44-4aeb-93c1-8c9cbb4595c6",
         "2b7d5b02-4028-4484-99eb-7f8b448501e3",
-        "9c199008-3906-4ef7-b651-41e7729fe744"
+        "9c199008-3906-4ef7-b651-41e7729fe744",
+        "926f8375-904f-4101-92a5-b9a062282c8f",
+        "6da57aa5-5107-41fb-a079-09c151229614"
     ],
     "tutorial": ""
 }

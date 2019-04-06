@@ -7,8 +7,9 @@ global.firstroom = test_actorrework;
 global.currentroom = room;
 global.prevroom = global.novalue;
 
-global.spawn_obj = undefined;
+global.spawn_script = undefined;
 global.spawn_room = undefined;
+global.spawn_obj = undefined;
 
 global.actors_visible = true;
 global.static_visible = true;
