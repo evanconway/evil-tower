@@ -30,7 +30,7 @@ v_state_attack_startup = 15;
 v_state_attack_recovery = 15; // this also sets the v_hitbox_time variable
 v_state_attack_target = o_player; // parent object, will be either o_player or o_emy
 v_state_attack_offset_x = 18; // changes hitbox position, arbitrary numbers to get us started
-v_state_attack_offset_y = -2;
+v_state_attack_offset_y = -17;
 
 enum enum_attack_stage {
 	startup,

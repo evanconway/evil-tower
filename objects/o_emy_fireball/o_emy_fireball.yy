@@ -4,26 +4,7 @@
     "mvc": "1.0",
     "name": "o_emy_fireball",
     "eventList": [
-        {
-            "id": "c1ac0104-d57c-410b-991c-43532bb2a849",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "a8b7ea43-dd1c-4773-9f21-167ba88bef34"
-        },
-        {
-            "id": "1cfc9d2e-b750-4e82-bec7-f082142c42a8",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "a8b7ea43-dd1c-4773-9f21-167ba88bef34"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

@@ -12,9 +12,9 @@ not the actor.
 
 var ID = argument[0];
 var hitID = argument[1];
-var damage = argument[2];
+var damage = ID.v_hitbox_damage; //argument[2];
 var x_knockaway = argument[3];
-var stuntime = argument[4];
+var stuntime = ID.v_hitbox_stun; // argument[4];
 
 if (hitID.v_act_state_hurt != undefined) {
 	// first check if the hit actor already has the offending object in its hitboxes list
@@ -41,7 +41,8 @@ if (hitID.v_act_state_hurt != undefined) {
 			scr_state_changesprite(hitID);
 			if (ID.v_hitbox_snd_miss != undefined) audio_stop_sound(ID.v_hitbox_snd_miss);
 			if (ID.v_hitbox_snd_hit != undefined) scr_playsfx(ID.v_hitbox_snd_hit);
-			if (ID.v_hitbox_effect != undefined) instance_create_layer(hitID.x, hitID.y, "Hitboxes", ID.v_hitbox_effect);
+			if (ID.v_hitbox_effect != undefined) instance_create_layer(hitID.x, ID.y, "Hitboxes", ID.v_hitbox_effect);
+			if (hitID.v_act_hurt_fx != undefined) instance_create_layer(hitID.x, hitID.y + hitID.v_act_hurt_fx_yoffset, "Hitboxes", hitID.v_act_hurt_fx);
 			ds_list_add(hitID.v_act_hitboxes_struck, ID);
 			if (hurt.v_state_sound != undefined) scr_playsfx(hurt.v_state_sound);
 		
@@ -70,7 +71,7 @@ if (hitID.v_act_state_hurt != undefined) {
 		} else {
 			if (hitID.v_act_dead_scene == undefined) {
 				// We're assuming the scene will take control if it's defined
-				if (hitID.v_act_dead_fx != undefined) instance_create_layer(x, y, "Hitboxes", hitID.v_act_dead_fx);
+				if (hitID.v_act_dead_fx != undefined) instance_create_layer(hitID.x, hitID.y, "Hitboxes", hitID.v_act_dead_fx);
 				if (hitID.v_act_hitbox != undefined) instance_destroy(hitID.v_act_hitbox);
 				instance_destroy(hitID);
 			}

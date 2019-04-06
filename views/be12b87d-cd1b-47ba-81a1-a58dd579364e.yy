@@ -21,7 +21,7 @@
         "db32452b-1a3b-41db-b65b-b03915287033"
     ],
     "filterType": "GMScript",
-    "folderName": "states",
+    "folderName": "States",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

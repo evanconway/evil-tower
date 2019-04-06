@@ -11,7 +11,7 @@ if (!global.usecontroller) {
 			}
 		}
 		for (var axs = 0; axs < gamepad_axis_count(i); axs++) {
-			if (gamepad_axis_value(i, axs) >= global.axis_deadzone) {
+			if (abs(gamepad_axis_value(i, axs)) >= global.axis_deadzone) {
 				global.controllerport = i;
 				i = gamepad_get_device_count();
 				global.usecontroller = true;

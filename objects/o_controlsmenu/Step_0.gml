@@ -23,6 +23,13 @@ if (global.controlsactive) {
 			v_controlsmenu_committed = global.novalue;
 			v_controlsmenu_cursor = 8;
 		}
+		if (scr_input_ui_check(enum_input.left) || scr_input_ui_check(enum_input.right)) {
+			if (v_controlsmenu_cursor == 8) {
+				scr_playsfx(snd_select);
+				v_controlsmenu_committed = v_controlsmenu_cursor;
+				v_controlsmenu_control = false;
+			}
+		}
 	}
 	if (v_controlsmenu_committed != global.novalue) {
 		switch (v_controlsmenu_committed) {

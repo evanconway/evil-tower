@@ -22,7 +22,7 @@
         "6d888d51-231d-4d82-933d-33fcb17ef67d"
     ],
     "filterType": "GMObject",
-    "folderName": "states",
+    "folderName": "States",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

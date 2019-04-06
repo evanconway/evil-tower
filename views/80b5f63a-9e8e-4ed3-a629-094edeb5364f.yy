@@ -12,10 +12,11 @@
         "5478d556-50b7-41d6-8ed6-45525aa11971",
         "b6711525-3bc0-411a-bbf9-f74e1bb89f20",
         "44120f4a-2378-4a60-a4f1-1f58eaf9e00a",
-        "3ebfdf07-8070-4c50-b060-f1fa817e98a5"
+        "3ebfdf07-8070-4c50-b060-f1fa817e98a5",
+        "78f71b0f-9ca9-49d4-abbc-e450b7b3c8b0"
     ],
     "filterType": "GMScript",
-    "folderName": "actors",
+    "folderName": "Actors",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

@@ -10,7 +10,7 @@
         "e21193e8-724a-4a58-b3da-2f2c22f35feb"
     ],
     "filterType": "GMObject",
-    "folderName": "actors",
+    "folderName": "Actors",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

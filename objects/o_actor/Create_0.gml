@@ -53,6 +53,8 @@ states will not connect to it. Hitboxes from other actors will set an actor to
 this state. 
 */
 v_act_state_hurt = undefined;
+v_act_hurt_fx = undefined;
+v_act_hurt_fx_yoffset = 0;
 
 /*
 Some actors will need special things to happen when they die, like the player 

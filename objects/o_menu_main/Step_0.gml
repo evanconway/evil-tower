@@ -4,7 +4,7 @@
 //v_menu_y += (v_menu_y_target - v_menu_y) / v_menu_speed;
 v_menu_y = v_menu_gui_height - v_menu_gui_margin;
 
-if (global.v_menu_control && global.transition_state == enum_transition_state.off) {
+if (global.v_menu_control && !instance_exists(o_transition)) {
 	if (scr_input_ui_check(enum_input.up)) {
 		scr_playsfx(snd_UI1);
 		v_menu_cursor++;
@@ -39,7 +39,8 @@ if (v_menu_committed != global.novalue) {
 		global.v_menu_control = true;
 		break;
 		case 3://new game
-		scr_transition(enum_transition_state.goto, Intro2);
+		//scr_transition(Intro2);
+		scr_transition_fade(global.firstroom);
 		break;
 		case 4:
 		if (!global.optionsactive)  {

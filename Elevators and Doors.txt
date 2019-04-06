@@ -1,0 +1,13 @@
+Time to collect our thoughts on elevators and doors. The larger idea here is stuff that needs to stay active between rooms. The door, for example, executes a simple sequence when the player uses it (set player to back facing sprite, freeze enemies, and fade to black), then an equally simple sequence when exiting in the new room (set player to front facing sprite, fade from black, and unfreeze enemies once fade is over). We can't rely on setting a player state to handle this stuff because the player object is deleted and a new one made when we enter the new room. The door also can't hold this data since, like the player, it is deleted when we go to the new room. Data for the exit door, like its location, can't be referenced until the next room has loaded. So we need a persistent object to handle room to room transitions. 
+
+Could we have a scene object that's global??? We could have a global object that only exists for the duration of the sequence. Perhaps we could have two kinds of elevator/door objects. Enter and exit. All the enter object would do is check to see if the player has interacted with it. If they have, the elevator creates a global scene object with the data for both the enter and exit elevator. We'll code this object so that it doesn't reference the enter/exit elevator when we're not in the correct room. Once the global scene is created, it'll do everything it needs to, tell the player where to go, what sprite it should have, how the elevators should move, and then delete itself once it's finished. 
+
+That's not a bad strategy. I'm worried that what step all of the gets execute will matter. My instincts tell me the scene object should perform its logic during the begin step as I don't think we've used that for anything yet. Let's go through and check.
+objects using the begin step:
+
+o_controller: determines whether we're using keyboard or controller
+o_actor: deletes hitboxes from list of hitboxes
+
+Luckily, I think we can ignore those as I don't see how that would interfere with scenes. 
+
+So, we can make a persistent object that blackens the screen, changes rooms, freezes actors, and all that good stuff. The object will have to be put in the top layer, and it will need to execute its code during the begin step.

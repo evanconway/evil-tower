@@ -17,6 +17,8 @@ v_act_state_hurt.v_state_hurt_health = 9999;
 v_act_state_hurt.v_state_count_max = 20;
 v_act_state_hurt.v_state_hurt_knock_y = -3;
 v_act_state_hurt.v_state_hurt_vel_y_max = 3;
+v_act_hurt_fx = o_fx_smack;
+v_act_hurt_fx_yoffset = -12;
 
 v_plr_state_gnd_idle = instance_create_layer(x, y, "Player", o_state_gnd_idle);
 v_plr_state_gnd_idle.v_state_sprite = s_plr_gnd_idle_sword;

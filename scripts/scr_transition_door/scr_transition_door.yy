@@ -1,8 +1,8 @@
 {
-    "id": "d346951b-7c44-4aeb-93c1-8c9cbb4595c6",
+    "id": "2b7d5b02-4028-4484-99eb-7f8b448501e3",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scr_transition",
+    "name": "scr_transition_door",
     "IsCompatibility": false,
     "IsDnD": false
 }

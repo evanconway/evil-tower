@@ -1,13 +1,17 @@
 Nothing is this list is true forever. This is just where we are right now.
 
-TO DO:
-Rework states/actions: Make actor states objects that can be added to new actors (in progress, huge task)
-Update Doors to use new o_state
+TO DO: 
+Create Elevator as a spawn object using our plan for spawn/save point objects.
 Update Elevators to use new o_state or o_scene? Need to figure out which makes more sense.
+Rework states/actions: Make actor states objects that can be added to new actors (in progress, huge task)
 Air attacks
 Blocking (shield)
 
 DONE:
+Update Doors to use new o_state
+(will make as needed) create a variety of scene objects that allow us to transition between rooms however we want.
+create a test transition object that when called from the initializer, fades screen to blue, changes rooms, then fades from red
+make all actor sprite origins bottom center ( I think we'll leave effects as center center)
 Re-implement hit/hurt boxes using new o_state system. (still needs tweaking, but it's done for now)
 re-make some simple enemies to prepare for testing hit/hurt boxes
 move variables from o_global to new more specific objects if possible

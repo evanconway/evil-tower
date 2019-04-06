@@ -29,7 +29,7 @@ if (global.pauseactive) {
 	draw_rectangle(v_pausemenu_rectx + borderx, v_pausemenu_recty + bordery, x2 - borderx, y2 - bordery, false);
 
 	//menu text
-	draw_set_font(f_menu);
+	draw_set_font(v_pausemenu_font);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_bottom);
 	if (v_pausemenu_control) {

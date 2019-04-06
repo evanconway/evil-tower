@@ -8,9 +8,8 @@ if (global.debug_keys_active) {
 	var txtheight = string_height("A");
 	draw_set_halign(fa_right);
 	draw_set_valign(fa_top);
-	draw_text(global.resolution_width, txtheight * line++, "c_view_w: " + string(camera_get_view_width(v_camera)));
-	draw_text(global.resolution_width, txtheight * line++, "c_view_h: " + string(camera_get_view_height(v_camera)));
-	draw_text(global.resolution_width, txtheight * line++, "camera: " + string(v_camera));
-	draw_text(global.resolution_width, txtheight * line++, "view_w: " + string(view_get_wport(v_camera)));
-	draw_text(global.resolution_width, txtheight * line++, "view_h: " + string(view_get_hport(v_camera)));
+	draw_text(global.resolution_width, txtheight * line++, "camera_w: " + string(camera_get_view_width(v_camera)));
+	draw_text(global.resolution_width, txtheight * line++, "camera_h: " + string(camera_get_view_height(v_camera)));
+	draw_text(global.resolution_width, txtheight * line++, "res_w: " + string(global.resolution_width));
+	draw_text(global.resolution_width, txtheight * line++, "res_h: " + string(global.resolution_height));
 }

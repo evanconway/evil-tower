@@ -9,7 +9,7 @@
         "78913648-0a44-4234-bbd0-6e69bb22396c"
     ],
     "filterType": "GMObject",
-    "folderName": "hitboxes",
+    "folderName": "Hitboxes",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

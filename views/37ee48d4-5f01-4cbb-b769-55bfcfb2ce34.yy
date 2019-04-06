@@ -11,7 +11,7 @@
         "00843eb9-1d94-430d-bbd2-834a0e0cadc2"
     ],
     "filterType": "GMScript",
-    "folderName": "scenes",
+    "folderName": "Scenes",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
