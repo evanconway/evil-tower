@@ -4,7 +4,6 @@
 v_act_health = 3;
 v_act_state_beforehit = 0;
 v_act_stuntime = 0;
-v_act_states = ds_list_create(); // amazingly, we don't need a list of states?
 
 //movement
 v_act_vel_x_max = 1;
@@ -35,7 +34,7 @@ kind of state dependent. We may remove most of these in favor of storing them
 in the state objects. So if you want to know the walking speed of an actor, you
 look at their walking state, not the actor.
 */
-v_act_aiscript = undefined;
+v_act_ai = undefined;
 v_act_controller = instance_create_layer(x, y, "Enemies", o_actor_controller);
 v_act_state_cur= undefined; // assign after all states are made
 v_act_state_default = undefined;
@@ -80,3 +79,6 @@ v_act_ymovedist = 0;
 v_act_faceright = true;
 v_act_faceright_prev = v_act_faceright;
 v_act_hitboxes_struck = ds_list_create();
+
+// if an actor is in the enemies_slain list, get rid of it
+if (ds_list_find_index(global.enemies_slain, id) >= 0) instance_destroy(id);

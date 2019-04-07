@@ -1,15 +1,13 @@
 /// @description Setup 
 
+global.player = o_player;
+
 global.novalue = undefined;
 
-global.firstroom = test_actorrework;
+global.firstroom = room_zombie;
 
 global.currentroom = room;
 global.prevroom = global.novalue;
-
-global.spawn_script = undefined;
-global.spawn_room = undefined;
-global.spawn_obj = undefined;
 
 global.actors_visible = true;
 global.static_visible = true;
@@ -17,6 +15,13 @@ global.static_visible = true;
 global.bboxs_visible = false;
 global.draw_hud = true;
 global.debug_keys_active = true;
+
+global.enemies_slain = ds_list_create();
+
+// spawn
+global.spawn_transitionscript = undefined;
+global.spawn_room = undefined;
+global.spawn_obj = undefined;
 
 //player
 global.player_health_max = 3;

@@ -10,7 +10,7 @@ if (!global.freezeactors) {
 	event_inherited();
 
 	if (place_meeting(x, y, o_wall)) || 
-	(place_meeting(x, y, o_player)) || 
+	(place_meeting(x, y, global.player)) || 
 	(place_meeting(x, y, o_hitbox_plr)) {
 		instance_destroy(id);
 		instance_create_layer(x, y, "Projectiles", o_slug_barf_hit);

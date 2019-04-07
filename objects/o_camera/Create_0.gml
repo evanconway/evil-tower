@@ -23,7 +23,7 @@ v_camera_height = 0;
 //v_camera_view_height_half = 0;
 v_camera_to_x = xstart;
 v_camera_to_y = ystart;
-v_camera_follow = o_player;
+v_camera_follow = global.player;
 
 enum enum_camera {
 	smooth,

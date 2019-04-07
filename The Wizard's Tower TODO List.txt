@@ -1,11 +1,17 @@
 Nothing is this list is true forever. This is just where we are right now.
 
 TO DO: 
-Create Elevator as a spawn object using our plan for spawn/save point objects.
+Make first AI code script (could be a huge project.....)
+Remake Current Enemies
+make another spawn object, campfire??
 Air attacks
 Blocking (shield)
+add test boss with intro sequence
+replace references to o_player with global.player
 
 DONE:
+re-add crouch attack (took like an hour, state system seems solid)
+Create Elevator as a spawn object using our plan for spawn/save point objects.
 Update Elevators to use new o_state or o_scene? Need to figure out which makes more sense.
 Rework states/actions: Make actor states objects that can be added to new actors (in progress, huge task)
 Update Doors to use new o_state

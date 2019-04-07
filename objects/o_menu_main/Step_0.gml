@@ -39,8 +39,7 @@ if (v_menu_committed != global.novalue) {
 		global.v_menu_control = true;
 		break;
 		case 3://new game
-		//scr_transition(Intro2);
-		scr_transition_fade(global.firstroom);
+		scr_transition_fade(Intro2);
 		break;
 		case 4:
 		if (!global.optionsactive)  {

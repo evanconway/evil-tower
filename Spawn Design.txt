@@ -33,4 +33,5 @@ Bam!
 
 We learned something while coding, you have to store the room of the spawn in a global variable as well. It's not possible to tell the game to room_goto(spawn.v_room) because we aren't in the room with the spawn object yet, so we can't reference it. A global_spawn_room is needed as well.
 
-Note for the morning, we are working on why the elevator isn't being set lower in the o_transition_elevator. It looks like the change the elevator y position doesn't stick.
+And, actually, since we can't reference that second object, we can't store the script there either! So if we want the ability to just tell the game "go back to spawn", we need to store the script, the room, and the spawn object globally.
+

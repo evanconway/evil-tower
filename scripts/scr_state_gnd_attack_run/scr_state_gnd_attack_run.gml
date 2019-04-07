@@ -14,8 +14,7 @@ switch (state.v_state_attack_stage) {
 	if (state.v_state_count <= 0) {	
 		var hitbox = instance_create_layer(ID.x, ID.y, "Hitboxes", state.v_state_attack_hitbox); 
 		hitbox.v_hitbox_hitter = ID;
-		hitbox.v_hitbox_target = state.v_state_attack_target;
-		hitbox.v_hitbox_time = state.v_state_attack_recovery + 2; // +1 because state doesn't count down till next frame
+		hitbox.v_hitbox_time = state.v_state_attack_recovery + 2; // Need to learn why 2 works
 		if (ID.v_act_faceright) hitbox.x += state.v_state_attack_offset_x;
 		else hitbox.x -= state.v_state_attack_offset_x;
 		hitbox.y += state.v_state_attack_offset_y;

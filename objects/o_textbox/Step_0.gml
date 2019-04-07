@@ -16,7 +16,7 @@ if (v_textbox_recalculate) {
 switch (v_textbox_state) {
 	case enum_textbox_state.off:
 		//for triggering textbox if it can collide with player
-		if (v_textbox_collideswithplayer && place_meeting(x, y, o_player)) {
+		if (v_textbox_collideswithplayer && place_meeting(x, y, global.player)) {
 			v_textbox_triggered = true;
 		}
 	
@@ -47,7 +47,7 @@ switch (v_textbox_state) {
 		}
 	break;
 	case enum_textbox_state.active:
-		if (v_textbox_collideswithplayer && !place_meeting(x, y, o_player)) {
+		if (v_textbox_collideswithplayer && !place_meeting(x, y, global.player)) {
 			v_textbox_close = true;
 		}
 		

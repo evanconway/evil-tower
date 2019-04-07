@@ -11,11 +11,13 @@ object for more details.
 if (!global.freezeactors) {
 	
 	// inputlock essentially ingores AI decisions. 
+	if (v_act_inputlocktime > 0) v_act_inputlocktime--;
+	/*
 	if (v_act_inputlocktime <= 0) {
 		// the ai script determines the inputs for act_controller
 		if (v_act_aiscript != undefined) script_execute(v_act_aiscript, id);
 	} else v_act_inputlocktime--;
-
+	*/
 	if (v_act_state_cur != undefined) {
 		
 		// it looks like freezetime only gets used for hitting stuff, oh well

@@ -69,6 +69,7 @@ if (hitID.v_act_state_hurt != undefined) {
 				}
 			}
 		} else {
+			ds_list_add(global.enemies_slain, hitID);
 			if (hitID.v_act_dead_scene == undefined) {
 				// We're assuming the scene will take control if it's defined
 				if (hitID.v_act_dead_fx != undefined) instance_create_layer(hitID.x, hitID.y, "Hitboxes", hitID.v_act_dead_fx);

@@ -23,9 +23,9 @@ switch (v_transition_stage) {
 		scr_set_camera_pos(v_transition_elevator.x, v_transition_elevator.y - o_camera.v_camera_boundary_y);
 		o_camera.v_camera_follow = undefined;
 		v_transition_elevator.y += v_transition_elevator.v_elevator_start_y;
-		v_transition_plrdepth = o_player.depth;
-		o_player.depth = v_transition_elevator.depth + 1;
-		o_player.sprite_index = v_transition_sprite2;
+		v_transition_plrdepth = global.player.depth;
+		global.player.depth = v_transition_elevator.depth + 1;
+		global.player.sprite_index = v_transition_sprite2;
 		scr_playsfx(snd_elevator_mv, true);
 	}
 	break;
@@ -43,12 +43,19 @@ switch (v_transition_stage) {
 	// move elevator
 	if (v_transition_elevator.y != v_transition_elevator.v_elevator_target_y) {
 		v_transition_elevator.y -= v_transition_elevator.v_elevator_speed;
+		if (v_transition_elevator.y <= v_transition_elevator.v_elevator_target_y + v_transition_elevator.v_elevator_slow_y
+			&& v_transition_elevator.v_elevator_speed == v_transition_elevator.v_elevator_speed_init) {
+			audio_sound_gain(snd_elevator_mv, 0, 3000);
+		}
+		if (v_transition_elevator.y <= v_transition_elevator.v_elevator_target_y + v_transition_elevator.v_elevator_slow_y) {
+			v_transition_elevator.v_elevator_speed *= v_transition_elevator.v_elevator_slow_rate;
+		}
 		if (v_transition_elevator.y <= v_transition_elevator.v_elevator_target_y) {
 			v_transition_elevator.y = v_transition_elevator.v_elevator_target_y;
 			audio_stop_sound(snd_elevator_mv);
 			scr_playsfx(snd_elevator_stp);
 		}
-		scr_act_setpos(o_player, floor(v_transition_elevator.x), floor(v_transition_elevator.y));
+		scr_act_setpos(global.player, floor(v_transition_elevator.x), floor(v_transition_elevator.y));
 	}
 	if (v_transition_elevator.y == v_transition_elevator.v_elevator_target_y && v_transition_alpha == 0) {
 		v_transition_stage++;
@@ -66,9 +73,9 @@ switch (v_transition_stage) {
 	case 3:
 	if (v_transition_elevator.image_index <= 0) {
 		v_transition_elevator.image_speed = 0;
-		o_player.depth = v_transition_plrdepth;
+		global.player.depth = v_transition_plrdepth;
 		global.freezeactors = false;
-		o_camera.v_camera_follow = o_player;
+		o_camera.v_camera_follow = global.player;
 		instance_destroy(id);
 	}
 	break;

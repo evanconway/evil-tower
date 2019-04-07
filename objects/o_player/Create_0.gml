@@ -1,6 +1,7 @@
 event_inherited();
 
-v_act_aiscript = scr_actor_getuserinput;
+v_act_ai = instance_create_layer(x, y, "Player", o_ai_user);
+v_act_ai.v_ai_actor = id;
 
 v_plr_data = false;
 
@@ -50,6 +51,12 @@ v_plr_state_airdntorun.v_state_script_change = scr_state_plr_airdntorun_change;
 v_plr_state_gnd_crouch = instance_create_layer(x, y, "Player", o_state_gnd_crouch);
 v_plr_state_gnd_crouch.v_state_sprite = s_plr_gnd_crouch_sword;
 v_plr_state_gnd_crouch.v_state_sprite_left = s_plr_gnd_crouch_sword_left;
+#region attack_crouch to crouch
+v_plr_state_attackctocrouch = instance_create_layer(x, y, "Player", o_state_gnd_crouch);
+v_plr_state_attackctocrouch.v_state_sprite = s_plr_gnd_crouch_sword;
+v_plr_state_attackctocrouch.v_state_sprite_left = s_plr_gnd_crouch_sword_left;
+v_plr_state_attackctocrouch.v_state_script_connect = scr_state_gnd_attackctocrouch_connect;
+#endregion
 
 v_plr_state_air_up = instance_create_layer(x, y, "Player", o_state_air_up);
 v_plr_state_air_up.v_state_sprite = s_plr_air_up_sword;
@@ -106,10 +113,17 @@ v_plr_state_gnd_attack = instance_create_layer(x, y, "Player", o_state_attack);
 v_plr_state_gnd_attack.v_state_sprite = s_plr_gnd_attack_sword;
 v_plr_state_gnd_attack.v_state_sprite_left = s_plr_gnd_attack_sword_left;
 v_plr_state_gnd_attack.v_state_attack_startup = 13;
-v_plr_state_gnd_attack.v_state_attack_recovery = 12;
-v_plr_state_gnd_attack.v_state_attack_target = o_emy;
+v_plr_state_gnd_attack.v_state_attack_recovery = 9;
 v_plr_state_gnd_attack.v_state_attack_hitbox = o_hitbox_plr_sword;
 
+v_plr_state_gnd_attack_crouch = instance_create_layer(x, y, "Player", o_state_attack);
+v_plr_state_gnd_attack_crouch.v_state_sprite = s_plr_gnd_attack_crouch;
+v_plr_state_gnd_attack_crouch.v_state_sprite_left = s_plr_gnd_attack_crouch_left;
+v_plr_state_gnd_attack_crouch.v_state_attack_startup = v_plr_state_gnd_attack.v_state_attack_startup;
+v_plr_state_gnd_attack_crouch.v_state_attack_recovery = v_plr_state_gnd_attack.v_state_attack_recovery;
+v_plr_state_gnd_attack_crouch.v_state_attack_hitbox = o_hitbox_plr_sword_crouch;
+v_plr_state_gnd_attack_crouch.v_state_attack_offset_x = 15;
+v_plr_state_gnd_attack_crouch.v_state_attack_offset_y = -3;
 
 // state connections
 // idle
@@ -133,6 +147,8 @@ scr_state_setconnects(v_plr_state_airdntorun, v_plr_state_gnd_run); // this has 
 // crouch
 scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_idle);
 scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_run);
+scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_attack_crouch);
+scr_state_setconnects(v_plr_state_attackctocrouch, v_plr_state_gnd_crouch);
 
 // air_up
 scr_state_addconnect(v_plr_state_air_up, v_plr_state_air_dn);
@@ -178,6 +194,11 @@ scr_state_addconnect(v_plr_state_ladder_fall, v_plr_state_ladder_idle);
 // gnd_attack
 scr_state_addconnect(v_plr_state_gnd_attack, v_plr_state_gnd_idle);
 scr_state_addconnect(v_plr_state_gnd_attack, v_plr_state_gnd_run);
+
+// gnd_attack_crouch
+scr_state_addconnect(v_plr_state_gnd_attack_crouch, v_plr_state_attackctocrouch);
+scr_state_addconnect(v_plr_state_gnd_attack_crouch, v_plr_state_gnd_idle);
+scr_state_addconnect(v_plr_state_gnd_attack_crouch, v_plr_state_gnd_run);
 
 // hurt state
 scr_state_addconnect(v_act_state_hurt, v_plr_state_hurttoairup);
