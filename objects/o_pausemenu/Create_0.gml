@@ -32,7 +32,8 @@ these menus are open. This variable gives us a way to take control away from the
 pause menu.
 */
 v_pausemenu_control = true;
-v_pausemenu_committed = global.novalue;
+v_pausemenu_committed = undefined;
+v_pausemenu_commit_snd = undefined;
 
 v_pausemenu_alpha = 0.7;
 v_pausemenu_rectwidth_max = 110;

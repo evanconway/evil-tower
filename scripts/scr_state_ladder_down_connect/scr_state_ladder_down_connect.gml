@@ -4,7 +4,7 @@
 
 var ID = argument[0];
 var state = ID.v_act_state_cur;
-var actcon = ID.v_act_controller;
+var actcon = ID.v_act_actcon;
 var result = false;
 
 

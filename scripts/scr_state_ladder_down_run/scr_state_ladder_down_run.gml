@@ -16,7 +16,7 @@ if (state.v_state_ladder_down_stepdown && instance_place(ID.x, scr_act_potypos(I
 	ID.v_act_vel_x = ladder_x - ID.x;
 }
 
-var actcon = ID.v_act_controller;
+var actcon = ID.v_act_actcon;
 var botbboxoffset = ID.bbox_bottom - ID.y;
 var vel_y = 0;
 if (state.v_state_ladder_down_stepdown) {

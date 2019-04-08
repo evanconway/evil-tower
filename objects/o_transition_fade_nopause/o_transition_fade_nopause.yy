@@ -1,24 +1,15 @@
 {
-    "id": "85d76a69-b3a6-42c9-97b7-53437c217483",
+    "id": "83aaed3b-32d9-487b-97e6-1c8828135b98",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_state_attack_crouch",
+    "name": "o_transition_fade_nopause",
     "eventList": [
-        {
-            "id": "bac3fbbb-6da5-40b7-89e9-b5a5611e9492",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "85d76a69-b3a6-42c9-97b7-53437c217483"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "6d888d51-231d-4d82-933d-33fcb17ef67d",
-    "persistent": false,
+    "parentObjectId": "5e0183fa-2a77-4b15-866a-8534ab2025fd",
+    "persistent": true,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
     "physicsFriction": 0.2,

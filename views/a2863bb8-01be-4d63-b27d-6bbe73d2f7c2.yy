@@ -6,7 +6,8 @@
     "children": [
         "8a854d0f-2153-4a08-8465-06aec9a6e77b",
         "f41582f8-ba62-44ce-b7f5-6390e7d6590a",
-        "78913648-0a44-4234-bbd0-6e69bb22396c"
+        "78913648-0a44-4234-bbd0-6e69bb22396c",
+        "712d5c29-5b38-4dff-87eb-aafc5a70320d"
     ],
     "filterType": "GMObject",
     "folderName": "Hitboxes",

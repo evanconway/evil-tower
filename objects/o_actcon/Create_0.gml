@@ -1,4 +1,5 @@
 /// @description Inputs for Actors
+// actcon is short for actor controller
 
 // is down
 v_actcon_up = false;

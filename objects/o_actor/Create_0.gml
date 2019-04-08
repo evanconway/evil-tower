@@ -35,7 +35,7 @@ in the state objects. So if you want to know the walking speed of an actor, you
 look at their walking state, not the actor.
 */
 v_act_ai = undefined;
-v_act_controller = instance_create_layer(x, y, "Enemies", o_actor_controller);
+v_act_actcon = instance_create_layer(x, y, "Enemies", o_actcon);
 v_act_state_cur= undefined; // assign after all states are made
 v_act_state_default = undefined;
 v_act_sprite_change = false; // set to true on frame sprite_index changes
@@ -81,4 +81,6 @@ v_act_faceright_prev = v_act_faceright;
 v_act_hitboxes_struck = ds_list_create();
 
 // if an actor is in the enemies_slain list, get rid of it
-if (ds_list_find_index(global.enemies_slain, id) >= 0) instance_destroy(id);
+if (ds_list_find_index(global.enemies_slain, id) >= 0) {
+	instance_destroy(id);
+}

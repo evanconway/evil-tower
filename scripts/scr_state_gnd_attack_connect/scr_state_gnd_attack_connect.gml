@@ -3,7 +3,7 @@
 /// @param o_actor
 
 var ID = argument[0];
-var actcon = ID.v_act_controller;
+var actcon = ID.v_act_actcon;
 
 var result = false
 

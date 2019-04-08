@@ -1,6 +1,6 @@
 event_inherited();
 if (v_ai_end) exit;
-var act_controller = v_ai_actor.v_act_controller;
+var act_controller = v_ai_actor.v_act_actcon;
 
 act_controller.v_actcon_up = scr_input_check(false, enum_input.up);
 act_controller.v_actcon_down = scr_input_check(false, enum_input.down);

@@ -14,7 +14,7 @@ if (vel_y < state.v_state_air_vely_max) {
 }
 
 // fast fall for y vel
-if (state.v_state_air_dn_canfastfall && ID.v_act_controller.v_actcon_pressed_down) {
+if (state.v_state_air_dn_canfastfall && ID.v_act_actcon.v_actcon_pressed_down) {
 	vel_y = state.v_state_air_vely_max;
 }
 
@@ -23,19 +23,19 @@ state.v_state_air_vely = vel_y;
 ID.v_act_vel_y = vel_y;
 
 // determine x velocity
-if (ID.v_act_controller.v_actcon_right && !ID.v_act_controller.v_actcon_left) {
+if (ID.v_act_actcon.v_actcon_right && !ID.v_act_actcon.v_actcon_left) {
 	vel_x += state.v_state_air_accx;
 	if (vel_x > state.v_state_air_velx_max) vel_x = state.v_state_air_velx_max;
 	if (vel_x < 0) ID.v_act_faceright = false;
 	else ID.v_act_faceright = true;
 }
-if (!ID.v_act_controller.v_actcon_right && ID.v_act_controller.v_actcon_left) {
+if (!ID.v_act_actcon.v_actcon_right && ID.v_act_actcon.v_actcon_left) {
 	vel_x -= state.v_state_air_accx;
 	if (vel_x < state.v_state_air_velx_max * -1) vel_x = state.v_state_air_velx_max * -1;
 	if (vel_x > 0) ID.v_act_faceright = true;
 	else ID.v_act_faceright = false;
 }
-if (!ID.v_act_controller.v_actcon_right && !ID.v_act_controller.v_actcon_left) {
+if (!ID.v_act_actcon.v_actcon_right && !ID.v_act_actcon.v_actcon_left) {
 	if (vel_x > 0) {
 		vel_x -= state.v_state_air_accx;
 		if (vel_x < 0) vel_x = 0;

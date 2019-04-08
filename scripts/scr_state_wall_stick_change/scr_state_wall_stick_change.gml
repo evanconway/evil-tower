@@ -20,7 +20,7 @@ state.v_state_wall_stick_sign = -1;
 ID.v_act_faceright = true;
 state.v_state_wall_stick_Rwall = false;
 state.v_state_wall_stick_Lwall = true;
-if (ID.v_act_controller.v_actcon_right) {
+if (ID.v_act_actcon.v_actcon_right) {
 	state.v_state_wall_stick_sign = 1;
 	ID.v_act_faceright = false;
 	state.v_state_wall_stick_Rwall = true;

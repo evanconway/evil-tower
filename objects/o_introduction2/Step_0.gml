@@ -36,7 +36,6 @@ switch (v_intro_state) {
 			v_intro_alpha = 0;
 		} else {
 			scr_transition_spawn();
-			//scr_transition_fade(global.firstroom);
 		}
 	}
 	break;

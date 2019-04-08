@@ -4,7 +4,7 @@
 
 var result = false;
 
-var actcontroller = argument[0].v_act_controller;
+var actcontroller = argument[0].v_act_actcon;
 
 if (argument[0].v_act_vel_x == 0
 && argument[0].v_act_vel_y >= 0

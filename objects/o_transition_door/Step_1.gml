@@ -1,4 +1,5 @@
-/// @description 
+event_inherited();
+if (v_transition_pause) exit;
 
 global.freezeactors = true;
 

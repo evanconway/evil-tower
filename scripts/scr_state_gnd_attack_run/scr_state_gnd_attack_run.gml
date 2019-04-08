@@ -16,7 +16,10 @@ switch (state.v_state_attack_stage) {
 		hitbox.v_hitbox_hitter = ID;
 		hitbox.v_hitbox_time = state.v_state_attack_recovery + 2; // Need to learn why 2 works
 		if (ID.v_act_faceright) hitbox.x += state.v_state_attack_offset_x;
-		else hitbox.x -= state.v_state_attack_offset_x;
+		else {
+			hitbox.x -= state.v_state_attack_offset_x;
+			hitbox.v_hitbox_vel_x *= -1;
+		}
 		hitbox.y += state.v_state_attack_offset_y;
 		ID.image_index = 1;
 		state.v_state_attack_stage = enum_attack_stage.recovery;

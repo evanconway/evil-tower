@@ -4,7 +4,7 @@
 
 var result = false;
 var ID = argument[0];
-var act_controller = ID.v_act_controller;
+var act_controller = ID.v_act_actcon;
 
 if ((act_controller.v_actcon_left && !act_controller.v_actcon_right)
 || (act_controller.v_actcon_right && !act_controller.v_actcon_left)) result = true;

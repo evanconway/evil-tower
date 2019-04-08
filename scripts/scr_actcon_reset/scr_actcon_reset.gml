@@ -1,9 +1,7 @@
-/// @description scr_actor_resetcontroller(o_actor)
+/// @description scr_actor_resetcontroller(o_actcon)
+/// @param actcon_id
 
-/// @param actor_id
-
-var ID = argument[0];
-var actcon = ID.v_act_controller;
+var actcon = argument[0];
 
 actcon.v_actcon_up = false;
 actcon.v_actcon_down = false;

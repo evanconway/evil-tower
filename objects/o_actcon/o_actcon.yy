@@ -2,7 +2,7 @@
     "id": "9ce4be8d-e4c6-4862-964a-608208f928c3",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_actor_controller",
+    "name": "o_actcon",
     "eventList": [
         {
             "id": "f605aad4-df47-4e21-bc41-131b886b56b0",

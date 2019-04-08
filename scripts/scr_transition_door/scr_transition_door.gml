@@ -10,7 +10,7 @@ that don't exist in the room.
 var door1 = argument[0];
 
 if (!instance_exists(o_transition)) {
-	with (instance_create_depth(x, y, 90, o_transition_door))
+	with (instance_create_depth(x, y, global.transition_layer, o_transition_door))
 	{
 		v_transition_targetroom = door1.v_door_target_room;
 		v_transition_door1 = door1;

@@ -4,7 +4,7 @@
 
 var ID = argument[0];
 var state = ID.v_act_state_cur;
-var act_controller = ID.v_act_controller;
+var act_controller = ID.v_act_actcon;
 
 // Note that it's a good idea to set a velocity to 0 for a state if you know it won't change in that state
 ID.v_act_vel_y = 0;

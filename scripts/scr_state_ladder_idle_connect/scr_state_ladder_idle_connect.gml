@@ -2,7 +2,7 @@
 /// @param actor_id
 
 var ID = argument[0];
-var actcon = ID.v_act_controller;
+var actcon = ID.v_act_actcon;
 var result = false;
 
 if (place_meeting(x, y, o_ladder)) result = true;

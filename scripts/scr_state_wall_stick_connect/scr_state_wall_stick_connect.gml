@@ -11,7 +11,7 @@ air.
 
 var result = false;
 var ID = argument[0];
-var actcon = ID.v_act_controller;
+var actcon = ID.v_act_actcon;
 var state = argument[1];
 var dist = state.v_state_wall_stick_dist;
 var dsign = 0;

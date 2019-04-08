@@ -10,14 +10,16 @@ object for more details.
 
 if (!global.freezeactors) {
 	
+	/*
+	An actors input is determined by its ai object. Look at the object 
+	assigned to v_act_ai to determine what inputs an actor is choosing.
+	The step event and state code for actors only respond to the actcon
+	settings determined by the v_act_ai object.
+	*/
+	
 	// inputlock essentially ingores AI decisions. 
 	if (v_act_inputlocktime > 0) v_act_inputlocktime--;
-	/*
-	if (v_act_inputlocktime <= 0) {
-		// the ai script determines the inputs for act_controller
-		if (v_act_aiscript != undefined) script_execute(v_act_aiscript, id);
-	} else v_act_inputlocktime--;
-	*/
+
 	if (v_act_state_cur != undefined) {
 		
 		// it looks like freezetime only gets used for hitting stuff, oh well
@@ -75,5 +77,10 @@ if (!global.freezeactors) {
 	} else if (v_act_state_default != undefined) {
 		v_act_state_cur = v_act_state_default;
 		script_execute(v_act_state_cur.v_state_script_change, id);
+	}
+	
+	// destroy out of room boundaries
+	if (x < 0 || y < 0 || x > room_width || y > room_height) {
+		scr_act_kill(id);
 	}
 } else image_speed = 0;

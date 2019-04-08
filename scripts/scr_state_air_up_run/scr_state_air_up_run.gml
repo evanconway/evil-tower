@@ -25,19 +25,19 @@ ID.v_act_vel_y = scr_obj_approachdist_y_at_x_against_obj(ID, ID.v_act_vel_y, ID.
 state.v_state_air_vely = vel_y;
 
 // determine x velocity
-if (ID.v_act_controller.v_actcon_right && !ID.v_act_controller.v_actcon_left) {
+if (ID.v_act_actcon.v_actcon_right && !ID.v_act_actcon.v_actcon_left) {
 	vel_x += state.v_state_air_accx;
 	if (vel_x > state.v_state_air_velx_max) vel_x = state.v_state_air_velx_max;
 	if (vel_x < 0) ID.v_act_faceright = false;
 	else ID.v_act_faceright = true;
 }
-if (!ID.v_act_controller.v_actcon_right && ID.v_act_controller.v_actcon_left) {
+if (!ID.v_act_actcon.v_actcon_right && ID.v_act_actcon.v_actcon_left) {
 	vel_x -= state.v_state_air_accx;
 	if (vel_x < state.v_state_air_velx_max * -1) vel_x = state.v_state_air_velx_max * -1;
 	if (vel_x > 0) ID.v_act_faceright = true;
 	else ID.v_act_faceright = false;
 }
-if (!ID.v_act_controller.v_actcon_right && !ID.v_act_controller.v_actcon_left) {
+if (!ID.v_act_actcon.v_actcon_right && !ID.v_act_actcon.v_actcon_left) {
 	if (vel_x > 0) {
 		vel_x -= state.v_state_air_accx;
 		if (vel_x < 0) vel_x = 0;

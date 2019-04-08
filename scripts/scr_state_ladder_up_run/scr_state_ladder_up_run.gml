@@ -11,7 +11,7 @@ if (instance_place(ID.x, ID.y, o_ladder)) {
 }
 
 var state = ID.v_act_state_cur;
-var actcon = ID.v_act_controller;
+var actcon = ID.v_act_actcon;
 var topbboxoffset = ID.bbox_top - ID.y;
 var vel_y = 0;
 if (actcon.v_actcon_up && !actcon.v_actcon_down && place_meeting(ID.x, ID.y, o_ladder)) {

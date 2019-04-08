@@ -36,7 +36,9 @@ if (hitID.v_act_state_hurt != undefined) {
 		hurt.v_state_hurt_health -= damage;
 		
 		if (hurt.v_state_hurt_health > 0) {
-			if (ID.v_hitbox_hitter != undefined && ID.v_hitbox_freezehitter) ID.v_hitbox_hitter.v_act_freezetime = stuntime;
+			if (ID.v_hitbox_hitter != undefined && 
+				instance_exists(ID.v_hitbox_hitter) &&
+				ID.v_hitbox_freezehitter) ID.v_hitbox_hitter.v_act_freezetime = stuntime;
 		
 			scr_state_changesprite(hitID);
 			if (ID.v_hitbox_snd_miss != undefined) audio_stop_sound(ID.v_hitbox_snd_miss);
@@ -72,10 +74,9 @@ if (hitID.v_act_state_hurt != undefined) {
 			ds_list_add(global.enemies_slain, hitID);
 			if (hitID.v_act_dead_scene == undefined) {
 				// We're assuming the scene will take control if it's defined
-				if (hitID.v_act_dead_fx != undefined) instance_create_layer(hitID.x, hitID.y, "Hitboxes", hitID.v_act_dead_fx);
-				if (hitID.v_act_hitbox != undefined) instance_destroy(hitID.v_act_hitbox);
-				instance_destroy(hitID);
+				scr_act_kill(hitID);
 			}
 		}
+		if (ID.v_hitbox_destroyonhit) instance_destroy(ID);
 	} else if (ID.v_hitbox_firstcheck) scr_playsfx(ID.v_hitbox_snd_miss);
 }

@@ -1,4 +1,5 @@
 event_inherited();
+if (!instance_exists(id)) exit;
 
 // hurt state
 v_act_state_hurt = instance_create_layer(x, y, "Enemies", o_state_hurt);
