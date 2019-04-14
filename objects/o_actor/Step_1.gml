@@ -12,4 +12,4 @@ if (v_act_state_cur == v_act_state_hurt) {
 			ds_list_delete(v_act_hitboxes_struck, i);
 		}
 	}
-} else ds_list_clear(v_act_hitboxes_struck)
+} else ds_list_clear(v_act_hitboxes_struck);

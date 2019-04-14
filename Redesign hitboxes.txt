@@ -1,0 +1,10 @@
+ACtors may have an attack state, but I think it's going to make more sense in the long run for hitboxes to do the heavy lifting of "hurting" actors. All actors will do is create hitboxes. 
+
+Eventually we'll trim down actors so that all they do is decide what hitbox to make, where to make it, when to make it, and when it goes away. Currently hitboxes delete themselves but I think it'll make more sense to have actors do it. We'll worry about that later.
+
+Hitboxes will reference 2 actors, the actor that threw the hitbox, and the actor getting hit. We need to reference the actor getting hit so that we can decrease their health, apply knock velocities to them, and do whatever else we want. We want to be able to reference the actor throwing so we can apply freeze frames, move them back if the hitter is against a wall, or whatever else we think of. 
+For now though, I'm quite sure the only effects we want are freeze frame on both actors, and knockback on the actor getting hit. Something like hit knockback on the actor hitting to stop cheap wall tactics seems unnecessary for a single player game and won't help with "feel".
+
+First we should discuss freezing. Since both the hitter and hitee can get frozen, I think it makes sense to add a freezetime variable to actors. If this variable is above 0, the variable will be decremented and the step event skipped. We were handling freeze frames through the hurt state, but this is probably cleaner. 
+
+Also, currently knockback is handled by the hurt state. By that I mean the knockback values are stored in the actor, and the actor is knocked back the same amount every time. I don't think we're going to try and get super fancy with this, but we should have the hitbox apply knockback to the actor, so that different hitboxes can have different knockback amounts. We could still have the hurt state handle things like min and max knockback, and resistance to knockbac, but the start point is the hitbox.

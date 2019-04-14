@@ -4,25 +4,22 @@
 var newtrack = v_music_currenttrack;
 
 if (global.prevroom != room) {
-	if (room == asset_get_index("main_menu")) newtrack = snd_menumusic;
-	if (room == asset_get_index("Intro")) newtrack = snd_wizardtale;
-	if (room == asset_get_index("BallTest")) newtrack = snd_levelMusic;
-	if (room == asset_get_index("room0")) newtrack = snd_levelMusic;
-	if (room == asset_get_index("room_elv")) newtrack = snd_levelMusic;
-	if (room == asset_get_index("room1")) newtrack = snd_levelMusic;
-	if (room == asset_get_index("room_zombie")) newtrack = snd_music_retrohero;
+	if (room == main_menu) newtrack = snd_menumusic;
+	if (room == Intro2) newtrack = snd_wizardtale;
+	if (room == asset_get_index("BallTest")) newtrack = snd_music_level1;
+	if (room == asset_get_index("room0")) newtrack = snd_music_level1;
+	if (room == asset_get_index("room_elv")) newtrack = snd_music_level1;
+	if (room == asset_get_index("room1")) newtrack = snd_music_level1;
+	if (room == room_zombie) newtrack = snd_music_level1;
+	
 }
 
 if (newtrack != v_music_currenttrack) {
 	if (v_music_currenttrack != undefined) audio_stop_sound(v_music_currenttrack);
 	v_music_currenttrack = newtrack;
 	audio_sound_gain(v_music_currenttrack, global.music_volume, 0);
-	if (!instance_exists(global.player) && v_music_currenttrack != global.novalue) audio_play_sound(v_music_currenttrack, 1, true);
-}
-
-/*
-if (instance_exists(global.player)) && (v_music_currenttrack != global.novalue) {
-	if (global.player.v_plr_state == enum_plr_state.dead) && (audio_is_playing(v_music_currenttrack)) audio_stop_sound(v_music_currenttrack);
-	if (global.player.v_plr_state == enum_plr_state.gnd_idle) && (!audio_is_playing(v_music_currenttrack)) audio_play_sound(v_music_currenttrack, 1, true);
+	if (v_music_currenttrack != undefined) {
+		audio_play_sound(v_music_currenttrack, 1, true);
+	}
 }
 	

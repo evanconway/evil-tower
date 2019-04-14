@@ -4,30 +4,11 @@
     "mvc": "1.0",
     "name": "o_fx_explosion",
     "eventList": [
-        {
-            "id": "989d54fa-cae1-4c78-9dca-dc4300d1b012",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "5d219297-b744-4df3-8513-e6220912bc5d"
-        },
-        {
-            "id": "1959e60b-80eb-4d07-9b02-8148ddc84cf5",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "5d219297-b744-4df3-8513-e6220912bc5d"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "00000000-0000-0000-0000-000000000000",
+    "parentObjectId": "9fc78971-1298-4fb5-9ae6-0e1e2ccd5537",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,

@@ -242,7 +242,7 @@
             "Key": "16717b18-dfb0-4a06-828a-1b6e1dcf0ddc",
             "Value": {
                 "id": "f7f37e42-b48b-458d-846a-3287bc9a6a1c",
-                "resourcePath": "sounds\\snd_levelMusic\\snd_levelMusic.yy",
+                "resourcePath": "sounds\\snd_music_level1\\snd_music_level1.yy",
                 "resourceType": "GMSound"
             }
         },
@@ -676,6 +676,14 @@
                 "id": "840eca79-55e2-40ce-81d5-e1438ae228ed",
                 "resourcePath": "sprites\\s_emy_zombie_gnd_walk\\s_emy_zombie_gnd_walk.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3cf4ecf3-5ebd-4d29-bede-69e369c0c012",
+            "Value": {
+                "id": "798296b1-6731-4b5c-a2d1-0d85b171d6bb",
+                "resourcePath": "views\\3cf4ecf3-5ebd-4d29-bede-69e369c0c012.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -1815,6 +1823,14 @@
             }
         },
         {
+            "Key": "9fc78971-1298-4fb5-9ae6-0e1e2ccd5537",
+            "Value": {
+                "id": "4cbd2966-d7f4-449f-be03-f91a18c5034a",
+                "resourcePath": "objects\\o_fx\\o_fx.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a04b9661-cc40-419f-b357-3a81a4bfae6d",
             "Value": {
                 "id": "b49dddd2-734f-423b-bb8d-5ce820373d22",
@@ -2223,6 +2239,14 @@
             }
         },
         {
+            "Key": "ca7f436d-eecb-4dd3-ad73-ee8ef7e9b35a",
+            "Value": {
+                "id": "bd11325e-56ba-4dc3-8565-a081df456660",
+                "resourcePath": "sprites\\s_hurt\\s_hurt.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "cac085e4-fb46-475f-9d1f-87ad213f76f5",
             "Value": {
                 "id": "d67df93f-4121-441e-adc0-67d1419e86bd",
@@ -2492,6 +2516,14 @@
                 "id": "b6192fbc-ab37-48b8-9fc6-0c23218720fa",
                 "resourcePath": "scripts\\scr_list_addsegment\\scr_list_addsegment.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "dfc27407-33df-4292-b301-6a751b51512a",
+            "Value": {
+                "id": "521f46a0-0ed9-4b97-b2bc-5dc0f98a2279",
+                "resourcePath": "objects\\o_fx_hurt\\o_fx_hurt.yy",
+                "resourceType": "GMObject"
             }
         },
         {

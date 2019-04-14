@@ -1,11 +1,7 @@
 /// @description Declare Actor Variables
 
 // Old variables we may remove when actors have been reworked
-v_act_health = 3;
-v_act_state_beforehit = 0;
-v_act_stuntime = 0;
 
-//movement
 v_act_vel_x_max = 1;
 v_act_vel_y_max = 1;
 v_act_vel_x_acc = 0.15;
@@ -15,12 +11,6 @@ v_act_jumppwr = -1;//jump power
 v_act_grv = 0.1;//gravity
 v_act_hurtjump = -1
 v_act_vel_airxaccel = 0.1;
-v_act_input_x = 0;//horizontal movement input (-1 = left, 1 = right, 0 = none)
-v_act_input_y = 0;//vertical movement input (-1 = up, 1 = down, 0 = none)
-v_act_input_x_prev = 0;
-v_act_input_y_prev = 0;
-
-v_act_explosion_y_offset = 0;
 
 /*
 I need to make a note to myself here. This actor rework is going to change a lot.
@@ -52,15 +42,6 @@ states will not connect to it. Hitboxes from other actors will set an actor to
 this state. 
 */
 v_act_state_hurt = undefined;
-v_act_hurt_fx = undefined;
-v_act_hurt_fx_yoffset = 0;
-
-/*
-Some actors will need special things to happen when they die, like the player 
-and bosses. Normal enemies just need a cool explosion.
-*/
-v_act_dead_scene = undefined;
-v_act_dead_fx = undefined;
 
 /*
 To allow actors to hurt other actors just by running into them, we are giving 

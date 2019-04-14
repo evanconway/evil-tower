@@ -15,8 +15,8 @@ if (!position_meeting(ID.x, ID.bbox_top - 1, o_ladder)) {
 if (!place_meeting(ID.x, ID.y, o_ladder)) result = false;
 
 if (actcon.v_actcon_pressed_down ||
-	actcon.v_actcon_pressed_left ||
-	actcon.v_actcon_pressed_right ||
+	//actcon.v_actcon_pressed_left ||
+	//actcon.v_actcon_pressed_right ||
 	actcon.v_actcon_pressed_button1 ||
 	actcon.v_actcon_pressed_button2 ||
 	actcon.v_actcon_pressed_button3) {

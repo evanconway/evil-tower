@@ -13,13 +13,12 @@ v_plr_climbspd = v_plr_vel_x_max * 0.7;
 // states
 v_act_state_hurt = instance_create_layer(x, y, "Player", o_state_hurt);
 v_act_state_hurt.v_state_sprite = s_plr_hurt;
-v_act_state_hurt.v_state_sound = snd_hurt;
+v_act_state_hurt.v_state_hurt_fx = o_fx_hurt;
+v_act_state_hurt.v_state_hurt_snd = snd_hurt;
 v_act_state_hurt.v_state_hurt_health = 9999;
 v_act_state_hurt.v_state_count_max = 20;
-v_act_state_hurt.v_state_hurt_knock_y = -3;
 v_act_state_hurt.v_state_hurt_vel_y_max = 3;
-v_act_hurt_fx = o_fx_smack;
-v_act_hurt_fx_yoffset = -12;
+v_act_state_hurt.v_state_hurt_fx_yoffset = (bbox_bottom - bbox_top) / 2;
 
 v_plr_state_gnd_idle = instance_create_layer(x, y, "Player", o_state_gnd_idle);
 v_plr_state_gnd_idle.v_state_sprite = s_plr_gnd_idle_sword;
@@ -212,6 +211,3 @@ scr_state_addaltrun(v_plr_state_gnd_idle, v_plr_state_wall_stick);
 scr_state_addaltrun(v_plr_state_gnd_crouch, v_plr_state_wall_stick);
 scr_state_addaltrun(v_plr_state_gnd_run, v_plr_state_wall_stick);
 scr_state_addaltrun(v_plr_state_airdntorun, v_plr_state_wall_stick);
-
-
-// alwaysrun? (we may need to add a script to states that run every frame)

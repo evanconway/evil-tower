@@ -3,7 +3,6 @@
 
 var ID = argument[0];
 var state = ID.v_act_state_cur;
-var actcon = ID.v_act_actcon;
 var botbboxoffset = ID.bbox_bottom - ID.y;
 
 ID.v_act_vel_x = 0;

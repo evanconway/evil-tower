@@ -6,7 +6,9 @@ var state = ID.v_act_state_cur;
 
 scr_state_deccount(state);
 
-ID.image_speed = 0; // we are going to handle sprite animation manually
+
+// We're handling sprite animation manually, but we may decide to change this later
+ID.image_speed = 0;
 
 switch (state.v_state_attack_stage) {
 	case enum_attack_stage.startup:

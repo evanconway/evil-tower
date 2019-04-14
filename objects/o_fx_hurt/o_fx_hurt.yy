@@ -1,8 +1,8 @@
 {
-    "id": "0b691b1b-1460-4905-b086-05f65c73a8a4",
+    "id": "dfc27407-33df-4292-b301-6a751b51512a",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_fx_smack",
+    "name": "o_fx_hurt",
     "eventList": [
         
     ],
@@ -24,6 +24,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "a767008c-a07b-45c8-b23b-47dbbc32f292",
+    "spriteId": "ca7f436d-eecb-4dd3-ad73-ee8ef7e9b35a",
     "visible": true
 }

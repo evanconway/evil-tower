@@ -11,8 +11,8 @@ if (ID.v_act_vel_x != 0 || ID.v_act_vel_y != 0) result = false;
 
 if (actcon.v_actcon_pressed_up ||
 	actcon.v_actcon_pressed_down ||
-	actcon.v_actcon_pressed_left ||
-	actcon.v_actcon_pressed_right ||
+	//actcon.v_actcon_pressed_left ||
+	//actcon.v_actcon_pressed_right ||
 	actcon.v_actcon_pressed_button1 ||
 	actcon.v_actcon_pressed_button2 ||
 	actcon.v_actcon_pressed_button3) result = false;
