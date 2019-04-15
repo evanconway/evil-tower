@@ -6,6 +6,8 @@ var ID = ds_list_find_value(argument[0], 0);
 var textbox = ID.v_scene_textbox;
 var segments = ds_list_create();
 
+global.freezeactors = true;
+
 switch (ID.v_scene_state) {
 	case 0:
 	textbox.v_textbox_triggered = true;
@@ -69,6 +71,7 @@ switch (ID.v_scene_state) {
 		ID.v_scene_running = false;
 		ID.v_scene_triggered = false;// so we can talk to him again!
 		ID.v_scene_state = 0;
+		global.freezeactors = false;
 	}
 	break;
 }

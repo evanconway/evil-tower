@@ -18,8 +18,9 @@ if (v_hitbox_target != undefined && instance_exists(v_hitbox_target) && place_me
 			hurt.v_state_hurt_health -= v_hitbox_damage;
 			
 			if (hurt.v_state_hurt_health > 0) {
-				if (hurt.v_state_sprite != undefined) actor.sprite_index = hurt.v_state_sprite;
 				actor.v_act_freezetime = v_hitbox_stun;
+				actor.v_act_shadertime = v_hitbox_stun;
+				actor.v_act_shader = v_hitbox_shader;
 				if (v_hitbox_freezehitter && instance_exists(v_hitbox_hitter)) v_hitbox_hitter.v_act_freezetime = v_hitbox_stun;
 				hurt.v_state_count = hurt.v_state_count_max;
 				

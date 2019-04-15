@@ -8,7 +8,12 @@ if (v_act_state_cur != undefined && v_act_state_cur.v_state_draw_behind != undef
 if (sprite_index != undefined) {
 	if (global.actors_visible) {
 		draw_set_alpha(1);
+		if (v_act_shadertime > 0 && v_act_shader != undefined) {
+			shader_set(v_act_shader);
+			v_act_shadertime--;
+		}
 		draw_self();
+		shader_reset();
 	}
 
 	draw_set_color(c_lime);

@@ -2,6 +2,7 @@ event_inherited();
 if (v_transition_pause) exit;
 
 global.freezeactors = true;
+global.freezescenes = true;
 
 switch (v_transition_stage) {
 	case 0:
@@ -27,7 +28,11 @@ switch (v_transition_stage) {
 		v_transition_plrdepth = global.player.depth;
 		global.player.depth = v_transition_elevator.depth + 1;
 		global.player.sprite_index = v_transition_sprite2;
-		scr_playsfx(snd_elevator_mv, true);
+		// we need to retain the sound ID of the elevator move sound, so we can't use our script
+		if (audio_is_playing(snd_elevator_mv)) audio_stop_sound(snd_elevator_mv);
+		var gain = global.sfx_volume * audio_sound_get_gain(snd_elevator_mv);
+		v_transition_mvID = audio_play_sound(snd_elevator_mv, 1, true);
+		audio_sound_gain(v_transition_mvID, gain, 0);
 	}
 	break;
 	case 1:
@@ -46,7 +51,7 @@ switch (v_transition_stage) {
 		v_transition_elevator.y -= v_transition_elevator.v_elevator_speed;
 		if (v_transition_elevator.y <= v_transition_elevator.v_elevator_target_y + v_transition_elevator.v_elevator_slow_y
 			&& v_transition_elevator.v_elevator_speed == v_transition_elevator.v_elevator_speed_init) {
-			audio_sound_gain(snd_elevator_mv, 0, 3000);
+			audio_sound_gain(v_transition_mvID, 0, 3000);
 		}
 		if (v_transition_elevator.y <= v_transition_elevator.v_elevator_target_y + v_transition_elevator.v_elevator_slow_y) {
 			v_transition_elevator.v_elevator_speed *= v_transition_elevator.v_elevator_slow_rate;
@@ -76,6 +81,7 @@ switch (v_transition_stage) {
 		v_transition_elevator.image_speed = 0;
 		global.player.depth = v_transition_plrdepth;
 		global.freezeactors = false;
+		global.freezescenes = false;
 		o_camera.v_camera_follow = global.player;
 		instance_destroy(id);
 	}

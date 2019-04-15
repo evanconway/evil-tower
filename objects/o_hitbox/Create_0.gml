@@ -17,6 +17,7 @@ v_hitbox_fx = undefined;
 v_hitbox_snd_hit = undefined;
 v_hitbox_snd_miss = undefined;
 v_hitbox_firstcheck = true;
+v_hitbox_shader = sh_red; // shader applied for stun duration
 
 // hitter
 v_hitbox_hitter = undefined; // the actor creating this hitbox, some areas reference this
@@ -26,7 +27,7 @@ v_hitbox_freezehitter = true;
 // aftects target
 v_hitbox_target = undefined; // a parent actor this hitbox affects
 v_hitbox_damage = 1;
-v_hitbox_stun = 4; // frames of freeze time hitter and target experience when hitbox connects
+v_hitbox_stun = 120; // frames of freeze time hitter and target experience when hitbox connects
 v_hitbox_knock_x = 2;
 v_hitbox_knock_y = -2;
 

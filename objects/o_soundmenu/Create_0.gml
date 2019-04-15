@@ -3,14 +3,13 @@
 global.soundmenuactive = false;
 depth -= 2;
 
-global.sfx_volume = 0.7;
-global.music_volume = 0;
+global.sfx_volume = 1;
+global.music_volume = 0.5;
 
 v_soundmenu[2] = "Music Volume ";
 v_soundmenu[1] = "Effects Volume ";
 v_soundmenu[0] = "Back";
 v_soundmenu_items = array_length_1d(v_soundmenu);
-v_soundmenu_font = f_menu;
 v_soundmenu_itemheight = font_get_size(f_menu);
 v_soundmenu_cursor = 2;
 v_soundmenu_spacer = 1.5;

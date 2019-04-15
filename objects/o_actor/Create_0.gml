@@ -35,6 +35,8 @@ v_act_image_prev = image_index; // used to check against current image_index
 v_act_inputlocktime_max = 0;
 v_act_inputlocktime = v_act_inputlocktime_max;
 v_act_freezetime = 0;
+v_act_shadertime = 0;
+v_act_shader = undefined;
 
 /*
 The hurt state is an interesting state. It will connect to other states, but other 

@@ -13,7 +13,7 @@ v_plr_climbspd = v_plr_vel_x_max * 0.7;
 // states
 v_act_state_hurt = instance_create_layer(x, y, "Player", o_state_hurt);
 v_act_state_hurt.v_state_sprite = s_plr_hurt;
-v_act_state_hurt.v_state_hurt_fx = o_fx_hurt;
+v_act_state_hurt.v_state_hurt_fx = o_fx_greenhit;
 v_act_state_hurt.v_state_hurt_snd = snd_hurt;
 v_act_state_hurt.v_state_hurt_health = 9999;
 v_act_state_hurt.v_state_count_max = 20;

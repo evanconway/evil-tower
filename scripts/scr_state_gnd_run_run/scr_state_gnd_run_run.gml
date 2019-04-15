@@ -12,12 +12,12 @@ ID.v_act_vel_y = 0;
 // determine sprite direction
 if (act_controller.v_actcon_right && !act_controller.v_actcon_left) {
 	ID.v_act_faceright = true;
-	ID.sprite_index = state.v_state_sprite;
+	if (state.v_state_sprite != undefined) ID.sprite_index = state.v_state_sprite;
 	ID.v_act_vel_x = scr_obj_approachdist_x_at_y_against_obj(ID, state.v_state_gnd_run_maxx, ID.y, o_wall);
 }
 if (act_controller.v_actcon_left && !act_controller.v_actcon_right) {
 	ID.v_act_faceright = false;
-	ID.sprite_index = state.v_state_sprite_left;
+	if (state.v_state_sprite_left != undefined) ID.sprite_index = state.v_state_sprite_left;
 	ID.v_act_vel_x = scr_obj_approachdist_x_at_y_against_obj(ID, state.v_state_gnd_run_maxx * -1, ID.y, o_wall);;
 }
 

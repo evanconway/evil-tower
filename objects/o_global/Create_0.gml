@@ -26,7 +26,7 @@ global.debug_keys_active = true;
 global.enemies_slain = ds_list_create();
 
 // spawn/transitions
-global.transition_layer = 200;
+global.transition_layer = 199;
 global.spawn_transitionscript = undefined;
 global.spawn_room = undefined;
 global.spawn_obj = undefined;
@@ -44,3 +44,4 @@ global.sound_boundary_y = 100;
 
 global.freezeactors = false;
 global.freezeplayer = false;
+global.freezescenes = false;

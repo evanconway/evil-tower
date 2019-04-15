@@ -17,9 +17,10 @@ if (global.prevroom != room) {
 if (newtrack != v_music_currenttrack) {
 	if (v_music_currenttrack != undefined) audio_stop_sound(v_music_currenttrack);
 	v_music_currenttrack = newtrack;
-	audio_sound_gain(v_music_currenttrack, global.music_volume, 0);
 	if (v_music_currenttrack != undefined) {
-		audio_play_sound(v_music_currenttrack, 1, true);
+		var gain = audio_sound_get_gain(v_music_currenttrack) * global.music_volume;
+		v_music_currentID = audio_play_sound(v_music_currenttrack, 1, true)
+		audio_sound_gain(v_music_currentID, gain, 0);;
 	}
 }
 	

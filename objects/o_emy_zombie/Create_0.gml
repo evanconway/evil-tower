@@ -5,6 +5,8 @@ v_act_ai = instance_create_layer(x, y, "Enemies", o_ai_wander);
 v_act_ai.v_ai_actor = id;
 
 // states
+v_act_state_hurt.v_state_sprite = s_emy_zombie_gnd_static;
+
 // idle
 v_emy_zombie_state_gnd_idle = instance_create_layer(x, y, "Enemies", o_state_gnd_idle);
 v_emy_zombie_state_gnd_idle.v_state_sprite = s_emy_zombie_gnd_idle;

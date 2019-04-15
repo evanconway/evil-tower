@@ -7,4 +7,5 @@ if (v_pausemenu_unpause) {
 	v_pausemenu_control = true;
 	global.pauseactive = false;
 	global.freezeactors = false;
+	global.freezescenes = false;
 }

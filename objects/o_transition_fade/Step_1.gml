@@ -2,6 +2,7 @@ event_inherited();
 if (v_transition_pause) exit;
 
 global.freezeactors = true;
+global.freezescenes = true;
 
 v_transition_count--;
 if (v_transition_count <= 0) {
@@ -21,6 +22,7 @@ if (v_transition_count <= 0) {
 		if (v_transition_alpha <= 0) {
 			v_transition_alpha = 0;
 			global.freezeactors = false;
+			global.freezescenes = false;
 			instance_destroy(id);
 		}
 		break;

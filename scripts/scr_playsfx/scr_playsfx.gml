@@ -2,9 +2,11 @@
 /// @param sound
 /// @param looped
 
-if (argument[0] != undefined) {
-	audio_sound_gain(argument[0], global.sfx_volume, 0);
-	if (audio_is_playing(argument[0])) audio_stop_sound(argument[0]);
-	if (argument_count > 1) audio_play_sound(argument[0], 1, argument[1]);
-	else audio_play_sound(argument[0], 1, false);
+var sound = argument[0];
+
+if (sound != undefined) {
+	if (audio_is_playing(sound)) audio_stop_sound(sound);
+	var gain = global.sfx_volume * audio_sound_get_gain(sound);
+	if (argument_count > 1) audio_sound_gain(audio_play_sound(sound, 1, argument[1]), gain, 0);
+	else audio_sound_gain(audio_play_sound(sound, 1, false), gain, 0);
 }

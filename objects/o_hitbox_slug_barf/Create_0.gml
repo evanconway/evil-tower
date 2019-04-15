@@ -1,8 +1,10 @@
 event_inherited();
 
+v_hitbox_stun = 20;
 v_hitbox_permenant = true;
 v_hitbox_target = global.player;
-v_hitbox_effect = o_fx_slug_barf_hit;
+v_hitbox_snd_hit = snd_barf_hit
+v_hitbox_fx = o_fx_slug_barf_hit;
 
 v_hitbox_drawsprite = true;
 v_hitbox_wallends = true;

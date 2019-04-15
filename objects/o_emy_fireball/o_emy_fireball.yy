@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "o_emy_fireball",
     "eventList": [
-        
+        {
+            "id": "da7427d9-5ae0-4e56-a42f-04581f1d3068",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "a8b7ea43-dd1c-4773-9f21-167ba88bef34"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

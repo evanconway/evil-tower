@@ -15,6 +15,7 @@ if (room > 4 && v_pausemenu_control && !instance_exists(o_transition_fade_nopaus
 }
 
 if (global.pauseactive) {
+	global.freezescenes = true;
 	global.freezeactors = true;
 	if (v_pausemenu_control) {
 		if (scr_input_ui_check(enum_input.up)) {

@@ -16,6 +16,6 @@ v_act_hitbox.v_hitbox_hitter = id;
 v_act_hitbox.sprite_index = sprite_index; //use the same sprite as the enemy
 v_act_hitbox.v_hitbox_effect = undefined;
 v_act_hitbox.v_hitbox_target = global.player;
-v_act_hitbox.v_hitbox_stun = 7;
+v_act_hitbox.v_hitbox_stun = 20;
 v_act_hitbox.v_hitbox_permenant = true;
 v_act_hitbox.v_hitbox_damage = 1;
