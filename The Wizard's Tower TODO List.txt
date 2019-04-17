@@ -1,9 +1,11 @@
 Nothing is this list is true forever. This is just where we are right now.
 
 TO DO: 
+blocking bug, blocks that already have hitbox in hitboxesblocked are removed from blocks list, this screws with targets checking for blocks
 Blocking (shield)
+add test boss with intro and outro sequence
+remove magic numbers in scr_act_calcairvals (probably have to create an actor variable)
 make another spawn object, campfire??
-add test boss with intro sequence
 bug, it is possible to break controls through remapping
 
 DONE:
