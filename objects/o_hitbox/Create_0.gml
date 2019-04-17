@@ -1,9 +1,8 @@
 /// @description 
 
 // hitbox qualities
-v_hitbox_time = 60;
 v_hitbox_permenant = false;
-v_hitbox_wallends = false; // 
+v_hitbox_wallends = false;
 v_hitbox_drawsprite = false;
 v_hitbox_destroyonhit = false;
 
@@ -21,7 +20,7 @@ v_hitbox_shader = sh_red; // shader applied for stun duration
 
 // hitter
 v_hitbox_hitter = undefined; // the actor creating this hitbox, some areas reference this
-// v_hitbox_stun also affects hitter, but listed under target
+v_hitbox_hitterstate = undefined;
 v_hitbox_freezehitter = true;
 
 // aftects target

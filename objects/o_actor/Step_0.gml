@@ -28,9 +28,7 @@ if (!global.freezeactors && v_act_freezetime <= 0) {
 			
 		image_speed = 1;// this may get changed by the state code
 			
-		var statename = v_act_state_cur.v_state_name; // this is just for debugging, let's us easily see what state actor is in from debugger
 		scr_act_checkstateconnects(id);
-		statename = v_act_state_cur.v_state_name;
 		
 		/*
 		Here we check for and set sprite and image changes booleans. We do this after our
@@ -51,11 +49,12 @@ if (!global.freezeactors && v_act_freezetime <= 0) {
 		
 		// state scripts do not actually move the actor, it just sets velocites
 		// movement happens here
-		if (v_act_vel_x != 0) scr_act_move_x(id, v_act_vel_x);
+		if (v_act_vel_x != 0) scr_act_move_x(id, clamp(v_act_vel_x, v_act_vel_x_max * -1, v_act_vel_x_max));
 		else scr_act_resetxinputstart(id);
-		if (v_act_vel_y != 0) scr_act_move_y(id, v_act_vel_y);
+		if (v_act_vel_y != 0) scr_act_move_y(id, clamp(v_act_vel_y, v_act_vel_y_max * -1, v_act_vel_y_max));
 		else scr_act_resetyinputstart(id);
 		
+		// move actor hitboxes with actor
 		if (v_act_hitbox != undefined) {
 			v_act_hitbox.x = x;
 			v_act_hitbox.y = y;

@@ -1,8 +1,11 @@
 event_inherited();
 
-v_state_air_velx = 0; // having a second velocity lets us use max until velocity is low enough
-v_state_air_vely = 0;
+v_state_script_connect = scr_state_air_connect;
+v_state_script_change = scr_state_changesprite;
+v_state_script_run = scr_state_air_run;
+
 v_state_air_accx = 0.15;
-v_state_air_accy = 0.15;// gravity
-v_state_air_velx_max = 2;
-v_state_air_vely_max = 5;
+v_state_air_grv = 0.15;// gravity
+v_state_air_fastfall = true;
+v_state_air_spritedn = undefined;
+v_state_air_spritedn_left = undefined;

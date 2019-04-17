@@ -1,17 +1,4 @@
 /// @description Declare Actor Variables
-
-// Old variables we may remove when actors have been reworked
-
-v_act_vel_x_max = 1;
-v_act_vel_y_max = 1;
-v_act_vel_x_acc = 0.15;
-v_act_vel_y_acc = 0.15;
-v_act_vel_runaccel = v_act_vel_x_max;
-v_act_jumppwr = -1;//jump power
-v_act_grv = 0.1;//gravity
-v_act_hurtjump = -1
-v_act_vel_airxaccel = 0.1;
-
 /*
 I need to make a note to myself here. This actor rework is going to change a lot.
 All new variables will be listed here, and may not be well organized. A bunch 
@@ -53,8 +40,12 @@ v_act_hitbox = undefined;
 
 // the following are old variables that we are 100% going to continue using
 v_act_bbox_color = c_lime;
-v_act_vel_x = 0;//variable_player_speed_horizontal
-v_act_vel_y = 0;//vertical
+v_act_vel_x = 0;
+v_act_vel_y = 0;
+v_act_vel_x_max = 3;
+v_act_vel_y_max = 3;
+v_act_grv = 0.15;
+v_act_jump = -3;
 v_act_input_x_start = x;
 v_act_input_y_start = y;
 v_act_xmovedist = 0;

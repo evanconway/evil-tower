@@ -1,13 +1,13 @@
 Nothing is this list is true forever. This is just where we are right now.
 
 TO DO: 
-make another spawn object, campfire??
-Air attacks
 Blocking (shield)
+make another spawn object, campfire??
 add test boss with intro sequence
 bug, it is possible to break controls through remapping
 
 DONE:
+Air attacks
 Remake Current Enemies
 ladder hurt isn't working
 remove freeze frame from hurt state and move it to actors in general

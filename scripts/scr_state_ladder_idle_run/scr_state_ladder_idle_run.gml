@@ -3,7 +3,13 @@
 
 var ID = argument[0];
 ID.image_speed = 0;
-scr_state_novelchange(ID);
+
+ID.v_act_vel_y = 0;
+// match x position to ladder
+if (instance_place(ID.x, ID.y, o_ladder)) {
+	var ladder_x = instance_place(ID.x, ID.y, o_ladder).x;
+	ID.v_act_vel_x = ladder_x - ID.x;
+}
 
 /*
 Why do we need to check for image_change in a run script that sets image_speed to 0?

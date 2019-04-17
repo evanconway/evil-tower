@@ -4,7 +4,7 @@ global.soundmenuactive = false;
 depth -= 2;
 
 global.sfx_volume = 1;
-global.music_volume = 0.5;
+global.music_volume = 0;
 
 v_soundmenu[2] = "Music Volume ";
 v_soundmenu[1] = "Effects Volume ";
@@ -34,5 +34,3 @@ v_soundmenu_rectheight = v_soundmenu_rectheight_max;
 v_soundmenu_rectx = 0;
 v_soundmenu_recty = 0;
 v_soundmenu_border = 2;
-
-v_soundmenu_yoffset = 10;
