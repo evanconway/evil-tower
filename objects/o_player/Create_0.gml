@@ -13,10 +13,14 @@ v_plr_climbspd = v_act_vel_x_max * 0.7;
 
 // states
 v_act_state_hurt = instance_create_layer(x, y, "Player", o_state_hurt);
+v_act_state_hurt.v_state_draw_behind = scr_state_hurt_draw_behind;
 v_act_state_hurt.v_state_sprite = s_plr_hurt;
-v_act_state_hurt.v_state_hurt_fx = o_fx_greenhit;
-v_act_state_hurt.v_state_hurt_snd = snd_hurt;
-v_act_state_hurt.v_state_hurt_health = 9999;
+v_act_state_hurt.v_state_hurt_fx = o_fx_smack;
+v_act_state_hurt.v_state_hurt_snd = snd_hurt2_notail;
+v_act_state_hurt.v_state_hurt_health = 1;
+v_act_state_hurt.v_state_hurt_dead_snd = snd_dead;
+v_act_state_hurt.v_state_hurt_dead_scene = o_transition_plrdead;
+v_act_state_hurt.v_state_hurt_dead_sprite = s_plr_dead;
 v_act_state_hurt.v_state_count_max = 20;
 v_act_state_hurt.v_state_hurt_vel_y_max = 3;
 v_act_state_hurt.v_state_hurt_fx_yoffset = (bbox_bottom - bbox_top) / 2;
@@ -98,10 +102,10 @@ v_plr_state_attack_crouch.v_state_attack_offset_x = 15;
 v_plr_state_attack_crouch.v_state_attack_offset_y = -3;
 
 v_plr_state_defend = instance_create_layer(x, y, "Player", o_state_defend);
-v_plr_state_defend.v_state_sprite = s_plr_gnd_struggle;
-v_plr_state_defend.v_state_sprite_left = s_plr_gnd_struggle_left;
+v_plr_state_defend.v_state_sprite = s_plr_gnd_block;
+v_plr_state_defend.v_state_sprite_left = s_plr_gnd_block_left;
 v_plr_state_defend.v_state_defend_block = o_block_plr;
-v_plr_state_defend.v_state_defend_offset_x = 6;
+v_plr_state_defend.v_state_defend_offset_x = 5;
 
 // state connections
 // idle

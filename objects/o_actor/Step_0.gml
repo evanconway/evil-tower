@@ -8,7 +8,7 @@ run that states code, then check/set it should be in again. See the state
 object for more details.
 */
 
-if (!global.freezeactors && v_act_freezetime <= 0) {
+if (!global.freezeactors && v_act_freezetime <= 0 && global.freezeactors_time <= 0) {
 	
 	/*
 	An actors input is determined by its ai object. Look at the object 
@@ -47,6 +47,8 @@ if (!global.freezeactors && v_act_freezetime <= 0) {
 		
 		if (v_act_state_cur.v_state_script_run != undefined) script_execute(v_act_state_cur.v_state_script_run, id);
 		
+		if (!instance_exists(id)) exit; // states will destroy actor
+		
 		// state scripts do not actually move the actor, it just sets velocites
 		// movement happens here
 		if (v_act_vel_x != 0) scr_act_move_x(id, clamp(v_act_vel_x, v_act_vel_x_max * -1, v_act_vel_x_max));
@@ -77,7 +79,7 @@ if (!global.freezeactors && v_act_freezetime <= 0) {
 	}
 	
 	// destroy out of room boundaries
-	if (x < 0 || y < 0 || x > room_width || y > room_height) {
+	if (x <= 0 || y <= 0 || x >= room_width || y >= room_height) {
 		scr_act_kill(id);
 	}
 } else {

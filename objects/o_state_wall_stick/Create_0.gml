@@ -9,7 +9,6 @@ air, the actor can enter this state.
 */
 
 v_state_count_max = 14;// original in player is 14
-v_state_count_min = 0;
 v_state_count = v_state_count_max;
 
 /*

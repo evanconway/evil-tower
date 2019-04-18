@@ -4,7 +4,26 @@
     "mvc": "1.0",
     "name": "o_fx_smack",
     "eventList": [
-        
+        {
+            "id": "f09f5a82-e848-4e24-a5ce-686cd21b7473",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "0b691b1b-1460-4905-b086-05f65c73a8a4"
+        },
+        {
+            "id": "e98e6e20-1f9b-495f-a16f-758fee585189",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "0b691b1b-1460-4905-b086-05f65c73a8a4"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

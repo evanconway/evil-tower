@@ -43,5 +43,6 @@ global.sound_boundary_x = 200;
 global.sound_boundary_y = 100;
 
 global.freezeactors = false;
+global.freezeactors_time = 0; // time in frames instead of boolean
 global.freezeplayer = false;
 global.freezescenes = false;

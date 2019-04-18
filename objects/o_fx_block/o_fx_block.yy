@@ -4,11 +4,20 @@
     "mvc": "1.0",
     "name": "o_fx_block",
     "eventList": [
-        
+        {
+            "id": "e833e32b-bd93-4372-8992-976f90a5f93f",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "e4881f29-32cc-49e1-891e-7ca68b45cf7a"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "9fc78971-1298-4fb5-9ae6-0e1e2ccd5537",
+    "parentObjectId": "0b691b1b-1460-4905-b086-05f65c73a8a4",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -24,6 +33,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "bd455ad0-4bab-483d-9d8c-9de79c3f891b",
+    "spriteId": "1fac3db0-35eb-40cc-93ac-f8b2a3da3e3d",
     "visible": true
 }

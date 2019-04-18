@@ -73,9 +73,12 @@ if (v_hitbox_hitter != undefined) {
 	for (var i = 0; i < ds_list_size(blocks); i++) {
 		var blockx = blocks[|i].x;
 		var targetx = blocks[|i].v_block_blocker.x
-		var deleteblock = false;
-		if (v_hitbox_hitter.x < blockx && targetx < blockx) deleteblock = true;
-		if (v_hitbox_hitter.x > blockx && targetx > blockx) deleteblock = true;
+		var deleteblock = true;
+		// assume delete the block unless blocking criteria are met
+		// don't delete if target is to the left of hitter and block
+		if (targetx <= blockx && targetx <= v_hitbox_hitter.x) deleteblock = false;
+		// don't delete if target is to the right of hitter and block
+		if (targetx >= blockx && targetx >= v_hitbox_hitter.x) deleteblock = false;
 		if (deleteblock) {
 			ds_list_delete(blocks, i);
 			i--;
@@ -99,6 +102,14 @@ if (v_hitbox_hitter != undefined) {
 // now we will make a list of all valid target collisions using a similar process
 var targets = ds_list_create();
 instance_place_list(x, y, v_hitbox_target, targets, false);
+
+// remove all targets that have 0 or less health
+for (var i = 0; i < ds_list_size(targets); i++) {
+	if (targets[|i].v_act_state_hurt.v_state_hurt_health <= 0) {
+		ds_list_delete(targets, i);
+		i--;
+	}
+}
 
 // remove all targets that already contain this hitbox
 for (var i = 0; i < ds_list_size(targets); i++) {
@@ -134,6 +145,10 @@ for (var i = 0; i < ds_list_size(targets); i++) {
 
 // we now have our two lists of blocks and targets
 
+if (ds_list_size(blocks) != 0 || ds_list_size(targets) != 0) {
+	if (v_hitbox_snd_missID != undefined) audio_stop_sound(v_hitbox_snd_missID);
+}
+
 // apply block effects to knockback to blockers
 for (var i = 0; i < ds_list_size(blocks); i++) {
 	var block = blocks[|i];
@@ -161,16 +176,18 @@ for (var i = 0; i < ds_list_size(targets); i++) {
 	var actor = targets[|i];
 	ds_list_add(actor.v_act_hitboxes_struck, id);
 	var hurt = actor.v_act_state_hurt;
-	hurt.v_state_hurt_health -= v_hitbox_damage;	
+	hurt.v_state_hurt_health -= v_hitbox_damage;
+	
+	if (v_hitbox_freezegame) global.freezeactors_time = v_hitbox_stun;
+	else if (v_hitbox_freezehitter && instance_exists(v_hitbox_hitter)) v_hitbox_hitter.v_act_freezetime = v_hitbox_stun;
+	if (v_hitbox_fx != undefined) instance_create_layer(actor.x, actor.y - hurt.v_state_hurt_fx_yoffset, "Projectiles", v_hitbox_fx);
+	if (v_hitbox_snd_hit != undefined) scr_playsfx(v_hitbox_snd_hit);	
+	
 	if (hurt.v_state_hurt_health > 0) {
-		actor.v_act_freezetime = v_hitbox_stun;
+		if (!v_hitbox_freezegame) actor.v_act_freezetime = v_hitbox_stun;
 		actor.v_act_shadertime = v_hitbox_stun;
 		actor.v_act_shader = v_hitbox_shader;
-		if (v_hitbox_freezehitter && instance_exists(v_hitbox_hitter)) v_hitbox_hitter.v_act_freezetime = v_hitbox_stun;
 		hurt.v_state_count = hurt.v_state_count_max;
-				
-		if (v_hitbox_fx != undefined) instance_create_layer(actor.x, actor.y - hurt.v_state_hurt_fx_yoffset, "Projectiles", v_hitbox_fx);
-		if (v_hitbox_snd_hit != undefined) scr_playsfx(v_hitbox_snd_hit);
 		if (hurt.v_state_hurt_fx != undefined) instance_create_layer(actor.x, actor.y - hurt.v_state_hurt_fx_yoffset, "Projectiles", hurt.v_state_hurt_fx);
 		if (hurt.v_state_hurt_snd != undefined) scr_playsfx(hurt.v_state_hurt_snd);
 				
@@ -191,18 +208,12 @@ for (var i = 0; i < ds_list_size(targets); i++) {
 		}
 		if (v_hitbox_destroyonhit) instance_destroy(id);
 		actor.v_act_state_cur = hurt;
-	} else if (hurt.v_state_hurt_dead_scene == undefined) {
-		// we won't bother creating death effects if there is a death scene, we'll assume that handles everything
-		if (hurt.v_state_hurt_dead_fx != undefined) instance_create_layer(actor.x, actor.y, "Projectiles", hurt.v_state_hurt_dead_fx);
-		if (hurt.v_state_hurt_dead_snd != undefined) scr_playsfx(hurt.v_state_hurt_dead_snd);
-		ds_list_add(global.enemies_slain, actor);
-		instance_destroy(actor);
-	}
+	} else scr_act_kill(actor);
 }
 
-if (v_hitbox_firstcheck && 
-	ds_list_size(blocks) == 0 && 
-	ds_list_size(targets) == 0) scr_playsfx(v_hitbox_snd_miss);
+if (v_hitbox_firstcheck && ds_list_size(blocks) == 0 && ds_list_size(targets) == 0) {
+	v_hitbox_snd_missID =  scr_playsfx(v_hitbox_snd_miss);
+}
 
 v_hitbox_firstcheck = false;
 

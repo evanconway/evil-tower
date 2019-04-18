@@ -4,13 +4,8 @@
 
 var ID = argument[0];
 var state = ID.v_act_state_cur;
-
-// fastfall, done before air val calculation
-if (ID.v_act_actcon.v_actcon_pressed_down && 
-	state.v_state_air_fastfall &&
-	ID.v_act_vel_y >= 0) ID.v_act_vel_y = ID.v_act_vel_y_max;
 	
-scr_act_calcairvals(ID, state.v_state_air_grv, state.v_state_air_accx);
+scr_act_calcairvals(ID);
 if (ID.v_act_vel_x > 0) ID.v_act_faceright = true;
 if (ID.v_act_vel_x < 0) ID.v_act_faceright = false;
 

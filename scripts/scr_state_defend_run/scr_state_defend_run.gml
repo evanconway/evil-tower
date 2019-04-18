@@ -18,10 +18,11 @@ if (state.v_state_defend_time > 0) {
 	if (place_meeting(ID.x, ID.y + 1, o_wall)){
 		ID.v_act_vel_x = 0;
 		ID.v_act_vel_y = 0;
-	} else {
-		if (ID.v_act_vel_y >= 0 && ID.v_act_actcon.v_actcon_pressed_down) ID.v_act_vel_y = ID.v_act_vel_y_max;
-		scr_act_calcairvals(ID, ID.v_act_grv, 0.15);
-	}
+	} else scr_act_calcairvals(ID);
+
+	if (ID.v_act_actcon.v_actcon_right && !ID.v_act_actcon.v_actcon_left) v_act_faceright = true;
+	if (!ID.v_act_actcon.v_actcon_right && ID.v_act_actcon.v_actcon_left) v_act_faceright = false;
+	scr_state_changesprite(ID);
 
 	if (!ID.v_act_actcon.v_actcon_button3) {
 		state.v_state_defend_continue = false;

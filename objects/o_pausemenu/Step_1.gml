@@ -8,7 +8,7 @@ so that you can pause during most transitions, just not the ones where it doesn'
 sense (like the fade back to the main menu).
 */
 
-if (room > 4 && v_pausemenu_control && !instance_exists(o_transition_fade_nopause)) {
+if (room > 4 && v_pausemenu_control && !instance_exists(o_transition_nopause)) {
 	global.canpause = true;
 } else {
 	global.canpause = false;
@@ -51,7 +51,7 @@ if (global.pauseactive) {
 				audio_stop_all();
 			}
 			v_pausemenu_commit_snd = snd_success;
-			scr_transition_fade_nopause(main_menu);
+			scr_transition_nopause_fade(main_menu);
 			break;
 			case 2://options
 			global.optionsactive = true;
@@ -81,7 +81,7 @@ if (global.pauseactive) {
 } else {
 	if (scr_input_check(true, enum_input.start) && global.canpause) {
 		audio_pause_all();
-		if (o_music.v_music_currenttrack != undefined) audio_resume_sound(o_music.v_music_currenttrack);
+		if (o_music.v_music_currentID != undefined) audio_resume_sound(o_music.v_music_currentID);
 		scr_playsfx(snd_pause);
 		global.pauseactive = true;
 		v_pausemenu_control = true;

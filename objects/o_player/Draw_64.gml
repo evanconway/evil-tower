@@ -21,6 +21,9 @@ if (v_plr_data) {
 	draw_text(x_offset, y_offset++ * s_height, "Vel X: " + string(v_act_vel_x));
 	draw_text(x_offset, y_offset++ * s_height, "Vel Y: " + string(v_act_vel_y));
 	
+	draw_text(x_offset, y_offset++ * s_height, "Start X: " + string(v_act_input_x_start));
+	draw_text(x_offset, y_offset++ * s_height, "Start Y: " + string(v_act_input_y_start));
+	
 	if (v_act_state_cur != undefined) draw_text(x_offset, y_offset++ * s_height, v_act_state_cur.v_state_name);
 	else draw_text(x_offset, y_offset++ * s_height, "Undefined");
 	

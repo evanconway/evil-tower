@@ -1,13 +1,18 @@
 Nothing is this list is true forever. This is just where we are right now.
 
 TO DO: 
-Blocking (shield)
+fix/understand transitions
+add player dying sequence
 add test boss with intro and outro sequence
 remove magic numbers in scr_act_calcairvals (probably have to create an actor variable)
 make another spawn object, campfire??
+make dying sequence something more universal and less obnoxious.
 bug, it is possible to break controls through remapping
 
 DONE:
+add room out of bounds deaths
+change o_music so it just determines track on room change. Let transitions and other things play music
+Blocking (shield)
 Air attacks
 Remake Current Enemies
 ladder hurt isn't working

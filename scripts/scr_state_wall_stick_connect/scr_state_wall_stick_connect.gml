@@ -25,6 +25,7 @@ if (actcon.v_actcon_pressed_button1) {
 	}
 }
 
+// can't wall stick if on ground or in wall
 if (result) {
 	if (place_meeting(ID.x, ID.y, o_wall) || place_meeting(ID.x, ID.y + 1, o_wall)) result = false;
 }
@@ -40,8 +41,8 @@ if (result) {
 }
 
 if (result) {
-	if (dsign > 0) if (state.v_state_wall_stick_Rwall) result = false;
-	if (dsign < 0) if (state.v_state_wall_stick_Lwall) result = false;
+	if (dsign > 0 && state.v_state_wall_stick_Rwall) result = false;
+	if (dsign < 0 && state.v_state_wall_stick_Lwall) result = false;
 }
 
 return result;

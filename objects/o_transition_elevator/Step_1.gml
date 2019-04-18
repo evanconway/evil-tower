@@ -83,6 +83,7 @@ switch (v_transition_stage) {
 		global.freezeactors = false;
 		global.freezescenes = false;
 		o_camera.v_camera_follow = global.player;
+		scr_music_playroom();
 		instance_destroy(id);
 	}
 	break;

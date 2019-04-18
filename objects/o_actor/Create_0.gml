@@ -24,6 +24,7 @@ v_act_inputlocktime = v_act_inputlocktime_max;
 v_act_freezetime = 0;
 v_act_shadertime = 0;
 v_act_shader = undefined;
+v_act_alpha = 1;
 
 /*
 The hurt state is an interesting state. It will connect to other states, but other 
@@ -45,7 +46,9 @@ v_act_vel_y = 0;
 v_act_vel_x_max = 3;
 v_act_vel_y_max = 3;
 v_act_grv = 0.15;
+v_act_airxacc = 0.15;
 v_act_jump = -3;
+v_act_canfastfall = true;
 v_act_input_x_start = x;
 v_act_input_y_start = y;
 v_act_xmovedist = 0;

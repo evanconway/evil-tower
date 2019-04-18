@@ -20,7 +20,8 @@ v_state_hurt_fx_yoffset = 0; // helps center hit effects, set in state creation
 
 v_state_hurt_dead_scene = undefined;
 v_state_hurt_dead_fx = undefined;
-v_state_hurt_dead_snd = undefined;
+v_state_hurt_dead_snd = snd_afterburn;
+v_state_hurt_dead_sprite = undefined;
 
 
 v_state_hurt_grv_y = 0.15;

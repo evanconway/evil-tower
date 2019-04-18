@@ -4,5 +4,5 @@
 
 var result = false;
 var state = argument[0].v_act_state_cur;
-if (state.v_state_count > state.v_state_count_min) result = true;
+if (state.v_state_count > 0) result = true;
 return result;

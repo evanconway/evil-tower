@@ -5,6 +5,7 @@ var ID = argument[0];
 var state = ID.v_act_state_cur; // this will be the hurt state
 var result = false;
 
-if (state.v_state_count > state.v_state_count_min) result = true;
+if (state.v_state_count > 0) result = true;
+if (state.v_state_hurt_health <= 0) result = true;
 
 return result;

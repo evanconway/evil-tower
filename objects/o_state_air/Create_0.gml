@@ -1,5 +1,7 @@
 event_inherited();
 
+v_state_name = "air";
+
 v_state_script_connect = scr_state_air_connect;
 v_state_script_change = scr_state_changesprite;
 v_state_script_run = scr_state_air_run;

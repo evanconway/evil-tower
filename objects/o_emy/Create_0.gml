@@ -6,8 +6,6 @@ v_act_state_hurt = instance_create_layer(x, y, "Enemies", o_state_hurt);
 v_act_state_hurt.v_state_count_max = 20;
 v_act_state_hurt.v_state_hurt_health = 3;
 v_act_state_hurt.v_state_hurt_vel_y_max = 3;
-v_act_state_hurt.v_state_hurt_dead_fx = o_fx_explosion;
-v_act_state_hurt.v_state_hurt_dead_snd = snd_emy_explosion
 v_act_state_hurt.v_state_hurt_fx_yoffset = (bbox_bottom - bbox_top) / 2;
 
 // hitbox

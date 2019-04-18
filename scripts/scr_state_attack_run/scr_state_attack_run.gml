@@ -12,10 +12,7 @@ ID.image_speed = 0;
 if (place_meeting(ID.x, ID.y + 1, o_wall)){
 	ID.v_act_vel_x = 0;
 	ID.v_act_vel_y = 0;
-} else {
-	if (ID.v_act_vel_y >= 0 && ID.v_act_actcon.v_actcon_pressed_down) ID.v_act_vel_y = ID.v_act_vel_y_max;
-	scr_act_calcairvals(ID, ID.v_act_grv, 0.15);
-}
+} else scr_act_calcairvals(ID);
 switch (state.v_state_attack_stage) {
 	case enum_attack_stage.startup:
 	ID.image_index = 0;

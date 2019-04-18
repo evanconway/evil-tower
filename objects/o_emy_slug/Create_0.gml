@@ -5,7 +5,9 @@ v_act_ai = instance_create_layer(x, y, "Enemies", o_ai_wander_andattack);
 v_act_ai.v_ai_actor = id;
 
 // states
-// idle
+v_act_state_hurt.v_state_sprite = s_emy_slug_gnd_attack;
+v_act_state_hurt.v_state_sprite_left = s_emy_slug_gnd_attack_left;
+
 v_emy_slug_state_gnd_idle = instance_create_layer(x, y, "Enemies", o_state_gnd_idle);
 v_emy_slug_state_gnd_idle.v_state_sprite = s_emy_slug_gnd_idle;
 v_emy_slug_state_gnd_idle.v_state_sprite_left = s_emy_slug_gnd_idle_left;

@@ -1,3 +1,3 @@
 /// @description Reset Game
 
-if (global.debug_keys_active) room_goto(0);
+if (global.debug_keys_active) game_restart();
