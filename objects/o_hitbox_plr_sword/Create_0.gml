@@ -7,6 +7,8 @@ v_hitbox_fx = o_fx_smack;
 v_hitbox_snd_hit = snd_knock2;
 v_hitbox_snd_miss = snd_swordswing;
 v_hitbox_stun = 8;
+v_hitbox_shake_hit = 0;
+v_hitbox_shake_kill = 2;
 
 v_hitbox_knock_x = 1.2;
 v_hitbox_knock_y = -1.5;

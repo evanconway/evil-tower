@@ -1,6 +1,7 @@
 /// @description 
 
 // hitbox qualities
+v_hitbox_projectile = false;
 v_hitbox_permenant = false;
 v_hitbox_wallends = false;
 v_hitbox_drawsprite = false;
@@ -18,6 +19,8 @@ v_hitbox_snd_miss = undefined;
 v_hitbox_snd_missID = undefined;
 v_hitbox_firstcheck = true;
 v_hitbox_shader = sh_red; // shader applied for stun duration
+v_hitbox_shake_hit = 1; // screen shake on hit
+v_hitbox_shake_kill = 0; // screen shake when hitbox kills actor
 
 // hitter
 v_hitbox_hitter = undefined; // the actor creating this hitbox, some areas reference this

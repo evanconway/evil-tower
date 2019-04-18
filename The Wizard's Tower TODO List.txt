@@ -1,8 +1,7 @@
 Nothing is this list is true forever. This is just where we are right now.
 
 TO DO: 
-fix/understand transitions
-add player dying sequence
+screen shake
 add test boss with intro and outro sequence
 remove magic numbers in scr_act_calcairvals (probably have to create an actor variable)
 make another spawn object, campfire??
@@ -10,6 +9,8 @@ make dying sequence something more universal and less obnoxious.
 bug, it is possible to break controls through remapping
 
 DONE:
+add player dying sequence
+fix/understand transitions (you can delete an instance, keep running code, and instance_exists() will return false for the deleted instance (despited the fact 	you're still running code for it)
 add room out of bounds deaths
 change o_music so it just determines track on room change. Let transitions and other things play music
 Blocking (shield)

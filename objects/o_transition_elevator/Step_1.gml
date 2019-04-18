@@ -22,7 +22,7 @@ switch (v_transition_stage) {
 		v_transition_stage++;
 		// now that we're in the correct room, we can move the elevator to its start position
 		// setup camera correctly
-		scr_set_camera_pos(v_transition_elevator.x, v_transition_elevator.y - o_camera.v_camera_boundary_y);
+		scr_camera_setpos(v_transition_elevator.x, v_transition_elevator.y - o_camera.v_camera_boundary_y);
 		o_camera.v_camera_follow = undefined;
 		v_transition_elevator.y += v_transition_elevator.v_elevator_start_y;
 		v_transition_plrdepth = global.player.depth;
@@ -56,10 +56,12 @@ switch (v_transition_stage) {
 		if (v_transition_elevator.y <= v_transition_elevator.v_elevator_target_y + v_transition_elevator.v_elevator_slow_y) {
 			v_transition_elevator.v_elevator_speed *= v_transition_elevator.v_elevator_slow_rate;
 		}
+		// elevator has reached destination and needs to stop
 		if (v_transition_elevator.y <= v_transition_elevator.v_elevator_target_y) {
 			v_transition_elevator.y = v_transition_elevator.v_elevator_target_y;
 			audio_stop_sound(snd_elevator_mv);
 			scr_playsfx(snd_elevator_stp);
+			scr_camera_shake(0, 2);
 		}
 		scr_act_setpos(global.player, floor(v_transition_elevator.x), floor(v_transition_elevator.y));
 	}

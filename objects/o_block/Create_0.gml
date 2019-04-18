@@ -7,3 +7,4 @@ v_block_drawsprite = false;
 v_block_hitboxesblocked = ds_list_create();
 v_block_fx = o_fx_block;
 v_block_sound = snd_knock;
+v_block_shake = 1; // set 0 for no shake on block

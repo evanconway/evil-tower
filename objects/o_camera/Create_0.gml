@@ -36,3 +36,13 @@ v_camera_type = enum_camera.plain;
 // boundaries determine how far from camera center follow can be.
 v_camera_boundary_x = 40;
 v_camera_boundary_y = 22;
+
+v_camera_shake_framesperstep = 5; // num of frames camera will hold the shake offset value
+v_camera_shake_step1 = 0; // flip offsets on 0
+v_camera_shake_step2 = 0; // flip and decrement offsets on 0
+/* 
+Offset values double as "time" variable. The camera will continue to flip and decrement
+offsets until they are both 0, resetting v_camera_shake_step each time. 
+*/
+v_camera_shake_offset_x = 0; // how much the camera is offset by in shake 
+v_camera_shake_offset_y = 0;

@@ -18,7 +18,7 @@ switch (state.v_state_attack_stage) {
 	ID.image_index = 0;
 	if (state.v_state_count <= 0) {	
 		var hitbox = instance_create_layer(ID.x, ID.y, "Hitboxes", state.v_state_attack_hitbox); 
-		hitbox.v_hitbox_hitter = ID;
+		if (!hitbox.v_hitbox_projectile) hitbox.v_hitbox_hitter = ID;
 		// same as below, we need it here for projectiles
 		if (ID.v_act_faceright) hitbox.x = scr_act_potxpos(ID.x, ID.v_act_vel_x) + state.v_state_attack_offset_x;
 		else hitbox.x = scr_act_potxpos(ID.x, ID.v_act_vel_x) - state.v_state_attack_offset_x;

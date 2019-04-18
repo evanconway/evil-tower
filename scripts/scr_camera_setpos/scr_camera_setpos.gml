@@ -1,4 +1,4 @@
-/// @description scr_set_camera_pos(num, num)
+/// @description scr_camera_setpos(num, num)
 /// @param x
 /// @param y
 

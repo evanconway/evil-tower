@@ -149,7 +149,7 @@ if (ds_list_size(blocks) != 0 || ds_list_size(targets) != 0) {
 	if (v_hitbox_snd_missID != undefined) audio_stop_sound(v_hitbox_snd_missID);
 }
 
-// apply block effects to knockback to blockers
+// apply knockback to blockers
 for (var i = 0; i < ds_list_size(blocks); i++) {
 	var block = blocks[|i];
 	var actor = block.v_block_blocker;
@@ -157,17 +157,22 @@ for (var i = 0; i < ds_list_size(blocks); i++) {
 	ds_list_add(block.v_block_hitboxesblocked, id);
 	if (v_hitbox_stun > actor.v_act_freezetime) actor.v_act_freezetime = v_hitbox_stun;
 	if (v_hitbox_stun > state.v_state_defend_time) state.v_state_defend_time = v_hitbox_stun;
-	if (v_hitbox_freezehitter && instance_exists(v_hitbox_hitter)) v_hitbox_hitter.v_act_freezetime = v_hitbox_stun;
+	if (v_hitbox_freezehitter && v_hitbox_hitter!= undefined && instance_exists(v_hitbox_hitter)) {
+		v_hitbox_hitter.v_act_freezetime = v_hitbox_stun;
+	}
 	if (block.v_block_fx != undefined) instance_create_layer(block.x, block.y, "Projectiles", block.v_block_fx);
 	if (block.v_block_sound != undefined) scr_playsfx(block.v_block_sound);
 	if (v_hitbox_hitter != undefined) {
 		if (v_hitbox_hitter.x < actor.x) actor.v_act_vel_x = v_hitbox_knock_x;
 		if (v_hitbox_hitter.x > actor.x) actor.v_act_vel_x = v_hitbox_knock_x * -1;
 	} else {
-		if (v_hitbox.x < actor.x) actor.v_act_vel_x = v_hitbox_knock_x;
-		if (v_hitbox.x > actor.x) actor.v_act_vel_x = v_hitbox_knock_x * -1;
+		if (x < actor.x) actor.v_act_vel_x = v_hitbox_knock_x;
+		if (x > actor.x) actor.v_act_vel_x = v_hitbox_knock_x * -1;
 	}
 	actor.v_act_vel_y = v_hitbox_knock_y;
+	if (block.v_block_shake != 0) {
+		scr_camera_shake(actor.v_act_vel_x * block.v_block_shake, 0);
+	}
 	if (v_hitbox_destroyonhit) instance_destroy(id);
 }
 
@@ -201,14 +206,30 @@ for (var i = 0; i < ds_list_size(targets); i++) {
 				if (v_hitbox_hitter.x < actor.x) hurt.v_state_hurt_vel_x = v_hitbox_knock_x;
 				if (v_hitbox_hitter.x > actor.x) hurt.v_state_hurt_vel_x = v_hitbox_knock_x * -1;
 			} else {
-				if (v_hitbox.x < actor.x) hurt.v_state_hurt_vel_x = v_hitbox_knock_x;
-				if (v_hitbox.x > actor.x) hurt.v_state_hurt_vel_x = v_hitbox_knock_x * -1;
+				if (x < actor.x) hurt.v_state_hurt_vel_x = v_hitbox_knock_x;
+				if (x > actor.x) hurt.v_state_hurt_vel_x = v_hitbox_knock_x * -1;
 			}
 			hurt.v_state_hurt_vel_y = v_hitbox_knock_y;
 		}
+		if (v_hitbox_shake_hit != 0) {
+			scr_camera_shake(hurt.v_state_hurt_vel_x * v_hitbox_shake_hit, 0);
+		}
 		if (v_hitbox_destroyonhit) instance_destroy(id);
 		actor.v_act_state_cur = hurt;
-	} else scr_act_kill(actor);
+	} else {
+		if (v_hitbox_shake_kill != 0) {
+			var c_shake_x = 0;
+			if (v_hitbox_hitter != undefined) {
+				if (v_hitbox_hitter.x < actor.x) c_shake_x = v_hitbox_knock_x;
+				if (v_hitbox_hitter.x > actor.x) c_shake_x = v_hitbox_knock_x * -1;
+			} else {
+				if (x < actor.x) c_shake_x = v_hitbox_knock_x;
+				if (x > actor.x) c_shake_x = v_hitbox_knock_x * -1;
+			}
+			scr_camera_shake(c_shake_x * v_hitbox_shake_kill, 0);
+		}
+		scr_act_kill(actor);
+	}
 }
 
 if (v_hitbox_firstcheck && ds_list_size(blocks) == 0 && ds_list_size(targets) == 0) {

@@ -543,6 +543,14 @@
             }
         },
         {
+            "Key": "2c112c02-20ef-4e08-a739-ed451d77c996",
+            "Value": {
+                "id": "940b6da3-41fd-4053-b0e3-d4f946b95173",
+                "resourcePath": "scripts\\scr_camera_shake\\scr_camera_shake.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2c228801-86b2-4458-ad7e-169223b4b830",
             "Value": {
                 "id": "30a4db38-7aaf-404d-8bbe-9e3451fa5437",
@@ -1151,6 +1159,14 @@
             }
         },
         {
+            "Key": "5d2ab639-7e2f-45ed-81d5-896c6c5a6a25",
+            "Value": {
+                "id": "aa6adaad-f5ae-4ff8-b7e0-7976623af139",
+                "resourcePath": "sounds\\snd_thudlight\\snd_thudlight.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "5d2f64f4-745e-4d2f-8820-849f7a7232ab",
             "Value": {
                 "id": "cd8c8986-3125-44ad-b92e-1102a2aaa7d9",
@@ -1330,7 +1346,7 @@
             "Key": "6da57aa5-5107-41fb-a079-09c151229614",
             "Value": {
                 "id": "df795e06-3c91-4e4a-bef5-1c988860db2c",
-                "resourcePath": "scripts\\scr_set_camera_pos\\scr_set_camera_pos.yy",
+                "resourcePath": "scripts\\scr_camera_setpos\\scr_camera_setpos.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -3332,7 +3348,8 @@
         "2b7d5b02-4028-4484-99eb-7f8b448501e3",
         "9c199008-3906-4ef7-b651-41e7729fe744",
         "926f8375-904f-4101-92a5-b9a062282c8f",
-        "6da57aa5-5107-41fb-a079-09c151229614"
+        "6da57aa5-5107-41fb-a079-09c151229614",
+        "2c112c02-20ef-4e08-a739-ed451d77c996"
     ],
     "tutorial": ""
 }

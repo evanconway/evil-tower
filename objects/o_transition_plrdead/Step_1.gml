@@ -15,6 +15,7 @@ switch (v_transition_stage) {
 	case 1:
 	v_transition_count--;
 	if (v_transition_count <= 0 || scr_input_continue()) {
+		instance_destroy(id);
 		scr_transition_spawn();
 	}
 	break;

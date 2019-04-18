@@ -1,5 +1,7 @@
 event_inherited();
 
+v_hitbox_projectile = true;
+
 v_hitbox_stun = 20;
 v_hitbox_permenant = true;
 v_hitbox_target = global.player;

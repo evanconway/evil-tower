@@ -56,10 +56,33 @@ if (v_camera_follow != undefined && instance_exists(v_camera_follow)) {
 x = clamp(x, camera_get_view_width(v_camera) * 0.5, room_width - camera_get_view_width(v_camera) * 0.5);
 y = clamp(y, camera_get_view_height(v_camera) * 0.5, room_height - camera_get_view_height(v_camera) * 0.5);
 
+// note that shake_time gets set to shake_frames in the camera shake script, as do the first offset values
+if (v_camera_shake_offset_x != 0 || v_camera_shake_offset_y != 0) {
+	if (v_camera_shake_step1 > 0) {
+		v_camera_shake_step1--;
+		if (v_camera_shake_step1 <= 0) {
+			v_camera_shake_offset_x *= -1;
+			v_camera_shake_offset_y *= -1;
+			v_camera_shake_step2 = v_camera_shake_framesperstep;
+		}
+	}
+	if (v_camera_shake_step2 > 0) {
+		v_camera_shake_step2--;
+		if (v_camera_shake_step2 <= 0) {
+			v_camera_shake_offset_x = (abs(v_camera_shake_offset_x) - 1) * sign(v_camera_shake_offset_x) * -1;
+			v_camera_shake_offset_y = (abs(v_camera_shake_offset_y) - 1) * sign(v_camera_shake_offset_y) * -1;
+			v_camera_shake_step1 = v_camera_shake_framesperstep;
+		}
+	}
+}
+
 /*
 Our camera object is not the actual "camera" the engine uses to display the game.
 even though we've moved it around in the game space, the true engine camera hasn't moved at all.
 This script moves it, assuming x/y is the exact center of where we want the camera.
-*/
 
-camera_set_view_pos(v_camera, x - camera_get_view_width(v_camera) * 0.5, y - camera_get_view_height(v_camera) * 0.5);
+Also since the values need so much math, we're making temp vars so it's clearer whats actually happening
+*/
+var xpos = x - camera_get_view_width(v_camera) * 0.5 + v_camera_shake_offset_x;
+var ypos = y - camera_get_view_height(v_camera) * 0.5 + v_camera_shake_offset_y;
+camera_set_view_pos(v_camera, xpos, ypos);
