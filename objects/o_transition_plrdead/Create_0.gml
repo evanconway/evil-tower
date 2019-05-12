@@ -15,3 +15,5 @@ while (instance_exists(o_fx)) instance_destroy(o_fx);
 while (instance_exists(o_hitbox)) instance_destroy(o_hitbox);
 
 v_transition_count = 120;
+
+global.freezeactors = true;

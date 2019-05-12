@@ -7,7 +7,7 @@ v_textbox_recalculate = true;
 v_textbox_ispermenant = true;
 v_textbox_collideswithplayer = true;
 
-var test_text = "Congratulations! You won!";
+var test_text = "The boss is in the next room. Good Luck!";
 var t_chunk = ds_list_create();
 scr_list_addsegment_multi(t_chunk, test_text, c_white);
 v_textbox_segments = t_chunk;

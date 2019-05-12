@@ -14,7 +14,7 @@ if (v_hitbox_hitterstate != undefined && v_hitbox_hitter.v_act_state_cur != v_hi
 
 if (v_hitbox_wallends && place_meeting(x, y, o_wall)) {
 	if (v_hitbox_fx != undefined) instance_create_layer(x, y, "Hitboxes", v_hitbox_fx);
-	if (v_hitbox_snd_hit != undefined) scr_playsfx(v_hitbox_snd_hit);
+	if (v_hitbox_snd_hit != undefined) scr_playsfx_toplayer(x, y, v_hitbox_snd_hit);
 	instance_destroy(id);
 	exit;
 }
@@ -161,7 +161,7 @@ for (var i = 0; i < ds_list_size(blocks); i++) {
 		v_hitbox_hitter.v_act_freezetime = v_hitbox_stun;
 	}
 	if (block.v_block_fx != undefined) instance_create_layer(block.x, block.y, "Projectiles", block.v_block_fx);
-	if (block.v_block_sound != undefined) scr_playsfx(block.v_block_sound);
+	if (block.v_block_sound != undefined) scr_playsfx_toplayer(block.x, block.y, block.v_block_sound);
 	if (v_hitbox_hitter != undefined) {
 		if (v_hitbox_hitter.x < actor.x) actor.v_act_vel_x = v_hitbox_knock_x;
 		if (v_hitbox_hitter.x > actor.x) actor.v_act_vel_x = v_hitbox_knock_x * -1;
@@ -186,7 +186,7 @@ for (var i = 0; i < ds_list_size(targets); i++) {
 	if (v_hitbox_freezegame) global.freezeactors_time = v_hitbox_stun;
 	else if (v_hitbox_freezehitter && instance_exists(v_hitbox_hitter)) v_hitbox_hitter.v_act_freezetime = v_hitbox_stun;
 	if (v_hitbox_fx != undefined) instance_create_layer(actor.x, actor.y - hurt.v_state_hurt_fx_yoffset, "Projectiles", v_hitbox_fx);
-	if (v_hitbox_snd_hit != undefined) scr_playsfx(v_hitbox_snd_hit);	
+	if (v_hitbox_snd_hit != undefined) scr_playsfx_toplayer(x, y, v_hitbox_snd_hit);	
 	
 	if (hurt.v_state_hurt_health > 0) {
 		if (!v_hitbox_freezegame) actor.v_act_freezetime = v_hitbox_stun;
@@ -194,7 +194,7 @@ for (var i = 0; i < ds_list_size(targets); i++) {
 		actor.v_act_shader = v_hitbox_shader;
 		hurt.v_state_count = hurt.v_state_count_max;
 		if (hurt.v_state_hurt_fx != undefined) instance_create_layer(actor.x, actor.y - hurt.v_state_hurt_fx_yoffset, "Projectiles", hurt.v_state_hurt_fx);
-		if (hurt.v_state_hurt_snd != undefined) scr_playsfx(hurt.v_state_hurt_snd);
+		if (hurt.v_state_hurt_snd != undefined) scr_playsfx_toplayer(actor.x, actor.y, hurt.v_state_hurt_snd);
 				
 		if (actor.v_act_state_cur != undefined && object_is_ancestor(actor.v_act_state_cur.object_index, o_state_ladder)) {
 			hurt.v_state_hurt_ladder = true;
@@ -233,7 +233,7 @@ for (var i = 0; i < ds_list_size(targets); i++) {
 }
 
 if (v_hitbox_firstcheck && ds_list_size(blocks) == 0 && ds_list_size(targets) == 0) {
-	v_hitbox_snd_missID =  scr_playsfx(v_hitbox_snd_miss);
+	v_hitbox_snd_missID =  scr_playsfx_toplayer(x, y, v_hitbox_snd_miss);
 }
 
 v_hitbox_firstcheck = false;

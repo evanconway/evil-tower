@@ -197,8 +197,8 @@ scr_state_addconnect(v_plr_state_defend, v_plr_state_air);
 // hurt state
 scr_state_addconnect(v_act_state_hurt, v_plr_state_gnd_idle);
 scr_state_addconnect(v_act_state_hurt, v_plr_state_gnd_run);
-scr_state_addconnect(v_act_state_hurt, v_plr_state_ladder_idle);
 scr_state_addconnect(v_act_state_hurt, v_plr_state_air);
+scr_state_addconnect(v_act_state_hurt, v_plr_state_ladder_idle);
 
 // altrun scripts
 scr_state_addaltrun(v_plr_state_gnd_idle, v_plr_state_wall_stick);

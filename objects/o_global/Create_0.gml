@@ -16,10 +16,10 @@ global.firstroom = room_zombie;
 global.currentroom = room;
 global.prevroom = global.novalue;
 
-global.actors_visible = true;
+global.actors_visible = false;
 global.static_visible = true;
 
-global.bboxs_visible = false;
+global.bboxs_visible = true;
 global.draw_hud = true;
 global.debug_keys_active = true;
 

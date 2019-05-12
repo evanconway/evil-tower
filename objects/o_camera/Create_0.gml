@@ -33,6 +33,7 @@ enum enum_camera {
 
 v_camera_type = enum_camera.plain;
 
+global.screeshake_on = true;
 // boundaries determine how far from camera center follow can be.
 v_camera_boundary_x = 40;
 v_camera_boundary_y = 22;

@@ -76,6 +76,11 @@ if (v_camera_shake_offset_x != 0 || v_camera_shake_offset_y != 0) {
 	}
 }
 
+if (!global.screeshake_on) {
+	v_camera_shake_offset_x = 0;
+	v_camera_shake_offset_y = 0;
+}
+
 /*
 Our camera object is not the actual "camera" the engine uses to display the game.
 even though we've moved it around in the game space, the true engine camera hasn't moved at all.

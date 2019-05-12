@@ -19,7 +19,8 @@
         "4cb5b90c-0cfc-4d7d-9a89-5720fd717f4e",
         "3379bf6d-87f8-4767-9a01-e5976ef52e77",
         "6d888d51-231d-4d82-933d-33fcb17ef67d",
-        "4b11c93f-e78e-42f1-9c7f-139bee2cd23b"
+        "4b11c93f-e78e-42f1-9c7f-139bee2cd23b",
+        "b59b86ed-a3d4-46b6-8f60-adec3d04e07f"
     ],
     "filterType": "GMObject",
     "folderName": "States",

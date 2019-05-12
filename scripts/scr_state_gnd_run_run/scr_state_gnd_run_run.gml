@@ -23,6 +23,9 @@ if (act_controller.v_actcon_left && !act_controller.v_actcon_right) {
 
 if (ID.v_act_faceright != ID.v_act_faceright_prev) ID.image_index = 0;
 
+if (act_controller.v_actcon_right && act_controller.v_actcon_left) {
+	ID.v_act_vel_x = 0;
+}
 if (!act_controller.v_actcon_right && !act_controller.v_actcon_left) {
 	ID.v_act_vel_x = 0;
 }

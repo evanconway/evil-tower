@@ -5,6 +5,7 @@ var ID = argument[0];
 var hurt = ID.v_act_state_hurt;
 
 ID.v_act_state_cur = hurt;
+hurt.v_state_hurt_health = 0;
 
 if (hurt.v_state_hurt_dead_scene == undefined) {
 	// we won't bother creating death effects if there is a death scene, we'll assume that handles everything

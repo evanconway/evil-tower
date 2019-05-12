@@ -15,4 +15,4 @@ v_hitbox_vel_x = 1.3;
 v_hitbox_vel_y = -1;
 v_hitbox_grv = 0.02;
 
-scr_playsfx(snd_barf);
+scr_playsfx_toplayer(x, y, snd_barf);
