@@ -1863,6 +1863,14 @@
             }
         },
         {
+            "Key": "8e19c7f1-82ad-4740-aada-46a9bcf58159",
+            "Value": {
+                "id": "585674db-4ab8-4591-980c-5cac9a31d3c5",
+                "resourcePath": "objects\\o_ai_slugboss\\o_ai_slugboss.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "8e862b97-52d2-4a08-9aba-720e619c1244",
             "Value": {
                 "id": "2f454829-c675-4897-91d1-83ea3f5493b5",

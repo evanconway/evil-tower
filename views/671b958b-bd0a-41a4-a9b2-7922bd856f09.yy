@@ -9,7 +9,8 @@
         "8ca9c1a9-8e6b-475c-8449-84bd3d38500a",
         "784b6b8d-b607-4123-b642-5e19e37e21b7",
         "d280f606-6c1d-4db9-be9b-8ae214bbf4bd",
-        "6334f7f0-8902-4706-ad70-cfaaedef4dbf"
+        "6334f7f0-8902-4706-ad70-cfaaedef4dbf",
+        "8e19c7f1-82ad-4740-aada-46a9bcf58159"
     ],
     "filterType": "GMObject",
     "folderName": "AI",
