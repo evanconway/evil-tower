@@ -30,7 +30,7 @@ if (state.v_state_defend_time > 0) {
 
 	if (!ID.v_act_actcon.v_actcon_button3) {
 		state.v_state_defend_continue = false;
-		instance_destroy(state.v_state_defend_blockID);
+		if (state.v_state_defend_blockID != undefined) instance_destroy(state.v_state_defend_blockID);
 		state.v_state_defend_blockID = undefined;
 	}
 }

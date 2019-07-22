@@ -8,7 +8,7 @@ v_act_jump = -7;
 v_act_vel_x_max = 1;
 
 // states
-v_act_state_hurt.v_state_hurt_health = 6;
+v_act_state_hurt.v_state_hurt_health = 100;
 v_act_state_hurt.v_state_sprite = s_slug_giant;
 v_act_state_hurt.v_state_sprite_left = s_slug_giant_left;
 

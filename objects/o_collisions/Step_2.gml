@@ -1,6 +1,10 @@
 /// @description Handle Collisions
 
 /*
+Are we even using this? I think this is totally unused.
+*/
+
+/*
 Instead of having actors and hitboxes detect collisions, we detect them here.
 This allows us
 */

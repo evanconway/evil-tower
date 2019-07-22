@@ -14,6 +14,7 @@ switch (ID.v_scene_state) {
 		o_player.v_act_faceright = true;
 		ID.v_scene_state++;
 		ID.v_scene_counter = 30;
+		scr_music_fadeout(2000);
 	}
 	break;
 	case 1: // wait one second
@@ -58,17 +59,43 @@ switch (ID.v_scene_state) {
 	with (ID.v_scene_boss) bossLanded = place_meeting(x, y + 1, o_wall);
 	if (bossLanded) {
 		ID.v_scene_state++;
-		ID.v_scene_counter = 180;
-		scr_camera_shake(0, 10,);
+		ID.v_scene_counter = 100;
+		scr_camera_shake(0, 4);
 		scr_playsfx(snd_bigland);
 	}
 	break;
 	case 5:
 	v_scene_counter--;
 	if (v_scene_counter <= 0) {
+		v_scene_counter = 70;
+		v_scene_boss.sprite_index = s_slug_giant_attack_left;
+		scr_playsfx(snd_roar);
+		v_scene_state++;
+	}
+	break;
+	case 6:
+	v_scene_counter--;
+	if (v_scene_counter < 35) v_scene_boss.sprite_index = s_slug_giant_left;
+	if (v_scene_counter <= 0) {
+		v_scene_boss_roars--;
+		if (v_scene_boss_roars > 0) {
+			v_scene_counter = 70;
+			v_scene_boss.sprite_index = s_slug_giant_attack_left;
+			scr_playsfx(snd_roar);
+		} else {
+			v_scene_counter = 60;
+			scr_music_play(snd_music_retrohero);
+			v_scene_state++;
+		}
+	}
+	break;
+	case 7:
+	v_scene_counter--;
+	if (v_scene_counter <= 0) {
 		o_player.v_act_disableActcon = false;
 		v_scene_boss.v_act_disableActcon = false;
 		v_scene_running = false;
+		//scr_music_play(snd_music_retrohero);
 		//o_camera.v_camera_follow = o_player;
 	}
 	break;
