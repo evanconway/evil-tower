@@ -1,4 +1,5 @@
-/// @description 
+event_inherited();
+v_state_name = "slam";
 
 /*
 This is basically the ground pound from mario games. It can only be done in the air. 
@@ -10,6 +11,8 @@ boss attack.
 
 v_state_script_continue = scr_state_slam_continue;
 v_state_script_connect = scr_state_slam_connect;
+v_state_script_change = scr_state_slam_change;
+v_state_script_run = scr_state_slam_run;
 
 v_state_slam_finished = false;
 v_state_slam_stage = 0;

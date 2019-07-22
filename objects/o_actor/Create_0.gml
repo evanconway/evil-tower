@@ -25,6 +25,7 @@ v_act_freezetime = 0;
 v_act_shadertime = 0;
 v_act_shader = undefined;
 v_act_alpha = 1;
+v_act_disableActcon = false;
 
 /*
 The hurt state is an interesting state. It will connect to other states, but other 

@@ -107,6 +107,12 @@ v_plr_state_defend.v_state_sprite_left = s_plr_gnd_block_left;
 v_plr_state_defend.v_state_defend_block = o_block_plr;
 v_plr_state_defend.v_state_defend_offset_x = 5;
 
+v_plr_state_slam = instance_create_layer(x, y, "Player", o_state_slam);
+v_plr_state_slam.v_state_slam_sprite_dn = s_plr_air_dn_sword;
+v_plr_state_slam.v_state_slam_sprite_dn_left = s_plr_air_dn_sword_left;
+v_plr_state_slam.v_state_slam_sprite_land = s_plr_gnd_crouch_sword;
+v_plr_state_slam.v_state_slam_sprite_land_left = s_plr_gnd_crouch_sword_left;
+
 // state connections
 // idle
 scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_ladder_up);
@@ -133,6 +139,7 @@ scr_state_addconnect(v_plr_state_air_jump, v_plr_state_defend);
 scr_state_addconnect(v_plr_state_air_jump, v_plr_state_gnd_idle);
 scr_state_addconnect(v_plr_state_air_jump, v_plr_state_gnd_run);
 scr_state_addconnect(v_plr_state_air_jump, v_plr_state_wall_stick);
+//scr_state_addconnect(v_plr_state_air_jump, v_plr_state_slam);
 
 // air
 scr_state_addconnect(v_plr_state_air, v_plr_state_attack);
@@ -140,6 +147,7 @@ scr_state_addconnect(v_plr_state_air, v_plr_state_defend);
 scr_state_addconnect(v_plr_state_air, v_plr_state_gnd_idle);
 scr_state_addconnect(v_plr_state_air, v_plr_state_gnd_run);
 scr_state_addconnect(v_plr_state_air, v_plr_state_wall_stick);
+//scr_state_addconnect(v_plr_state_air, v_plr_state_slam);
 
 // crouch
 scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_idle);
@@ -194,6 +202,10 @@ scr_state_addconnect(v_plr_state_defend, v_plr_state_gnd_idle);
 scr_state_addconnect(v_plr_state_defend, v_plr_state_gnd_run);
 scr_state_addconnect(v_plr_state_defend, v_plr_state_air);
 
+// slam
+scr_state_addconnect(v_plr_state_slam, v_plr_state_gnd_idle);
+scr_state_addconnect(v_plr_state_slam, v_plr_state_gnd_run);
+
 // hurt state
 scr_state_addconnect(v_act_state_hurt, v_plr_state_gnd_idle);
 scr_state_addconnect(v_act_state_hurt, v_plr_state_gnd_run);
@@ -204,3 +216,4 @@ scr_state_addconnect(v_act_state_hurt, v_plr_state_ladder_idle);
 scr_state_addaltrun(v_plr_state_gnd_idle, v_plr_state_wall_stick);
 scr_state_addaltrun(v_plr_state_gnd_crouch, v_plr_state_wall_stick);
 scr_state_addaltrun(v_plr_state_gnd_run, v_plr_state_wall_stick);
+

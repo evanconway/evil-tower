@@ -4,6 +4,7 @@ event_inherited();
 
 v_scene_running = false;
 v_scene_triggered = false;
+v_scene_counter = 0;
 
 /*
 Ihese variables are scripts that the step event will call. These variables will be

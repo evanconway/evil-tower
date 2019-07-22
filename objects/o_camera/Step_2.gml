@@ -44,8 +44,8 @@ if (v_camera_follow != undefined && instance_exists(v_camera_follow)) {
 	y += camera_y_move;
 } else {
 	/*
-	The camera needs to be repositioned on screens with no player, there are so few
-	of them though, we're just going to take care of them here.
+	We need to manually set the position of the camera in rooms that don't contain
+	an o_player object. There are very few of them, and we will handle them here:
 	*/
 	if (room == main_menu) {
 		x = 0;
@@ -85,8 +85,6 @@ if (!global.screeshake_on) {
 Our camera object is not the actual "camera" the engine uses to display the game.
 even though we've moved it around in the game space, the true engine camera hasn't moved at all.
 This script moves it, assuming x/y is the exact center of where we want the camera.
-
-Also since the values need so much math, we're making temp vars so it's clearer whats actually happening
 */
 var xpos = x - camera_get_view_width(v_camera) * 0.5 + v_camera_shake_offset_x;
 var ypos = y - camera_get_view_height(v_camera) * 0.5 + v_camera_shake_offset_y;

@@ -1,6 +1,6 @@
 v_textbox_bodycolor = c_black;
 v_textbox_bordercolor = c_white;
-v_textbox_width_max = 50;
+v_textbox_width_max = 80;
 v_textbox_ispopup = true;
 v_textbox_y_offset = -20;
 v_textbox_recalculate = true;

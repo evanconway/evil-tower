@@ -27,6 +27,8 @@ if (!global.freezeactors && v_act_freezetime <= 0 && global.freezeactors_time <=
 	if (v_act_state_cur != undefined) {
 			
 		image_speed = 1;// this may get changed by the state code
+		
+		if (v_act_disableActcon) scr_actcon_reset(v_act_actcon);
 			
 		scr_act_checkstateconnects(id);
 		

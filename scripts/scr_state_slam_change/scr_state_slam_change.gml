@@ -8,4 +8,4 @@ scr_state_changesprite(ID);
 
 state.v_state_slam_finished = false;
 state.v_state_slam_stage = 0;
-state.v_state_count = 120; // frames frozen in air
+state.v_state_count = 15; // frames frozen in air
