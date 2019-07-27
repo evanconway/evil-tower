@@ -118,6 +118,14 @@ for (var i = 0; i < ds_list_size(targets); i++) {
 		i--;
 	}
 }
+
+// remove all targets that are currently invulnerable
+for (var i = 0; i < ds_list_size(targets); i++) {
+	if (targets[|i].v_act_invultime > 0) {
+		ds_list_delete(targets, i);
+		i--;
+	}
+}
 /*
 Now we need to remove any targets that are blocking correctly. However...
 we have already done this with the blocks list. So all we need to do is 

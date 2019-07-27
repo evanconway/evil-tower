@@ -1055,6 +1055,14 @@
             }
         },
         {
+            "Key": "4f4b54a1-de2b-4e44-86a6-083d32f5bed7",
+            "Value": {
+                "id": "898eee6f-5ca9-4d3d-bb0b-f895c3f228df",
+                "resourcePath": "objects\\o_bosshealth\\o_bosshealth.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "5008d749-6983-43e6-bf7c-51da3f73801e",
             "Value": {
                 "id": "521887f6-76e3-4b8b-b471-46403e9d2695",

@@ -14,6 +14,10 @@ if (state.v_state_sprite_left != undefined && !ID.v_act_faceright) ID.sprite_ind
 
 // the v_state_hurt_ladder gets set by the hitbox, see hitbox code for details
 if (state.v_state_hurt_health > 0) {
+	
+	// this should set the actors invulnerable time when they first get hit, but only when they first get hit.
+	if (state.v_state_hurt_invultime > 0 && ID.v_act_invultime == 0) ID.v_act_invultime = state.v_state_hurt_invultime;
+	
 	if (!state.v_state_hurt_ladder) {
 		if (state.v_state_hurt_vel_y < state.v_state_hurt_vel_y_max) state.v_state_hurt_vel_y += state.v_state_hurt_grv_y;
 		if (state.v_state_hurt_vel_y > state.v_state_hurt_vel_y_max) state.v_state_hurt_vel_y = state.v_state_hurt_vel_y_max;

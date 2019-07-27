@@ -14,7 +14,7 @@ if (sprite_index != undefined) {
 		}
 		image_alpha = v_act_alpha;
 		draw_self();
-		shader_reset();
+		shader_reset(); // what is this and why is this here?
 	}
 
 	draw_set_color(c_lime);

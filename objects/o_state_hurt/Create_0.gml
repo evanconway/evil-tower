@@ -12,7 +12,9 @@ v_state_script_run = scr_state_hurt_run;
 v_state_count_max = 15; // 
 v_state_count = 0;
 
-v_state_hurt_health = 3;
+v_state_hurt_health_max = 3;
+v_state_hurt_health = v_state_hurt_health_max;
+v_state_hurt_invultime = 0; // frames of invulnerability after gett
 
 v_state_hurt_fx = undefined;
 v_state_hurt_snd = undefined;
@@ -38,4 +40,5 @@ enum enum_hurt_stage {
 	move
 }
 
-v_state_hurt_stage = enum_hurt_stage.stun;
+// unused?
+//v_state_hurt_stage = enum_hurt_stage.stun;

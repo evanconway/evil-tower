@@ -23,6 +23,23 @@ if (!global.freezeactors && v_act_freezetime <= 0 && global.freezeactors_time <=
 	how this is used.
 	*/
 	if (v_act_inputlocktime > 0) v_act_inputlocktime--;
+	
+	// used for making actors faded after getting hit
+	if (v_act_fadetime > 0) {
+		v_act_fadetime--;
+		v_act_alpha = 0.4;
+	} else v_act_alpha = 1;
+	
+	/*
+	This sort of breaks our design choice of having state specific
+	things done oustide of the state. After getting hit, we want
+	the player to be invulnerable for a short time. What we should
+	do is give actors a list of state scripts that will always run
+	regardless of what state they're in. But we're close enough
+	to finished we can break the rules here IMO. Check hitboxes
+	and the hurt state for more stuff related to this.
+	*/
+	if (v_act_invultime > 0) v_act_invultime--;
 
 	if (v_act_state_cur != undefined) {
 			

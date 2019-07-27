@@ -67,7 +67,7 @@ switch (ID.v_scene_state) {
 		
 		instance_create_layer(v_scene_boss_joke.x, v_scene_boss_joke.y, "Hitboxes", o_fx_slug_barf_hit);
 		instance_destroy(v_scene_boss_joke);
-		
+		with (instance_create_layer(0, 0, "Text", o_bosshealth)) v_bosshealth_boss = ID.v_scene_boss;
 		ID.v_scene_boss.sprite_index = s_slug_giant_left;
 		ID.v_scene_state++;
 		ID.v_scene_counter = 100;

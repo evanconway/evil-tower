@@ -33,6 +33,8 @@ states will not connect to it. Hitboxes from other actors will set an actor to
 this state. 
 */
 v_act_state_hurt = undefined;
+v_act_invultime = 0;
+v_act_fadetime = 0;
 
 /*
 To allow actors to hurt other actors just by running into them, we are giving 

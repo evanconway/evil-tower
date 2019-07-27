@@ -8,4 +8,10 @@ var result = false;
 if (state.v_state_count > 0) result = true;
 if (state.v_state_hurt_health <= 0) result = true;
 
+/*
+Breaking my rules hard here, we're going to set the fade time
+of the actor here since I'm not sure where else to do it.
+*/
+if (!result) ID.v_act_fadetime = ID.v_act_invultime - 1;
+
 return result;
