@@ -10,7 +10,8 @@
         "78e64674-bae5-4490-8626-e648deb7ebd8",
         "e1cb7395-97fe-468e-933d-f6e184ef3ed3",
         "47ff642a-dfbe-4cee-8f5f-87c9077fcae1",
-        "8008f57f-e965-44cb-9f49-520681eb5a94"
+        "8008f57f-e965-44cb-9f49-520681eb5a94",
+        "2574de38-e97f-45ce-b886-5b7978b1eb57"
     ],
     "filterType": "GMObject",
     "folderName": "Transitions",

@@ -155,10 +155,10 @@ for (var i = 0; i < ds_list_size(blocks); i++) {
 	var actor = block.v_block_blocker;
 	var state = actor.v_act_state_cur;
 	ds_list_add(block.v_block_hitboxesblocked, id);
-	if (v_hitbox_stun > actor.v_act_freezetime) actor.v_act_freezetime = v_hitbox_stun;
+	if (v_hitbox_stun > actor.v_act_freezetime) actor.v_act_freezetime = v_hitbox_stun * 0.5;
 	if (v_hitbox_stun > state.v_state_defend_time) state.v_state_defend_time = v_hitbox_stun;
 	if (v_hitbox_freezehitter && v_hitbox_hitter!= undefined && instance_exists(v_hitbox_hitter)) {
-		v_hitbox_hitter.v_act_freezetime = v_hitbox_stun;
+		v_hitbox_hitter.v_act_freezetime = v_hitbox_stun * 0.5; // less stun on block
 	}
 	if (block.v_block_fx != undefined) instance_create_layer(block.x, block.y, "Projectiles", block.v_block_fx);
 	if (block.v_block_sound != undefined) scr_playsfx_toplayer(block.x, block.y, block.v_block_sound);

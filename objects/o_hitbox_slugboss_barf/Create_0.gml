@@ -11,8 +11,8 @@ v_hitbox_fx = o_fx_slug_barf_hit;
 v_hitbox_drawsprite = true;
 v_hitbox_wallends = true;
 v_hitbox_destroyonhit = true;
-v_hitbox_vel_x = 1.8;
-v_hitbox_vel_y = -0.8;
-v_hitbox_grv = 0.022;
+v_hitbox_vel_x = 1.4;
+v_hitbox_vel_y = -0.6;
+v_hitbox_grv = 0.011;
 
 scr_playsfx_toplayer(x, y, snd_barf);

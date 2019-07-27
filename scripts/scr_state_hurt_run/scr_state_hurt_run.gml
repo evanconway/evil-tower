@@ -5,7 +5,10 @@ var ID = argument[0];
 var state = ID.v_act_state_cur;
 
 scr_state_deccount(state); // read in continue script, not here
-if (state.v_state_sprite != undefined && ID.sprite_index != state.v_state_sprite) ID.sprite_index = state.v_state_sprite;
+
+// this line used to have "&& ID.sprite_index != state.v_state_sprite" .... why?
+if (state.v_state_sprite != undefined) ID.sprite_index = state.v_state_sprite;
+if (state.v_state_sprite_left != undefined && !ID.v_act_faceright) ID.sprite_index = state.v_state_sprite_left;
 
 // velocities are set by knockback values of hitboxes
 

@@ -1,16 +1,17 @@
 event_inherited();
 if (!instance_exists(id)) exit;
 
-v_act_ai = instance_create_layer(x, y, "Enemies", o_ai_slugboss);
+v_act_ai = instance_create_layer(x, y, "Enemies", o_ai_slugboss2);
 v_act_ai.v_ai_actor = id;
 
 v_act_jump = -7;
 v_act_vel_x_max = 1;
 
 // states
-v_act_state_hurt.v_state_hurt_health = 100;
-v_act_state_hurt.v_state_sprite = s_slug_giant;
-v_act_state_hurt.v_state_sprite_left = s_slug_giant_left;
+v_act_state_hurt.v_state_hurt_health = 3;
+v_act_state_hurt.v_state_sprite = s_slug_giant_rising;
+v_act_state_hurt.v_state_sprite_left = s_slug_giant_rising_left;
+v_act_state_hurt.v_state_hurt_dead_scene = o_transition_bossdead;
 
 v_emy_slugboss_state_gnd_idle = instance_create_layer(x, y, "Enemies", o_state_gnd_idle);
 v_emy_slugboss_state_gnd_idle.v_state_sprite = s_slug_giant;
@@ -24,7 +25,16 @@ v_emy_slugboss_state_gnd_run.v_state_sprite_left = s_slug_giant_left;
 v_emy_slugboss_state_gnd_run.v_state_gnd_run_maxx = 2;
 
 v_emy_slugboss_state_jump = instance_create_layer(x, y, "Enemies", o_state_air_jump);
+v_emy_slugboss_state_jump.v_state_sprite = s_slug_giant_rising;
+v_emy_slugboss_state_jump.v_state_sprite_left = s_slug_giant_rising_left;
+v_emy_slugboss_state_jump.v_state_air_spritedn = s_slug_giant_falling;
+v_emy_slugboss_state_jump.v_state_air_spritedn_left = s_slug_giant_falling_left;
+
 v_emy_slugboss_state_slam = instance_create_layer(x, y, "Enemies", o_state_slam);
+v_emy_slugboss_state_slam.v_state_slam_sprite_dn = s_slug_giant_falling;
+v_emy_slugboss_state_slam.v_state_slam_sprite_dn_left = s_slug_giant_falling_left;
+v_emy_slugboss_state_slam.v_state_slam_sprite_land = s_slug_giant;
+v_emy_slugboss_state_slam.v_state_slam_sprite_land_left = s_slug_giant_left;
 
 v_emy_slugboss_state_attack = instance_create_layer(x, y, "Enemies", o_state_attack);
 v_emy_slugboss_state_attack.v_state_sprite = s_slug_giant_attack;

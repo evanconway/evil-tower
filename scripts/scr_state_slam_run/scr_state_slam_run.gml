@@ -4,6 +4,8 @@
 var ID = argument[0];
 var state = ID.v_act_state_cur;
 
+var slamSpeed = ID.v_act_vel_y_max * 2;
+
 switch (state.v_state_slam_stage) {
 	case 0: // freeze in air
 	ID.v_act_vel_x = 0;
@@ -19,7 +21,7 @@ switch (state.v_state_slam_stage) {
 	var touchedGround = false;
 	with (ID) {
 		if (place_meeting(x, y + 1, o_wall)) touchedGround = true;
-		else ID.v_act_vel_y = scr_obj_approachdist_y_at_x_against_obj(ID, ID.v_act_vel_y_max, ID.x, o_wall);	
+		else ID.v_act_vel_y = scr_obj_approachdist_y_at_x_against_obj(ID, slamSpeed, ID.x, o_wall);	
 	}
 	if (touchedGround) {
 		ID.v_act_vel_y = 0;

@@ -1,7 +1,7 @@
 event_inherited();
 if (!instance_exists(id)) exit;
 
-v_act_ai = instance_create_layer(x, y, "Enemies", o_ai_wander_andattack);
+v_act_ai = instance_create_layer(x, y, "Enemies", o_ai_slug);
 v_act_ai.v_ai_actor = id;
 
 // states
