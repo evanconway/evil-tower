@@ -36,8 +36,8 @@ if (state.v_state_defend_time > 0) {
 }
 
 if (state.v_state_defend_blockID != undefined) {
-	state.v_state_defend_blockID.x = scr_act_potxpos(ID, ID.v_act_vel_x);
-	state.v_state_defend_blockID.y = scr_act_potypos(ID, ID.v_act_vel_y);
+	state.v_state_defend_blockID.x = scr_act_potxpos(ID, clamp(ID.v_act_vel_x, ID.v_act_vel_x_max*-1, ID.v_act_vel_x_max));
+	state.v_state_defend_blockID.y = scr_act_potypos(ID, clamp(ID.v_act_vel_y, ID.v_act_vel_y_max*-1, ID.v_act_vel_y_max));
 	
 	if (ID.v_act_faceright) state.v_state_defend_blockID.x += state.v_state_defend_offset_x;
 	else state.v_state_defend_blockID.x -= state.v_state_defend_offset_x;

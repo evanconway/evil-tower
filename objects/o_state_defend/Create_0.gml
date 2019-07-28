@@ -1,4 +1,5 @@
 event_inherited();
+v_state_name = "defend";
 
 v_state_script_continue = scr_state_defend_continue;
 v_state_script_connect = scr_state_defend_connect;

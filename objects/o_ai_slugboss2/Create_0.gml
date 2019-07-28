@@ -16,16 +16,18 @@ Lol wait, let's just call it time_min since we need a time_max anyway.
 Oops, no we need a different value, otherwise they wouldn't do anything
 if use min for pause time, and the value get randomly set to min.
 */
-v_ai_slug_counter_pause = 10;
+v_ai_slug_counter_pause = 20;
 v_ai_slug_counter_max = 120 + v_ai_slug_counter_pause; // I think this is only relevant for walking
 v_ai_slug_counter_min = 60 + v_ai_slug_counter_pause;
 
 v_ai_slug_barftime = 30 + v_ai_slug_counter_pause;
-v_ai_slug_numofbarfs_max = 2;
-v_ai_slug_numofbarfs_min = 1;
+v_ai_slug_numofbarfs_max = 4;
+v_ai_slug_numofbarfs_min = 2;
 v_ai_slug_numofbarfs = 0;
 
 v_ai_slamcounter = 9999; // this number doesn't really matter, we just need a compare
 v_ai_slamstate = 0;
 v_ai_slamright = true; // this is the direction the slug jumps
 v_ai_slamdist = 40;
+
+v_ai_ramstage = 0;

@@ -9,7 +9,17 @@ if (v_ai_slug_counter < 0) {
 	// unlike the regular slug, the boss always aims at the player
 	if (v_ai_actor.x < o_player.x) v_ai_slug_faceright = true;
 	if (v_ai_actor.x > o_player.x) v_ai_slug_faceright = false;
-	v_ai_slug_state = irandom_range(0, 3);
+	
+	/*
+	This is kinda messy.... we have all this code for walking left and
+	right, but we decided not to let the slug walk left and right because
+	it wasn't fun. So, the random state choice never picks one. Also, to 
+	get the slug to ram more frequently (because it's fun), we're 
+	using more than one number to allow for rams. 
+	*/
+	
+	
+	v_ai_slug_state = irandom_range(1, 3);
 	// assign counter times for state choice
 	// 0 = walk
 	if (v_ai_slug_state == 0) {
@@ -23,9 +33,14 @@ if (v_ai_slug_counter < 0) {
 		v_ai_slug_counter = v_ai_slug_barftime;
 		v_ai_slug_numofbarfs = irandom_range(v_ai_slug_numofbarfs_min, v_ai_slug_numofbarfs_max);
 	}
-	if (v_ai_slug_state == 3) {
+	if (v_ai_slug_state == 2) {
 		v_ai_slamstate = 0;
 		v_ai_slug_counter = v_ai_slamcounter;
+	}
+	if (v_ai_slug_state >= 3) {
+		v_ai_slug_state = 3;
+		v_ai_slug_counter = 60;
+		v_ai_ramstage = 0;
 	}
 }
 
@@ -76,7 +91,10 @@ switch (v_ai_slug_state) {
 		if (v_ai_slug_faceright) scr_actcon_push(actcon, enum_input.right);
 		else scr_actcon_push(actcon, enum_input.left);
 	}  
-	if (v_ai_slug_counter == v_ai_slug_barftime - 1) scr_actcon_push(actcon, enum_input.button2);
+	if (v_ai_slug_counter == v_ai_slug_barftime - 1) {
+		scr_actcon_reset(actcon);
+		scr_actcon_push(actcon, enum_input.button2);
+	}
 	if (v_ai_slug_counter <= v_ai_slug_barftime - 2 )scr_actcon_reset(actcon);
 	
 	if (v_ai_slug_numofbarfs > 1 && v_ai_slug_counter == v_ai_slug_counter_pause + 1) {
@@ -84,7 +102,7 @@ switch (v_ai_slug_state) {
 		v_ai_slug_numofbarfs--;
 	}
 	break;
-	case 3: // jump slam
+	case 2: // jump slam
 	/*
 	The first couple frames we go through this action, the slug boss needs to press jump,
 	but then also needs to let go on the very next frame. The slug boss also 
@@ -134,4 +152,32 @@ switch (v_ai_slug_state) {
 		break;
 	}
 	break;
+	case 3: // ram
+	switch (v_ai_ramstage) {
+		case 0:
+		/*
+		if (v_ai_actor.v_act_state_cur != v_ai_actor.v_emy_slugboss_state_slam) {
+			v_ai_slug_counter = 0;
+			exit;
+		}
+		*/
+		if (v_ai_slug_faceright) scr_actcon_push(actcon, enum_input.right)
+		else scr_actcon_push(actcon, enum_input.left);
+		scr_actcon_push(actcon, enum_input.button2);
+		var touchWall = false;
+		var faceRight = v_ai_slug_faceright;
+		with (v_ai_actor) {
+			if (faceRight && place_meeting(x + 1, y, o_wall)) touchWall = true;
+			if (!faceRight && place_meeting(x - 1, y, o_wall)) touchWall = true;
+		}
+		if (touchWall) {
+			v_ai_ramstage++;
+			//scr_actcon_reset(actcon);
+			v_ai_slug_counter = v_ai_actor.v_emy_slugboss_state_ram.v_state_ram_rest;
+		}
+		break;
+		case 1:
+		
+		break;
+	}
 }

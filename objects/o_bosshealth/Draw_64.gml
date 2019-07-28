@@ -5,6 +5,8 @@ var barHeight = 20;
 
 var border = 3;
 
+if (!instance_exists(o_player) || o_player.v_act_state_hurt.v_state_hurt_health <= 0) exit;
+
 draw_set_alpha(1);
 draw_set_color(c_gray);
 var xStart = global.resolution_width/2 - barWidth/2;
@@ -25,3 +27,4 @@ draw_set_valign(fa_bottom);
 draw_text(global.resolution_width/2, yStart - border, "Giant Slug");
 
 if (!instance_exists(v_bosshealth_boss)) instance_destroy(id);
+

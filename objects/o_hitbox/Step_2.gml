@@ -126,10 +126,11 @@ for (var i = 0; i < ds_list_size(targets); i++) {
 		i--;
 	}
 }
+
 /*
 Now we need to remove any targets that are blocking correctly. However...
 we have already done this with the blocks list. So all we need to do is 
-removed any targets that are already in the blocks list.
+remove any targets that are already in the blocks list.
 */
 for (var i = 0; i < ds_list_size(targets); i++) {
 	for (var k = 0; k < ds_list_size(blocks); k++) {

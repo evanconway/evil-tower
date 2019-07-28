@@ -17,3 +17,5 @@ v_act_hitbox.v_hitbox_target = global.player;
 v_act_hitbox.v_hitbox_stun = 20;
 v_act_hitbox.v_hitbox_permenant = true;
 v_act_hitbox.v_hitbox_damage = 1;
+v_act_hitbox.v_hitbox_knock_x = 2.3;
+v_act_hitbox.v_hitbox_knock_y = -2.3;

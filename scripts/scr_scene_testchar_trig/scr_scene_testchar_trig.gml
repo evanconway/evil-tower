@@ -5,7 +5,7 @@
 var ID = ds_list_find_value(argument[0], 0);
 
 var result = false;
-var playerXset = 15;
+var playerXset = v_scene_dialogue_xoffset;
 
 var playeronground = false;
 with (global.player) if (place_meeting(x, y + 1, o_wall)) playeronground = true;

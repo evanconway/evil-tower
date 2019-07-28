@@ -17,7 +17,8 @@ v_act_state_hurt.v_state_draw_behind = scr_state_hurt_draw_behind;
 v_act_state_hurt.v_state_sprite = s_plr_hurt;
 v_act_state_hurt.v_state_hurt_fx = o_fx_smack;
 v_act_state_hurt.v_state_hurt_snd = snd_hurt2_notail;
-v_act_state_hurt.v_state_hurt_health = 3;
+v_act_state_hurt.v_state_hurt_health_max = 5;
+v_act_state_hurt.v_state_hurt_health = v_act_state_hurt.v_state_hurt_health_max;
 v_act_state_hurt.v_state_hurt_dead_snd = snd_dead;
 v_act_state_hurt.v_state_hurt_dead_scene = o_transition_plrdead;
 v_act_state_hurt.v_state_hurt_dead_sprite = s_plr_dead;
@@ -114,17 +115,23 @@ v_plr_state_slam.v_state_slam_sprite_dn_left = s_plr_air_dn_sword_left;
 v_plr_state_slam.v_state_slam_sprite_land = s_plr_gnd_crouch_sword;
 v_plr_state_slam.v_state_slam_sprite_land_left = s_plr_gnd_crouch_sword_left;
 
+v_plr_state_ram = instance_create_layer(x, y, "Player", o_state_ram);
+v_plr_state_ram.v_state_sprite = s_plr_gnd_run_sword;
+v_plr_state_ram.v_state_sprite_left = s_plr_gnd_run_sword_left;
+
 // state connections
 // idle
 scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_ladder_up);
 scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_ladder_down); // we have to check for ladder down before crouch
 scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_gnd_crouch);
+//scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_ram);
 scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_attack);
 scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_defend);
 scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_gnd_run);
 scr_state_addconnect(v_plr_state_gnd_idle, v_plr_state_air_jump);
 
 // run
+//scr_state_addconnect(v_plr_state_gnd_run, v_plr_state_ram);
 scr_state_addconnect(v_plr_state_gnd_run, v_plr_state_attack);
 scr_state_addconnect(v_plr_state_gnd_run, v_plr_state_defend);
 scr_state_addconnect(v_plr_state_gnd_run, v_plr_state_ladder_up);
@@ -206,6 +213,10 @@ scr_state_addconnect(v_plr_state_defend, v_plr_state_air);
 // slam
 scr_state_addconnect(v_plr_state_slam, v_plr_state_gnd_idle);
 scr_state_addconnect(v_plr_state_slam, v_plr_state_gnd_run);
+
+// ram
+scr_state_addconnect(v_plr_state_ram, v_plr_state_gnd_idle);
+scr_state_addconnect(v_plr_state_ram, v_plr_state_gnd_run);
 
 // hurt state
 scr_state_addconnect(v_act_state_hurt, v_plr_state_gnd_idle);

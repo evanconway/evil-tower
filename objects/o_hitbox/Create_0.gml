@@ -32,8 +32,8 @@ v_hitbox_target = undefined; // a parent actor this hitbox affects
 v_hitbox_damage = 1;
 v_hitbox_stun = 120; // frames of freeze time hitter and target experience when hitbox connects
 v_hitbox_freezegame = true; // if true, entire game is frozen for duration of stun
-v_hitbox_knock_x = 2;
-v_hitbox_knock_y = -2;
+v_hitbox_knock_x = 1;
+v_hitbox_knock_y = -1;
 
 /*
 We were going to create variables for things like hitbox width and height, but 
