@@ -1,2 +1,2 @@
-v_door_target_room = test_boss;
-v_door_target_door = inst_6021C55F;
+v_door_target_room = room_walljumps;
+v_door_target_door = inst_31877765;

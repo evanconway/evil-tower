@@ -3,7 +3,10 @@
 
 var ID = argument[0];
 var state = ID.v_act_state_cur;
-
+image_speed = 0;
+if (state.v_state_imageindex != undefined 
+&& state.v_state_imageindex >= 0 
+&& state.v_state_imageindex < sprite_get_number(sprite_index)) image_index = state.v_state_imageindex;
 scr_state_deccount(state); // read in continue script, not here
 
 // this line used to have "&& ID.sprite_index != state.v_state_sprite" .... why?

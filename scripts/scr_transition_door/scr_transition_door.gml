@@ -6,7 +6,6 @@ As long as we're careful, we don't need the data for the exit door, as the enter
 its ID. We just have to make sure the o_transition_door object doesn't reference doors
 that don't exist in the room.
 */
-
 var door1 = argument[0];
 
 if (!instance_exists(o_transition)) {

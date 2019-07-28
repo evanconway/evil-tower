@@ -15,7 +15,7 @@ v_emy_fireball_state_gnd_idle.v_state_sprite = s_emy_fireball_gnd_idle;
 v_act_state_default = v_emy_fireball_state_gnd_idle;
 
 v_emy_fireball_state_gnd_run = instance_create_layer(x, y, "Enemies", o_state_gnd_run);
-v_emy_fireball_state_gnd_run.v_state_gnd_run_maxx = 1.2;
+v_emy_fireball_state_gnd_run.v_state_gnd_run_maxx = 1;
 
 // remember hurt must connect to almost all states
 scr_state_addconnect(v_act_state_hurt, v_emy_fireball_state_gnd_idle);

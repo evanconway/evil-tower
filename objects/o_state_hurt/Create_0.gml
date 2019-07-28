@@ -25,6 +25,7 @@ v_state_hurt_dead_fx = undefined;
 v_state_hurt_dead_snd = snd_afterburn;
 v_state_hurt_dead_sprite = undefined;
 
+v_state_hurt_knockback_mod = 1;
 
 v_state_hurt_grv_y = 0.15;
 v_state_hurt_vel_x = 0;

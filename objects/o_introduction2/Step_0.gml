@@ -35,14 +35,16 @@ switch (v_intro_state) {
 			v_intro_continue.v_textbox_close = true;
 			v_intro_alpha = 0;
 		} else {
-			scr_transition_spawn();
+			//scr_transition_spawn();
+			scr_transition_elevator();
 		}
 	}
 	break;
 	case 3:
 	if (scr_input_continue()) {
 		if (v_intro_textbox.v_textbox_typeto_finish) {
-			scr_transition_spawn();
+			//scr_transition_spawn();
+			scr_transition_elevator();
 		} else v_intro_textbox.v_textbox_typeto_finish = true;
 	}
 	break;

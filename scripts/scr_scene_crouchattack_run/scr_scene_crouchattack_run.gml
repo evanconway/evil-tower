@@ -25,7 +25,7 @@ switch (v_scene_state) {
 	scr_scene_dialogue_next("You'll need it to kill those slugs.", 6);
 	break;
 	case 5:
-	scr_scene_dialogue_next("They're too high for your regular attack.", 6);
+	scr_scene_dialogue_next("They're too low for your regular attack.", 6);
 	break;
 	case 6:
 	scr_scene_dialogue_next("Keep at it!", 1);

@@ -3,11 +3,19 @@
 
 var ID = argument[0];
 var state = ID.v_act_state_cur;
-
+image_speed = 0;
 var xVel = 0;
 
 switch (state.v_state_ram_stage) {
-	case 0: // ramming
+	case 0: // prepare to ram
+	image_index = 0;
+	state.v_state_count--;
+	if (state.v_state_count <= 0) state.v_state_ram_stage++;
+	break;
+	case 1: // ramming
+	
+	if (sprite_get_number(sprite_index) > 0) image_index = 1;
+	
 	if (state.v_state_ram_faceright) {
 		xVel = ID.v_act_vel_x_max;
 		ID.sprite_index = state.v_state_sprite;
@@ -35,7 +43,7 @@ switch (state.v_state_ram_stage) {
 		state.v_state_ram_stage++;
 	}
 	break;
-	case 1: // hit wall and waiting
+	case 2: // hit wall and waiting
 	if (state.v_state_ram_faceright) ID.sprite_index = state.v_state_ram_donesprite;
 	else ID.sprite_index = state.v_state_ram_donesprite_left;
 	state.v_state_count--;

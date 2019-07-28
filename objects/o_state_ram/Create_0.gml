@@ -7,6 +7,8 @@ v_state_script_change = scr_state_ram_change;
 v_state_script_run = scr_state_ram_run;
 v_state_script_altrun = scr_state_ram_altrun;
 
+v_state_ram_startup = 20;
+
 v_state_ram_stage = 0;
 v_state_ram_finished = false;
 v_state_ram_faceright = true;

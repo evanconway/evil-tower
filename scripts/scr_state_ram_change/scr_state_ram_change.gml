@@ -6,6 +6,7 @@ var state = ID.v_act_state_cur;
 
 scr_state_changesprite(ID);
 
+state.v_state_count = state.v_state_ram_startup;
 state.v_state_ram_stage = 0;
 state.v_state_ram_finished = false;
 if (ID.v_act_actcon.v_actcon_right) state.v_state_ram_faceright = true;
@@ -15,4 +16,4 @@ state.v_state_ram_hitbox_Xogknockback = ID.v_act_hitbox.v_hitbox_knock_x;
 state.v_state_ram_hitbox_Yogknockback = ID.v_act_hitbox.v_hitbox_knock_y;
 
 ID.v_act_hitbox.v_hitbox_knock_x *= -3;
-ID.v_act_hitbox.v_hitbox_knock_y *= 2.5;
+ID.v_act_hitbox.v_hitbox_knock_y *= 2;

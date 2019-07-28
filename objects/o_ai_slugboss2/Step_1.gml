@@ -93,6 +93,7 @@ switch (v_ai_slug_state) {
 	}  
 	if (v_ai_slug_counter == v_ai_slug_barftime - 1) {
 		scr_actcon_reset(actcon);
+		v_ai_actor.v_act_faceright = v_ai_slug_faceright;
 		scr_actcon_push(actcon, enum_input.button2);
 	}
 	if (v_ai_slug_counter <= v_ai_slug_barftime - 2 )scr_actcon_reset(actcon);
@@ -127,7 +128,7 @@ switch (v_ai_slug_state) {
 		v_ai_slamstate++;
 		break;
 		case 2: // check for player
-		if (abs(v_ai_actor.x - o_player.x) < v_ai_slamdist) {
+		if (abs(v_ai_actor.x - o_player.x) < v_ai_slamdist && v_ai_actor.y < o_player.y) {
 			scr_actcon_push(actcon, enum_input.button1);
 			v_ai_slamstate++;
 			v_ai_slug_counter = v_ai_slug_counter_pause; // see next state

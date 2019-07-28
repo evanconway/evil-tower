@@ -1783,6 +1783,14 @@
             }
         },
         {
+            "Key": "7c11a63d-36db-426d-be01-7e0cf60f8a8c",
+            "Value": {
+                "id": "d467491b-662d-447d-ae03-5367a31e3701",
+                "resourcePath": "objects\\o_transition_spawn\\o_transition_spawn.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7caa181c-ab87-48ab-b738-7514e2de810c",
             "Value": {
                 "id": "18fe0ca2-3c5c-49ef-8f98-d66f4319a6ba",
@@ -2092,6 +2100,14 @@
                 "id": "a0b80eed-bb6b-444b-bdac-c41fab464414",
                 "resourcePath": "objects\\o_scene_walljumping\\o_scene_walljumping.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "8d2a892b-a206-40bb-baf6-d37b824ae872",
+            "Value": {
+                "id": "349a0391-cd40-4b6e-8e65-afb14541cf4c",
+                "resourcePath": "rooms\\room_walljumps\\room_walljumps.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
@@ -3532,6 +3548,14 @@
                 "id": "268a937d-be87-4ca6-b32c-f350c025a18b",
                 "resourcePath": "views\\efcb9e5d-563f-4b34-953a-4b15e78603ee.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "f110047b-bd88-43d9-ba05-ae025962e677",
+            "Value": {
+                "id": "a5e21386-b9fb-4e88-b971-15bb54d05c8c",
+                "resourcePath": "sprites\\s_door_boss\\s_door_boss.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

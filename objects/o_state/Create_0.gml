@@ -36,6 +36,7 @@ v_state_script_altrun = undefined; // any code the state needs run while actor i
 v_state_altruns = ds_list_create(); // list of states whos altrun scripts will be run while in this state
 v_state_sprite = undefined;
 v_state_sprite_left = undefined;
+v_state_imageindex = undefined;
 v_state_draw_behind = undefined; // behind and front are in reference to the actor
 v_state_draw_front = undefined;
 v_state_name = undefined;

@@ -10,7 +10,7 @@ if (o_player.x > x) image_xscale = -1;
 switch (v_scene_state) {
 	case 0:
 	v_scene_trigger_scr = scr_scene_talk_trig;
-	scr_scene_dialogue_start("Ooh... this part looks tricky", s_portrait1, 0);
+	scr_scene_dialogue_start("Ooh... this part looks tricky.", s_portrait1, 0);
 	break;
 	case 1:
 	scr_scene_dialogue_next("There aren't any ladders to climb. But you...", 1);
@@ -25,7 +25,7 @@ switch (v_scene_state) {
 	scr_scene_dialogue_next("That should get you up there no problem.", 6);
 	break;
 	case 5:
-	scr_scene_dialogue_next("Health restored, good luck!", 5);
+	scr_scene_dialogue_next("Good luck!", 5);
 	break;
 	case 6:
 	if (scr_scene_dialogue_end()) scr_plr_restorehealth();

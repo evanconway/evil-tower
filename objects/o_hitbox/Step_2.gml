@@ -201,7 +201,7 @@ for (var i = 0; i < ds_list_size(targets); i++) {
 		if (!v_hitbox_freezegame) actor.v_act_freezetime = v_hitbox_stun;
 		actor.v_act_shadertime = v_hitbox_stun;
 		actor.v_act_shader = v_hitbox_shader;
-		hurt.v_state_count = hurt.v_state_count_max;
+		hurt.v_state_count = hurt.v_state_count_max * hurt.v_state_hurt_knockback_mod;
 		if (hurt.v_state_hurt_fx != undefined) instance_create_layer(actor.x, actor.y - hurt.v_state_hurt_fx_yoffset, "Projectiles", hurt.v_state_hurt_fx);
 		if (hurt.v_state_hurt_snd != undefined) scr_playsfx_toplayer(actor.x, actor.y, hurt.v_state_hurt_snd);
 				
@@ -219,6 +219,8 @@ for (var i = 0; i < ds_list_size(targets); i++) {
 				if (x > actor.x) hurt.v_state_hurt_vel_x = v_hitbox_knock_x * -1;
 			}
 			hurt.v_state_hurt_vel_y = v_hitbox_knock_y;
+			hurt.v_state_hurt_vel_x *= hurt.v_state_hurt_knockback_mod;
+			hurt.v_state_hurt_vel_y *= hurt.v_state_hurt_knockback_mod;
 		}
 		if (v_hitbox_shake_hit != 0) {
 			scr_camera_shake(hurt.v_state_hurt_vel_x * v_hitbox_shake_hit, 0);

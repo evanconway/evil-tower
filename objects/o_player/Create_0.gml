@@ -17,7 +17,7 @@ v_act_state_hurt.v_state_draw_behind = scr_state_hurt_draw_behind;
 v_act_state_hurt.v_state_sprite = s_plr_hurt;
 v_act_state_hurt.v_state_hurt_fx = o_fx_smack;
 v_act_state_hurt.v_state_hurt_snd = snd_hurt2_notail;
-v_act_state_hurt.v_state_hurt_health_max = 5;
+v_act_state_hurt.v_state_hurt_health_max = global.player_health_max;
 v_act_state_hurt.v_state_hurt_health = v_act_state_hurt.v_state_hurt_health_max;
 v_act_state_hurt.v_state_hurt_dead_snd = snd_dead;
 v_act_state_hurt.v_state_hurt_dead_scene = o_transition_plrdead;
@@ -100,7 +100,7 @@ v_plr_state_attack_crouch.v_state_sprite_left = s_plr_gnd_attack_crouch_left;
 v_plr_state_attack_crouch.v_state_attack_startup = v_plr_state_attack.v_state_attack_startup;
 v_plr_state_attack_crouch.v_state_attack_recovery = v_plr_state_attack.v_state_attack_recovery;
 v_plr_state_attack_crouch.v_state_attack_hitbox = o_hitbox_plr_sword_crouch;
-v_plr_state_attack_crouch.v_state_attack_offset_x = 15;
+v_plr_state_attack_crouch.v_state_attack_offset_x = 18;
 v_plr_state_attack_crouch.v_state_attack_offset_y = -3;
 
 v_plr_state_defend = instance_create_layer(x, y, "Player", o_state_defend);

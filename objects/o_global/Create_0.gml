@@ -21,7 +21,7 @@ global.static_visible = true;
 
 global.bboxs_visible = false;
 global.draw_hud = true;
-global.debug_keys_active = true;
+global.debug_keys_active = false;
 
 global.scenes_triggered = ds_list_create();
 global.enemies_slain = ds_list_create();
@@ -33,7 +33,7 @@ global.spawn_room = undefined;
 global.spawn_obj = undefined;
 
 //player
-global.player_health_max = 3;
+global.player_health_max = 5;
 global.player_health = global.player_health_max;
 
 //menus

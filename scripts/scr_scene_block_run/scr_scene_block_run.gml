@@ -25,7 +25,7 @@ switch (v_scene_state) {
 	scr_scene_dialogue_next("I didn't program... er...", 2);
 	break;
 	case 5:
-	scr_scene_dialogue_next("I don't know how to 'say' how to defend.", 2);
+	scr_scene_dialogue_next("I don't know how to 'say' the DEFEND button.", 2);
 	break;
 	case 6:
 	if (scr_scene_dialogue_next("Go get 'em!!", 3)) scr_plr_restorehealth();

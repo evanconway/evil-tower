@@ -13,6 +13,7 @@ v_act_state_hurt.v_state_hurt_health = v_act_state_hurt.v_state_hurt_health_max;
 v_act_state_hurt.v_state_sprite = s_slug_giant_rising;
 v_act_state_hurt.v_state_sprite_left = s_slug_giant_rising_left;
 v_act_state_hurt.v_state_hurt_dead_scene = o_transition_bossdead;
+v_act_state_hurt.v_state_hurt_knockback_mod = 0.5;
 
 v_emy_slugboss_state_gnd_idle = instance_create_layer(x, y, "Enemies", o_state_gnd_idle);
 v_emy_slugboss_state_gnd_idle.v_state_sprite = s_slug_giant;
@@ -43,7 +44,7 @@ v_emy_slugboss_state_attack.v_state_sprite_left = s_slug_giant_attack_left;
 v_emy_slugboss_state_attack.v_state_attack_hitbox = o_hitbox_slugboss_barf;
 v_emy_slugboss_state_attack.v_state_attack_offset_x = 35;
 v_emy_slugboss_state_attack.v_state_attack_offset_y = -12;
-v_emy_slugboss_state_attack.v_state_attack_startup = 0;
+v_emy_slugboss_state_attack.v_state_attack_startup = 10;
 v_emy_slugboss_state_attack.v_state_attack_recovery = 20;
 
 v_emy_slugboss_state_ram = instance_create_layer(x, y, "Enemies", o_state_ram);
@@ -54,6 +55,7 @@ v_emy_slugboss_state_ram.v_state_ram_donesprite_left = s_slug_giant_left;
 v_emy_slugboss_state_ram.v_state_ram_fx = o_fx_slug_barf_hit;
 v_emy_slugboss_state_ram.v_state_ram_hitbox_Xogknockback = v_act_hitbox.v_hitbox_knock_x;
 v_emy_slugboss_state_ram.v_state_ram_hitbox_Yogknockback = v_act_hitbox.v_hitbox_knock_y;
+v_emy_slugboss_state_ram.v_state_ram_startup = 10;
 
 // remember hurt must connect to almost all states
 scr_state_addconnect(v_act_state_hurt, v_emy_slugboss_state_gnd_idle);

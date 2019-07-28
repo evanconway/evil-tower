@@ -1,16 +1,16 @@
 /// @description Gui Var Menu Setup
-v_menu_title[1] = "Work In";
-v_menu_title[0] = "Progress";
+v_menu_title[1] = "An Evil";
+v_menu_title[0] = "Tower";
 
-v_menu[3] = "New Game";
-v_menu[2] = "Continue";
+v_menu[2] = "Start";
+//v_menu[2] = "Continue";
 v_menu[1] = "Options";
 v_menu[0] = "Quit";
 v_menu_items = array_length_1d(v_menu);
 v_menu_speed = 25;//lower is faster
 v_menu_font = f_menu;
 v_menu_itemheight = font_get_size(f_menu);
-v_menu_cursor = 3;
+v_menu_cursor = 2;
 v_menu_spacer = 1.5;
 
 v_menu_pointerxxdivide = 2.5;
