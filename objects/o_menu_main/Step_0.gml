@@ -39,6 +39,7 @@ if (v_menu_committed != global.novalue) {
 		global.v_menu_control = true;
 		break;
 		case 3://new game
+		ds_list_clear(global.scenes_triggered);
 		scr_transition_fade(Intro2);
 		break;
 		case 4:

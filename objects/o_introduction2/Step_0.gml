@@ -43,7 +43,6 @@ switch (v_intro_state) {
 	if (scr_input_continue()) {
 		if (v_intro_textbox.v_textbox_typeto_finish) {
 			scr_transition_spawn();
-			//scr_transition_fade(global.firstroom);
 		} else v_intro_textbox.v_textbox_typeto_finish = true;
 	}
 	break;

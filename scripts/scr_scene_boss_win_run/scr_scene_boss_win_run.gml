@@ -49,6 +49,6 @@ switch (v_scene_state) {
 	scr_scene_dialogue_end();
 	break;
 	case 14:
-	if (scr_scene_dialogue_close()) scr_transition_fade(main_menu);
+	if (scr_scene_dialogue_close(false)) scr_transition_fade(main_menu);
 	break;
 }

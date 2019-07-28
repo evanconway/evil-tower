@@ -23,6 +23,7 @@ global.bboxs_visible = false;
 global.draw_hud = true;
 global.debug_keys_active = true;
 
+global.scenes_triggered = ds_list_create();
 global.enemies_slain = ds_list_create();
 
 // spawn/transitions

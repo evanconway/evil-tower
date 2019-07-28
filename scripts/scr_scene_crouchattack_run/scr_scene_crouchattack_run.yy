@@ -1,8 +1,8 @@
 {
-    "id": "3a6b087d-c275-4e96-b8c3-1f825126bc19",
+    "id": "68a53a0e-0182-468a-9d6e-ade99df109be",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scr_scene_testchar_trig",
+    "name": "scr_scene_crouchattack_run",
     "IsCompatibility": false,
     "IsDnD": false
 }

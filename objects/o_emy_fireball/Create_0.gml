@@ -4,6 +4,8 @@ if (!instance_exists(id)) exit;
 v_act_ai = instance_create_layer(x, y, "Enemies", o_ai_patrol);
 v_act_ai.v_ai_actor = id;
 
+v_act_invulnerable = true; // one of the few immortal enemmies.
+
 // states
 
 // idle

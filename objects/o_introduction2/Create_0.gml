@@ -54,11 +54,11 @@ scr_list_addsegment_multi(segments,text, true, undefined, font, color, true);
 ds_list_add(v_intro_segmentlists, segments);
 segments = ds_list_create();
 
-text = "Once each year, at the first snowfall, the dark magic marks one soul from the village. A sacrifice. " +
-"The curse twists the minds of the villagers, and instills hate in their hearts.";
+text = "Viscious creatures filled the country side. And now, someone must climb the evil tower " +
+"and slay the boss that lurks at the top";
 scr_list_addsegment_multi(segments,text, true, undefined, font, color, true);
 scr_list_addsegment_blankline(segments, true);
-text = "The marked soul is exiled from the village.";
+text = "This is your task...";
 scr_list_addsegment_multi(segments,text, true, undefined, font, color, true);
 
 ds_list_add(v_intro_segmentlists, segments);

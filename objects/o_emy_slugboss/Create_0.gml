@@ -52,6 +52,8 @@ v_emy_slugboss_state_ram.v_state_sprite_left = s_slug_giant_attack_left;
 v_emy_slugboss_state_ram.v_state_ram_donesprite = s_slug_giant;
 v_emy_slugboss_state_ram.v_state_ram_donesprite_left = s_slug_giant_left;
 v_emy_slugboss_state_ram.v_state_ram_fx = o_fx_slug_barf_hit;
+v_emy_slugboss_state_ram.v_state_ram_hitbox_Xogknockback = v_act_hitbox.v_hitbox_knock_x;
+v_emy_slugboss_state_ram.v_state_ram_hitbox_Yogknockback = v_act_hitbox.v_hitbox_knock_y;
 
 // remember hurt must connect to almost all states
 scr_state_addconnect(v_act_state_hurt, v_emy_slugboss_state_gnd_idle);
@@ -85,3 +87,6 @@ scr_state_addconnect(v_emy_slugboss_state_ram, v_emy_slugboss_state_gnd_idle);
 scr_state_addconnect(v_emy_slugboss_state_ram, v_emy_slugboss_state_gnd_run);
 
 scr_state_addaltrun(v_act_state_hurt, v_emy_slugboss_state_ram);
+scr_state_addaltrun(v_emy_slugboss_state_gnd_idle, v_emy_slugboss_state_ram);
+scr_state_addaltrun(v_emy_slugboss_state_attack, v_emy_slugboss_state_ram);
+scr_state_addaltrun(v_emy_slugboss_state_jump, v_emy_slugboss_state_ram);

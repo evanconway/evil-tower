@@ -18,6 +18,8 @@ if (v_ai_slug_counter < 0) {
 	// 1 = barf
 	if (v_ai_slug_state == 1) {
 		v_ai_slug_counter = v_ai_slug_barftime;
+		if (o_player.x < v_ai_actor.x) v_ai_slug_faceright = false;
+		else v_ai_slug_faceright = true;
 		v_ai_slug_numofbarfs = irandom_range(v_ai_slug_numofbarfs_min, v_ai_slug_numofbarfs_max);
 	}
 }

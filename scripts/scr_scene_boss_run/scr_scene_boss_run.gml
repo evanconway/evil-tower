@@ -105,15 +105,15 @@ switch (ID.v_scene_state) {
 	if (v_scene_counter <= 0) {
 		o_player.v_act_disableActcon = false;
 		v_scene_boss.v_act_disableActcon = false;
-		//v_scene_running = false;
-		//scr_music_play(snd_music_retrohero);
-		//o_camera.v_camera_follow = o_player;
 		v_scene_state++;
+		// THIE FIGHT HAS BEGUN
+		scr_plr_restorehealth();// eh... why not.
 	}
 	break;
 	case 8:
 	if (v_scene_boss.v_act_state_hurt.v_state_hurt_health <= 0) {
-		//instance_destroy(v_scene_boss.v_act_hitbox); //slug can't hurt player anymore.
+		instance_destroy(v_scene_boss.v_act_hitbox); //slug can't hurt player anymore.
+		v_scene_boss.v_act_hitbox = undefined;
 		o_player.v_act_disableActcon = true;
 		audio_stop_sound(o_music.v_music_currentID);
 		v_scene_counter = v_scene_boss_splatcounter;

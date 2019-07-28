@@ -121,7 +121,7 @@ for (var i = 0; i < ds_list_size(targets); i++) {
 
 // remove all targets that are currently invulnerable
 for (var i = 0; i < ds_list_size(targets); i++) {
-	if (targets[|i].v_act_invultime > 0) {
+	if (targets[|i].v_act_invultime > 0 || targets[|i]. v_act_invulnerable) {
 		ds_list_delete(targets, i);
 		i--;
 	}

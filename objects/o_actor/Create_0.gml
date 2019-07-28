@@ -35,6 +35,7 @@ this state.
 v_act_state_hurt = undefined;
 v_act_invultime = 0;
 v_act_fadetime = 0;
+v_act_invulnerable = false; // set true to make actor invulnerable to hitboxes
 
 /*
 To allow actors to hurt other actors just by running into them, we are giving 
