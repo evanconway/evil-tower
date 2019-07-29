@@ -1,5 +1,5 @@
 /// @description Gui Var Menu Setup
-v_menu_title[1] = "An Evil";
+v_menu_title[1] = "The Evil";
 v_menu_title[0] = "Tower";
 
 v_menu[2] = "Start";

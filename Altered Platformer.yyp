@@ -2599,6 +2599,14 @@
             }
         },
         {
+            "Key": "ab6bdab2-ffbc-4aa1-9488-ab73025cacd3",
+            "Value": {
+                "id": "a0358d15-e2ad-4310-920a-7c2ab053f62b",
+                "resourcePath": "sounds\\snd_music_victory\\snd_music_victory.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "ab82c4b9-671c-4ed1-950c-e3e6ee3e83b9",
             "Value": {
                 "id": "1cba7192-7d01-4f57-9b92-b14d7ccedd7b",

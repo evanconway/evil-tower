@@ -113,6 +113,7 @@ switch (ID.v_scene_state) {
 	case 8:
 	if (v_scene_boss.v_act_state_hurt.v_state_hurt_health <= 0) {
 		instance_destroy(v_scene_boss.v_act_hitbox); //slug can't hurt player anymore.
+		instance_destroy(o_hitbox_slugboss_barf); // remove all hitboxes.
 		v_scene_boss.v_act_hitbox = undefined;
 		o_player.v_act_disableActcon = true;
 		audio_stop_sound(o_music.v_music_currentID);
@@ -167,6 +168,8 @@ switch (ID.v_scene_state) {
 		o_camera.v_camera_follow = o_player;
 		o_player.v_act_disableActcon = false;
 		v_scene_running = false;
+		// THE BATTLE IS WON
+		scr_music_play(snd_music_victory);
 	}
 	break;
 }

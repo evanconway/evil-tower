@@ -7,5 +7,5 @@ if (v_initializer_done) {
 	global.spawn_room = room_zombie; // this is the room the spawn_obj is in.
 	//scr_transition_spawn();
 	//room_goto(main_menu);
-	scr_transition_fade(test_boss);
+	scr_transition_fade(main_menu);
 }

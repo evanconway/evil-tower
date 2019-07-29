@@ -31,7 +31,7 @@ switch (v_scene_state) {
 	if (scr_scene_dialogue_end()) scr_plr_restorehealth();
 	break;
 	case 7:
-	if (scr_scene_dialogue_close(true)) v_scene_state = 11;
+	if (scr_scene_dialogue_close(true)) v_scene_state = 8;
 	break;
 	case 8:
 	scr_scene_dialogue_start("Health Restored!", s_portrait1, 1);
@@ -40,6 +40,6 @@ switch (v_scene_state) {
 	if (scr_scene_dialogue_end()) scr_plr_restorehealth();
 	break;
 	case 10:
-	if (scr_scene_dialogue_close(true)) v_scene_state = 21;
+	if (scr_scene_dialogue_close(true)) v_scene_state = 8;
 	break;
 }

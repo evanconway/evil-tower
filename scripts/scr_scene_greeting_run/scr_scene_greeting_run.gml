@@ -74,6 +74,6 @@ switch (v_scene_state) {
 	if (scr_scene_dialogue_end()) scr_plr_restorehealth();
 	break;
 	case 20:
-	if (scr_scene_dialogue_close(true)) v_scene_state = 21;
+	if (scr_scene_dialogue_close(true)) v_scene_state = 18;
 	break;
 }
