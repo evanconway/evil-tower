@@ -60,5 +60,5 @@ if (actcon.v_actcon_up && !actcon.v_actcon_down && place_meeting(ID.x, ID.y, o_l
 ID.v_act_vel_y = vel_y;
 
 if (ID.v_act_image_change || ID.v_act_sprite_change) {
-	scr_playsfx(snd_tick);
+	if (state.v_state_sound != undefined) scr_playsfx(state.v_state_sound);
 }

@@ -1,7 +1,7 @@
 event_inherited();
 
 // actor inputlocktime is set to count_max.
-v_state_count_max = 15;
+//v_state_count_max = 15; Not used anymore
 
 /*
 Wall stick is the only state that will use this state. So, once wall stick

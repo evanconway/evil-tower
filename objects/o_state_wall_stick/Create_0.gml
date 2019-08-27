@@ -8,7 +8,7 @@ wallstick_dist, pressed jump, and the actor has not jumped off that wall yet whi
 air, the actor can enter this state. 
 */
 
-v_state_count_max = 14;// original in player is 14
+v_state_count_max = 10;// original in player is 14
 v_state_count = v_state_count_max;
 
 /*
@@ -16,7 +16,7 @@ To make wall jumping less frustrating, we check a distance away from the wall, i
 actor is within that distance from the wall, they are automatically moved to the wall.
 It just kinda feels right to do it this way.
 */
-v_state_wall_stick_dist = 7; // original in player is 7
+v_state_wall_stick_dist = 1; // original in player is 7
 v_state_wall_stick_sign = 1; // 1 for stick right wall, -1 for stick left
 
 /*

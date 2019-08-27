@@ -25,7 +25,7 @@ v_act_state_hurt.v_state_hurt_dead_sprite = s_plr_dead;
 v_act_state_hurt.v_state_count_max = 20;
 v_act_state_hurt.v_state_hurt_vel_y_max = 3;
 v_act_state_hurt.v_state_hurt_fx_yoffset = (bbox_bottom - bbox_top) / 2;
-v_act_state_hurt.v_state_hurt_invultime = 120;
+v_act_state_hurt.v_state_hurt_invultime = 60;
 
 v_plr_state_gnd_idle = instance_create_layer(x, y, "Player", o_state_gnd_idle);
 v_plr_state_gnd_idle.v_state_sprite = s_plr_gnd_idle_sword;
@@ -158,10 +158,11 @@ scr_state_addconnect(v_plr_state_air, v_plr_state_wall_stick);
 //scr_state_addconnect(v_plr_state_air, v_plr_state_slam);
 
 // crouch
-scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_idle);
-scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_run);
 scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_defend);
 scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_attack_crouch);
+scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_air_jump);
+scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_idle);
+scr_state_addconnect(v_plr_state_gnd_crouch, v_plr_state_gnd_run);
 scr_state_setconnects(v_plr_state_attackctocrouch, v_plr_state_gnd_crouch);
 
 // wall_stick
@@ -202,6 +203,7 @@ scr_state_addconnect(v_plr_state_attack, v_plr_state_gnd_run);
 
 // attack_crouch
 scr_state_addconnect(v_plr_state_attack_crouch, v_plr_state_attackctocrouch);
+scr_state_addconnect(v_plr_state_attack_crouch, v_plr_state_gnd_crouch);
 scr_state_addconnect(v_plr_state_attack_crouch, v_plr_state_gnd_idle);
 scr_state_addconnect(v_plr_state_attack_crouch, v_plr_state_gnd_run);
 

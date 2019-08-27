@@ -8,9 +8,9 @@ var actcon = ID.v_act_actcon;
 var result = false
 
 if (actcon.v_actcon_down) result = true;
-if (actcon.v_actcon_pressed_left) result = false;
-if (actcon.v_actcon_pressed_right) result = false;
-if (actcon.v_actcon_pressed_up) result = false;
+//if (actcon.v_actcon_pressed_left) result = false;
+//if (actcon.v_actcon_pressed_right) result = false;
+//if (actcon.v_actcon_pressed_up) result = false;
 if (actcon.v_actcon_pressed_button1) result = false;
 if (actcon.v_actcon_pressed_button2) result = false;
 if (actcon.v_actcon_pressed_button3) result = false;

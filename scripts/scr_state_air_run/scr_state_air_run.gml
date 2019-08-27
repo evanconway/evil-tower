@@ -16,3 +16,27 @@ if (ID.v_act_vel_y >= 0) {
 	if (state.v_state_air_spritedn != undefined && ID.v_act_faceright) ID.sprite_index = state.v_state_air_spritedn;
 	if (state.v_state_air_spritedn_left != undefined && !ID.v_act_faceright) ID.sprite_index = state.v_state_air_spritedn_left;
 }
+
+// wall slide sprite
+//var slide = false;
+var slide_y = ID.y - 15;
+with (ID) {
+	if (place_meeting(x - 1, y, o_wall) && v_act_actcon.v_actcon_left) {
+		//slide = true;
+		ID.sprite_index = s_plr_walljump_sword;
+		state.v_state_count--;
+		if (state.v_state_count <= 0)  {
+			instance_create_layer(bbox_left, slide_y, "Hitboxes", o_fx_smoke);
+			state.v_state_count = state.v_state_count_max;
+		}
+	}
+	if (place_meeting(x + 1, y, o_wall) && v_act_actcon.v_actcon_right) {
+		//slide = true;
+		ID.sprite_index = s_plr_walljump_left_sword;
+		state.v_state_count--;
+		if (state.v_state_count <= 0)  {
+			instance_create_layer(bbox_right, slide_y, "Hitboxes", o_fx_smoke);
+			state.v_state_count = state.v_state_count_max;
+		}
+	}
+}

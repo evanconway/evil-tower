@@ -18,15 +18,15 @@ wall they are trying to jump off of.
 */
 state.v_state_wall_stick_sign = -1;
 ID.v_act_faceright = true;
-state.v_state_wall_stick_Rwall = false;
-state.v_state_wall_stick_Lwall = true;
+//state.v_state_wall_stick_Rwall = false;
+//state.v_state_wall_stick_Lwall = true;
 if (ID.v_act_actcon.v_actcon_right) {
 	state.v_state_wall_stick_sign = 1;
 	ID.v_act_faceright = false;
-	state.v_state_wall_stick_Rwall = true;
-	state.v_state_wall_stick_Lwall = false;
+	//state.v_state_wall_stick_Rwall = true;
+	//state.v_state_wall_stick_Lwall = false;
 }
 
 scr_state_changesprite(ID);
 
-scr_playsfx(snd_tick);
+if (state.v_state_sound != undefined) scr_playsfx(state.v_state_sound);

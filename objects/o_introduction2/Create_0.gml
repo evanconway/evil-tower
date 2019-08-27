@@ -43,7 +43,7 @@ ds_list_add(v_intro_segmentlists, segments);
 segments = ds_list_create();
 
 text = "Fearing for their safety, the citizens of the forest gathered to discuss what to do." +
-"After much deliberation, they agreed on a plan destroy the tower.";
+"After much deliberation, they agreed on a plan to destroy the tower.";
 scr_list_addsegment_multi(segments,text, true, undefined, font, color, true);
 scr_list_addsegment_blankline(segments, true);
 text = "They would summon a hero.";

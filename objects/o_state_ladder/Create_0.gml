@@ -11,3 +11,4 @@ Also to make our lives simple. Ladder placement must follow a few simple rules.
 */
 
 v_state_ladder_climbspd = 1.1;
+v_state_sound = snd_ladder;

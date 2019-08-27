@@ -11,7 +11,8 @@
         "7571b04f-d552-4b3b-8079-bce6438e8c81",
         "dfc27407-33df-4292-b301-6a751b51512a",
         "d95dcd2a-fc21-4613-88bf-93a4130dbb80",
-        "d39ee3f2-49d7-4029-b546-122824d28f15"
+        "d39ee3f2-49d7-4029-b546-122824d28f15",
+        "f98fc4e3-47cb-4947-afd1-ff64302dce1c"
     ],
     "filterType": "GMObject",
     "folderName": "FX (effects)",

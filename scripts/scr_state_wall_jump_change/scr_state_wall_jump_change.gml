@@ -13,7 +13,8 @@ if (place_meeting(ID.x-1, ID.y, o_wall)) {
 	ID.v_act_vel_x = ID.v_act_vel_x_max * -1;
 	ID.v_act_actcon.v_actcon_left = true;
 }
+ID.v_act_vel_x *= 5;
 ID.v_act_vel_y = ID.v_act_jump;
-ID.v_act_inputlocktime = state.v_state_count_max;
+//ID.v_act_inputlocktime = state.v_state_count_max;
 
 scr_playsfx(state.v_state_sound);

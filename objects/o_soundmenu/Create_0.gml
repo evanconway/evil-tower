@@ -3,7 +3,7 @@
 global.soundmenuactive = false;
 depth -= 2;
 
-global.sfx_volume = 0.5;
+global.sfx_volume = 0.4;
 global.music_volume = 1;
 
 v_soundmenu[2] = "Music Volume ";

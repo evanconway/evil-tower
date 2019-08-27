@@ -7,7 +7,7 @@ var actcon = ID.v_act_actcon;
 
 var result = false
 
-if (actcon.v_actcon_pressed_down) result = true;
+if (actcon.v_actcon_down) result = true;
 //if (actcon.v_actcon_right) result = false;
 //if (actcon.v_actcon_left) result = false;
 if (place_meeting(ID.x, ID.y, o_wall)) result = false;

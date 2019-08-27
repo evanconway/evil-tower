@@ -2,6 +2,7 @@
 /// @param actor_id
 
 var ID = argument[0];
+var state = ID.v_act_state_cur;
 ID.image_speed = 0;
 
 ID.v_act_vel_y = 0;
@@ -25,5 +26,5 @@ climbing the ladder, the image_index changed, and there was no script to play a 
 for that. Therefore, we have to check for it here, in Idle.
 */
 if (ID.v_act_image_change || ID.v_act_sprite_change) {
-	scr_playsfx(snd_tick);
+	if (state.v_state_sound != undefined) scr_playsfx(state.v_state_sound);
 }
