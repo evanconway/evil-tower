@@ -1,31 +1,28 @@
 event_inherited();
+if (!instance_exists(id)) exit;
 
-v_act_health = 3;
+v_act_ai = instance_create_layer(x, y, "Enemies", o_ai_wander);
+v_act_ai.v_ai_actor = id;
 
-v_act_vel_x_max = 0.4;
-v_act_vel_runaccel = v_act_vel_x_max;
+// states
+v_act_state_hurt.v_state_sprite = s_emy_zombie_gnd_static;
 
-enum enum_zombie_state {
-	idle,
-	moving,
-	hit
-}
+// idle
+v_emy_zombie_state_gnd_idle = instance_create_layer(x, y, "Enemies", o_state_gnd_idle);
+v_emy_zombie_state_gnd_idle.v_state_sprite = s_emy_zombie_gnd_idle;
+v_emy_zombie_state_gnd_idle.v_state_sprite_left = s_emy_zombie_gnd_idle_left;
 
-v_act_state = enum_zombie_state.idle;
+v_act_state_default = v_emy_zombie_state_gnd_idle;
 
-enum enum_zombie_idlesprite {
-	face,
-	side
-}
+v_emy_zombie_state_gnd_run = instance_create_layer(x, y, "Enemies", o_state_gnd_run);
+v_emy_zombie_state_gnd_run.v_state_sprite = s_emy_zombie_gnd_walk;
+v_emy_zombie_state_gnd_run.v_state_sprite_left = s_emy_zombie_gnd_walk_left;
+v_emy_zombie_state_gnd_run.v_state_gnd_run_maxx = 0.5;
 
-v_zombie_idle_sprite = 0;
+// remember hurt must connect to almost all states
+scr_state_addconnect(v_act_state_hurt, v_emy_zombie_state_gnd_idle);
+scr_state_addconnect(v_act_state_hurt, v_emy_zombie_state_gnd_run);
 
-v_zombie_time_max = 120;
-v_zombie_time_min = 60;
-v_act_statetime = 0;
+scr_state_addconnect(v_emy_zombie_state_gnd_idle, v_emy_zombie_state_gnd_run);
 
-v_zombie_stuntime_max = 8;
-v_zombie_stuntime = v_zombie_stuntime_max;
-v_act_state_beforehit = global.novalue;
-
-v_act_explosion_y_offset = 3;
+scr_state_addconnect(v_emy_zombie_state_gnd_run, v_emy_zombie_state_gnd_idle);

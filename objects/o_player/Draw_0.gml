@@ -1,3 +1,7 @@
+
+event_inherited();
+
+/*OLD CODE
 //this is gross, it draws a massive black box behind the player
 //we can't do this in the draw_gui event because then we draw over the player
 //but it works!
@@ -9,3 +13,4 @@ if (v_plr_state == enum_plr_state.dead)
 }
 
 event_inherited();
+*/

@@ -1,0 +1,49 @@
+Yosi's explanation of using arrays as references for variables
+
+Something that yields this kind of behavior:
+myGlobalVar = 0;
+myLocalVar = myGlobalVar; // as a reference
+myLocalVar = 5;
+print(myGlobalVar); // will print 5
+Hopefully that's a clear enough explanation
+
+Yosi 🍩Today at 4:58 PM
+You should be able to use arrays to do this
+
+0rd1n4ryToday at 4:59 PM
+Can you elaborate? I don't understand what you mean.
+
+Yosi 🍩Today at 5:00 PM
+Let me do a quick test first actually
+
+0rd1n4ryToday at 5:00 PM
+ok ty
+If that doesn't work I'm pretty sure I can just do some jank with enumerators.
+
+Yosi 🍩Today at 5:02 PM
+gml_pragma("global","array_test()");
+
+var array = [5];
+
+var other_array = array;
+
+array[@0] = 10;
+
+show_message(other_array[0]); //10
+
+var array = [5];
+
+var other_array = array;
+
+array[0] = 10;
+
+show_message(other_array[0]); //5
+Oh wait, I think this is backwards
+Nevermind, it still works even if you swap it
+So if you use the [@ ] accessor when changing the contents of the array, then it will change the source array instead of making a copy
+
+0rd1n4ryToday at 5:06 PM
+ok interesting
+
+Yosi 🍩Today at 5:07 PM
+Obviously it's kind of a hack but it's pretty simple to use so :shrug:

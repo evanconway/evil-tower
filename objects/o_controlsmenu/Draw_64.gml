@@ -1,18 +1,21 @@
 /// @description Insert description here
+/*
+All instances of menu_scale have been replaced with "1".
+*/
 
 if (global.controlsactive) {
-	v_controlsmenu_rectwidth = v_controlsmenu_rectwidth_max * global.menu_scale_x;
-	v_controlsmenu_rectheight = v_controlsmenu_rectheight_max * global.menu_scale_y;
-	v_controlsmenu_rectx = global.gui_width/2 - v_controlsmenu_rectwidth/2;
-	v_controlsmenu_recty = global.gui_height/2.5 - v_controlsmenu_rectheight/2;
+	v_controlsmenu_rectwidth = v_controlsmenu_rectwidth_max;
+	v_controlsmenu_rectheight = v_controlsmenu_rectheight_max;
+	v_controlsmenu_rectx = global.resolution_width/2 - v_controlsmenu_rectwidth/2;
+	v_controlsmenu_recty = global.resolution_height/2.5 - v_controlsmenu_rectheight/2;
 	
 	//menu panel
-	//var yoffset = v_controlsmenu_yoffset * global.menu_scale_y * -1;
+	//var yoffset = v_controlsmenu_yoffset * 1 * -1;
 	
 	var x2 = v_controlsmenu_rectx + v_controlsmenu_rectwidth;
 	var y2 = v_controlsmenu_recty + v_controlsmenu_rectheight;
-	var borderx = v_controlsmenu_border * global.menu_scale_x;
-	var bordery = v_controlsmenu_border * global.menu_scale_y;
+	var borderx = v_controlsmenu_border * 1;
+	var bordery = v_controlsmenu_border * 1;
 	
 	draw_set_alpha(1);
 	draw_set_color(c_green);
@@ -44,68 +47,68 @@ if (global.controlsactive) {
 			cursor = string_insert(">", cursor, 0);
 			color = c_white;
 		}
-		v_controlsmenu_x = global.gui_width/3.2;
-		v_controlsmenu_y = global.gui_height/1.8;
+		v_controlsmenu_x = global.resolution_width/3.2;
+		v_controlsmenu_y = global.resolution_height/1.8;
 		var xx = v_controlsmenu_x;
-		var yy = v_controlsmenu_y - v_controlsmenu_itemheight * i * v_controlsmenu_spacer * global.menu_scale_y;
+		var yy = v_controlsmenu_y - v_controlsmenu_itemheight * i * v_controlsmenu_spacer;
 		draw_set_color(color);
 		draw_set_alpha(1);
-		draw_text_transformed(global.gui_width/v_controlsmenu_pointerxxdivide, yy, cursor, global.menu_scale_x, global.menu_scale_y, 0);
-		draw_text_transformed(xx, yy, txt, global.menu_scale_x, global.menu_scale_y, 0);
+		draw_text_transformed(global.resolution_width/v_controlsmenu_pointerxxdivide, yy, cursor, 1, 1, 0);
+		draw_text_transformed(xx, yy, txt, 1, 1, 0);
 		
 		var inputsx = 2;
 		
 		if (i == 8) {//controls for
-			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.gui_width/inputsx, yy, "Keyboard", global.menu_scale_x, global.menu_scale_y, 0);
-			else draw_text_transformed(global.gui_width/inputsx, yy, "Controller", global.menu_scale_x, global.menu_scale_y, 0);
+			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.resolution_width/inputsx, yy, "Keyboard", 1, 1, 0);
+			else draw_text_transformed(global.resolution_width/inputsx, yy, "Controller", 1, 1, 0);
 		}
 		if (i == 7) {//"Button 1";
 			if (v_controlkeychanging == enum_input.button1) draw_set_color(c_yellow);
 			else draw_set_color(color);
-			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.gui_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_button1), global.menu_scale_x, global.menu_scale_y, 0);
-			else draw_text_transformed(global.gui_width/inputsx, yy, scr_string_controllercheck(global.input_controller_button1), global.menu_scale_x, global.menu_scale_y, 0);
+			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_button1), 1, 1, 0);
+			else draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_controllercheck(global.input_controller_button1), 1, 1, 0);
 		}
 		if (i == 6) {//"Button 2";
 			if (v_controlkeychanging == enum_input.button2) draw_set_color(c_yellow);
 			else draw_set_color(color);
-			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.gui_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_button2), global.menu_scale_x, global.menu_scale_y, 0);
-			else draw_text_transformed(global.gui_width/inputsx, yy, scr_string_controllercheck(global.input_controller_button2), global.menu_scale_x, global.menu_scale_y, 0);
+			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_button2), 1, 1, 0);
+			else draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_controllercheck(global.input_controller_button2), 1, 1, 0);
 		}
 		if (i == 5) {//"Button 3";
 			if (v_controlkeychanging == enum_input.button3) draw_set_color(c_yellow);
 			else draw_set_color(color);
-			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.gui_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_button3), global.menu_scale_x, global.menu_scale_y, 0);
-			else draw_text_transformed(global.gui_width/inputsx, yy, scr_string_controllercheck(global.input_controller_button3), global.menu_scale_x, global.menu_scale_y, 0);
+			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_button3), 1, 1, 0);
+			else draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_controllercheck(global.input_controller_button3), 1, 1, 0);
 		}
 		if (i == 4) {//"Up";
 			if (v_controlkeychanging == enum_input.up) draw_set_color(c_yellow);
 			else draw_set_color(color);
-			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.gui_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_up), global.menu_scale_x, global.menu_scale_y, 0);
-			else draw_text_transformed(global.gui_width/inputsx, yy, scr_string_controllercheck(global.input_controller_up), global.menu_scale_x, global.menu_scale_y, 0);
+			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_up), 1, 1, 0);
+			else draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_controllercheck(global.input_controller_up), 1, 1, 0);
 		}
 		if (i == 3) {//"Down";
 			if (v_controlkeychanging == enum_input.down) draw_set_color(c_yellow);
 			else draw_set_color(color);
-			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.gui_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_down), global.menu_scale_x, global.menu_scale_y, 0);
-			else draw_text_transformed(global.gui_width/inputsx, yy, scr_string_controllercheck(global.input_controller_down), global.menu_scale_x, global.menu_scale_y, 0);
+			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_down), 1, 1, 0);
+			else draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_controllercheck(global.input_controller_down), 1, 1, 0);
 		}
 		if (i == 2) {//"Left";
 			if (v_controlkeychanging == enum_input.left) draw_set_color(c_yellow);
 			else draw_set_color(color);
-			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.gui_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_left), global.menu_scale_x, global.menu_scale_y, 0);
-			else draw_text_transformed(global.gui_width/inputsx, yy, scr_string_controllercheck(global.input_controller_left), global.menu_scale_x, global.menu_scale_y, 0);
+			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_left), 1, 1, 0);
+			else draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_controllercheck(global.input_controller_left), 1, 1, 0);
 		}
 		if (i == 1) {//"Right";
 			if (v_controlkeychanging == enum_input.right) draw_set_color(c_yellow);
 			else draw_set_color(color);
-			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.gui_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_right), global.menu_scale_x, global.menu_scale_y, 0);
-			else draw_text_transformed(global.gui_width/inputsx, yy, scr_string_controllercheck(global.input_controller_right), global.menu_scale_x, global.menu_scale_y, 0);
+			if (v_controlsmenu_showforkeyboard) draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_keycheck(global.input_keyboard_right), 1, 1, 0);
+			else draw_text_transformed(global.resolution_width/inputsx, yy, scr_string_controllercheck(global.input_controller_right), 1, 1, 0);
 		}
 		//make chosen option blink tastfully
 		if (v_controlsmenu_cursor == i) {
 			draw_set_color(c_black);
 			draw_set_alpha(v_controlsmenu_blinkalpha);
-			draw_text_transformed(xx, yy, txt, global.menu_scale_x, global.menu_scale_y, 0);
+			draw_text_transformed(xx, yy, txt, 1, 1, 0);
 		}
 	}
 }

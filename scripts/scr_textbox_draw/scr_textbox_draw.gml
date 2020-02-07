@@ -1,6 +1,7 @@
 /// @description scr_textbox_draw(textboxID)
-
 /// @param textboxID
+
+var ID = argument[0]; // why do I bother with ID values?
 
 var t_x = 0;
 var t_y = 0;
@@ -11,8 +12,6 @@ if (v_textbox_isgui) {
 	t_x = x - floor(v_textbox_width/2) + v_textbox_x_offset;
 	t_y = bbox_top + v_textbox_y_offset;
 }
-
-var ID = argument[0];//may not need this
 
 // x and y of the box is treated as top center. 
 

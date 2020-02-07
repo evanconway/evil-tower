@@ -1,21 +1,26 @@
 event_inherited();
+if (!instance_exists(id)) exit;
 
-v_act_vel_x = 0.8;
-v_act_vel_runaccel = 0.8//v_act_vel_x;
+v_act_ai = instance_create_layer(x, y, "Enemies", o_ai_patrol);
+v_act_ai.v_ai_actor = id;
 
-enum enum_fireball_state {
-	moving,
-	hit
-}
+v_act_invulnerable = true; // one of the few immortal enemmies.
 
-v_fireball_state = enum_fireball_state.moving;
+// states
 
-v_fireball_stuntime_max = 8;
-v_fireball_stuntime = v_fireball_stuntime_max;
+// idle
+v_emy_fireball_state_gnd_idle = instance_create_layer(x, y, "Enemies", o_state_gnd_idle);
+v_emy_fireball_state_gnd_idle.v_state_sprite = s_emy_fireball_gnd_idle;
 
-v_fireball_hitboxes_struck = ds_list_create();
+v_act_state_default = v_emy_fireball_state_gnd_idle;
 
-v_fireball_health = 2;
+v_emy_fireball_state_gnd_run = instance_create_layer(x, y, "Enemies", o_state_gnd_run);
+v_emy_fireball_state_gnd_run.v_state_gnd_run_maxx = 1;
 
-v_fireball_hitxoffset = 15;
-v_act_explosion_y_offset = -10;
+// remember hurt must connect to almost all states
+scr_state_addconnect(v_act_state_hurt, v_emy_fireball_state_gnd_idle);
+scr_state_addconnect(v_act_state_hurt, v_emy_fireball_state_gnd_run);
+
+scr_state_addconnect(v_emy_fireball_state_gnd_idle, v_emy_fireball_state_gnd_run);
+
+scr_state_addconnect(v_emy_fireball_state_gnd_run, v_emy_fireball_state_gnd_idle);

@@ -4,6 +4,7 @@ event_inherited();
 
 v_scene_running = false;
 v_scene_triggered = false;
+v_scene_counter = 0;
 
 /*
 Ihese variables are scripts that the step event will call. These variables will be
@@ -43,3 +44,4 @@ v_scene_textbox.v_textbox_bordercolor = c_white;
 v_scene_textbox.v_textbox_border_width = 3;
 v_scene_textcolor = c_white;
 v_scene_chirp = snd_chirp_default;
+v_scene_dialogue_xoffset = 20;

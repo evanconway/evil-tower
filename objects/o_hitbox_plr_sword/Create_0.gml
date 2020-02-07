@@ -1,6 +1,14 @@
-/// @description Insert description here
-// You can write your code in this editor
 event_inherited();
-v_hitbox_time = 8;
-v_hit_emy = false;
-if (!place_meeting(x, y, o_emy)) scr_playsfx(snd_swordswing);
+
+v_hitbox_freezehitter = true;
+v_hitbox_target = o_emy;
+v_hitbox_damage = 1;
+v_hitbox_fx = o_fx_smack;
+v_hitbox_snd_hit = snd_knock2;
+v_hitbox_snd_miss = snd_swordswing;
+v_hitbox_stun = 8;
+v_hitbox_shake_hit = 1;
+v_hitbox_shake_kill = 2;
+
+v_hitbox_knock_x = 1.2;
+v_hitbox_knock_y = -1.5;

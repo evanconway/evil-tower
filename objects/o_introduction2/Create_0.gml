@@ -32,33 +32,31 @@ scr_list_addsegment(segments, "Continue", false, undefined, font, color, true, t
 scr_textbox_setsegments(v_intro_continue, segments);
 segments = ds_list_create();
 
-var text = "A long time ago, there was a wizard who lived in a remote village. The wizard was powerful and " +
-"clever, but could not resist the temptation of the dark arts. The evil magic poisoned the wizard's " +
-"mind. Corruption spread thoughout the wizard's soul, and the villagers became fearful.";
+var text = "Once upon a time, a giant tower appeared in the forest. No one knew why it appeared," +
+" or where it came from. The few who dared to enter it discovered something terrible...";
 scr_list_addsegment_multi(segments,text, true, undefined, font, color, true);
 scr_list_addsegment_blankline(segments, true);
-text = "The wizard was exiled from the village.";
+text = "It was filled with evil monsters.";
 scr_list_addsegment_multi(segments,text, true, undefined, font, color, true);
 
 ds_list_add(v_intro_segmentlists, segments);
 segments = ds_list_create();
 
-text = "Furious and hurt, the wizard fled deep into the forest. There, the wizard constructed a tower that " +
-"amplified the power of the dark arts. With newfound strength, the wizard prepared to enact " +
-"revenge on the village.";
+text = "Fearing for their safety, the citizens of the forest gathered to discuss what to do." +
+"After much deliberation, they agreed on a plan to destroy the tower.";
 scr_list_addsegment_multi(segments,text, true, undefined, font, color, true);
 scr_list_addsegment_blankline(segments, true);
-text = "A terrible curse spread across the countryside.";
+text = "They would summon a hero.";
 scr_list_addsegment_multi(segments,text, true, undefined, font, color, true);
 
 ds_list_add(v_intro_segmentlists, segments);
 segments = ds_list_create();
 
-text = "Once each year, at the first snowfall, the dark magic marks one soul from the village. A sacrifice. " +
-"The curse twists the minds of the villagers, and instills hate in their hearts.";
+text = "You have been tasked with defeating the tower. Reach the top, and destroy the great " +
+"evil that lies within.";
 scr_list_addsegment_multi(segments,text, true, undefined, font, color, true);
 scr_list_addsegment_blankline(segments, true);
-text = "The marked soul is exiled from the village.";
+text = "Good luck hero.";
 scr_list_addsegment_multi(segments,text, true, undefined, font, color, true);
 
 ds_list_add(v_intro_segmentlists, segments);

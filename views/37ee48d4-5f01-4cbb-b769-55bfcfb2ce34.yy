@@ -8,10 +8,19 @@
         "50104007-759a-41ea-a8c5-d903ee4e68da",
         "95755149-25d0-440a-ae8f-a4472f090b93",
         "3a6b087d-c275-4e96-b8c3-1f825126bc19",
-        "00843eb9-1d94-430d-bbd2-834a0e0cadc2"
+        "00843eb9-1d94-430d-bbd2-834a0e0cadc2",
+        "a1f44705-c83c-451a-8e4f-f18b437e28e8",
+        "68a53a0e-0182-468a-9d6e-ade99df109be",
+        "b1ff1a98-016e-438b-80da-845cd8963809",
+        "e92e5418-80ae-447e-b008-38dc70da509e",
+        "4c320f93-5dd8-4137-a5bd-9517e7a75423",
+        "8e9aaba9-dc5f-451c-87ba-2b7bd06c859c",
+        "6cd0735e-bbe7-45c8-8197-d5b45a51140b",
+        "451fc39a-414c-49eb-852d-7682d417c952",
+        "8d81c684-dc6f-4bae-b3f7-498246e89c1a"
     ],
     "filterType": "GMScript",
-    "folderName": "scenes",
+    "folderName": "Scenes",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

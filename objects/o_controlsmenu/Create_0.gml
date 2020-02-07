@@ -1,22 +1,23 @@
-/// @description Insert description here
-// This object needs to be above the pause menu for some reason?
+/// @description
+
+global.controlsactive = false;
+depth -= 2;
 
 v_controlsmenu[8] = "Controls For: ";
 v_controlsmenu[7] = "Jump";
-v_controlsmenu[6] = "Action 1";
-v_controlsmenu[5] = "Action 2";
+v_controlsmenu[6] = "Attack";
+v_controlsmenu[5] = "Defend";
 v_controlsmenu[4] = "Up";
 v_controlsmenu[3] = "Down";
 v_controlsmenu[2] = "Left";
 v_controlsmenu[1] = "Right";
 v_controlsmenu[0] = "Back";
 v_controlsmenu_items = array_length_1d(v_controlsmenu);
-v_controlsmenu_font = f_menu;
 v_controlsmenu_itemheight = font_get_size(f_menu);
 v_controlsmenu_cursor = 8;
 v_controlsmenu_spacer = 1.5;
-v_controlsmenu_x = global.gui_width/2;
-v_controlsmenu_y = global.gui_height/2;
+v_controlsmenu_x = global.resolution_width/2;
+v_controlsmenu_y = global.resolution_height/2;
 
 v_controlsmenu_showforkeyboard = true;
 

@@ -15,5 +15,5 @@ var my_x = ds_list_find_value(argument[0], 0);
 
 var result = false;
 var sceneID = ds_list_find_value(argument[0], 0);
-if (place_meeting(sceneID.x, sceneID.y, o_player)) result = true;
+if (place_meeting(sceneID.x, sceneID.y, global.player)) result = true;
 return result;

@@ -1,7 +1,6 @@
-/// @description Draw On GUI
+/// @description Textbox In GUI
 
 if (v_textbox_isgui) {
-	
 	// adjust box to gui location
 	switch (v_textbox_guipos) {
 		case enum_textbox_guipos.top_left:
@@ -34,7 +33,7 @@ if (v_textbox_isgui) {
 		break;
 		case enum_textbox_guipos.bottom_center:
 			x = floor(global.resolution_width/2);
-			y = global.resolution_height - v_textbox_height_max - 1;
+			y = floor(global.resolution_height - v_textbox_height_max - global.resolution_height/12);
 		break;
 		case enum_textbox_guipos.bottom_right:
 			x = global.resolution_width - v_textbox_width_max;

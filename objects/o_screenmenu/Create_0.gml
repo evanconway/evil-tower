@@ -1,5 +1,7 @@
-/// @description Insert description here
-// This object needs to be above the pause menu for some reason?
+/// @description
+
+global.screenmenuactive = false;
+depth -= 2;
 
 v_screenmenu_string = "";
 if (window_get_fullscreen()) v_screenmenu_string = "Full Screen";

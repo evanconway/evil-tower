@@ -11,10 +11,12 @@
         "925553ca-4c0d-4955-a07a-145912ee9f3f",
         "ae418cc1-6fa4-444a-8fc9-a9ddde33c964",
         "7caa181c-ab87-48ab-b738-7514e2de810c",
-        "8f7f2838-f9e8-49a2-8724-9db7be2769d8"
+        "8f7f2838-f9e8-49a2-8724-9db7be2769d8",
+        "f6089be8-f63c-4d03-b174-945ec604da6b",
+        "67358728-ec25-4ecf-9a76-c8b0d6e26148"
     ],
     "filterType": "GMScript",
-    "folderName": "input",
+    "folderName": "Input",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

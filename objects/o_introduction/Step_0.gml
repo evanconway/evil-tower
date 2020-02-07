@@ -114,7 +114,7 @@ if (!global.freezeactors) {
 		else {
 			ds_list_clear(stringstodraw);
 			intro_state = enum_intro_state.printing;
-			if (intro_done) scr_transition(enum_transition_state.goto, global.firstroom);
+			if (intro_done) scr_transition_fade(global.firstroom);
 		}	
 		break;
 		#endregion

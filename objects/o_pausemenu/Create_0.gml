@@ -1,5 +1,9 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description
+
+global.pauseactive = false;
+global.canpause = false;
+
+v_pausemenu_unpause = false;
 
 v_pausemenu[3] = "Return To Game";
 v_pausemenu[2] = "Options";
@@ -19,8 +23,17 @@ v_pausemenu_blinkalpha = 0;
 v_pausemenu_blinkrate = global.menu_blinkrate;
 v_pausemenu_maxalpha = global.menu_maxalpha;
 
+/*
+v_pausemenu_control explained:
+The pause menu has step events that will execute every frame that it's active. But
+there are sub menus that can be active while the pause menu is active, like controls
+sound, screen options. We want to keep pause active, but not listen to input while
+these menus are open. This variable gives us a way to take control away from the
+pause menu.
+*/
 v_pausemenu_control = true;
-v_pausemenu_committed = global.novalue;
+v_pausemenu_committed = undefined;
+v_pausemenu_commit_snd = undefined;
 
 v_pausemenu_alpha = 0.7;
 v_pausemenu_rectwidth_max = 110;

@@ -1,0 +1,26 @@
+We need to make a boss. What do we want it to do? Should we try and do some mechanics that are hard? I'm tempted to see if we can give it weak spots easily. Since we will most likely have a scene running when fighting a boss, we can have that scene check for the health and existence of certain objects/actors. 
+
+Here's an idea out of no where. Boss is a giant slug with armor. It has two eyes sticking out of its head. The eyes are the only vulnerable spot. Each of them has maybe 5 health? After both are destroyed the slugs armor falls off (either the slug will be invulnerable during that time, or the player won't have control). The de-armored slug is vulnerable and takes maybe another 5 body shots to destroy. 
+
+While the slug still has eyes it will have the following actions:
+	Jump up above player and land on them. 
+	shoot giant green barfs (directed at player)
+	ramming attack (the player can block forever... should we try and give the player the ability to get squished??)
+		(Actually... perhaps we should give defending a "defense broken" status, so we can have unblockable attacks!)
+	maybe a hop around meander style thing... give player opportunity to attack
+	
+When the slug has lost one eye, we'll shorten the time between attacks
+When it's lost both eyes it will only jump slam and shoot barf.
+
+Since a scene will be handling a bunch of this stuff, it should be easy to change up the music while this is happening. Of course we'll have to write that music.
+
+Behold... we are revisiting the slug boss plan. 
+
+Right now the slug mindlessly wanders around, barfs, and does the jump and slam attack. Maybe we'll add the ramming attack in. But first we should plan out everything else about the boss. Like does it have a health bar? What kind of health bar, how is the boss introduced? What happens when it dies? When it gets injured? Right now it's just like any other enemy and simply dissappears when it takes enough damage. That's obviously now how we want bosses to behave. Before we figure that out... let's decide on what we should cut:
+
+We're not going to have eye hitboxes.
+The slug isn't going to have armor. 
+
+Ok I think that's all the cuts for now. Let's decide that the boss will appear after the player walks into its area. So the player will ride the elevator up to the boss room, but then has to manually walk over to a spot before the boss shows up. We'll have the player freeze in place, and the slug drop from above. Then the fight will start.
+
+We also need to figure out stuff like a boss health bar and what not... though honestly we can probably just put that in the draw gui event of the boss slug. 

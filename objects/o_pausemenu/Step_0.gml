@@ -1,6 +1,13 @@
 /// @description Insert description here
+/*
+if (room > 3 && !instance_exists(o_transition) && v_pausemenu_control) {
+	global.canpause = true;
+} else {
+	global.canpause = false;
+}
 
 if (global.pauseactive) {
+	global.freezeactors = true;
 	if (v_pausemenu_control) {
 		if (scr_input_ui_check(enum_input.up)) {
 			scr_playsfx(snd_UI1);
@@ -19,9 +26,11 @@ if (global.pauseactive) {
 			v_pausemenu_control = false;
 		}
 		if (scr_input_ui_check(enum_input.cancel) || scr_input_ui_check(enum_input.start)) {
-			scr_playsfx(snd_UIBack);
 			global.pauseactive = false;
-			scr_resumesfx();
+			global.freezeactors = false;
+			audio_resume_all();
+			v_pausemenu_committed = global.novalue;
+			v_pausemenu_control = true;
 		}
 	}
 	
@@ -31,8 +40,10 @@ if (global.pauseactive) {
 			game_end();
 			break;
 			case 1://main menu
-			scr_transition(enum_transition_state.goto, main_menu);
+			global.pauseactive = false;
+			v_pausemenu_control = true;
 			v_pausemenu_committed = global.novalue;
+			scr_transition(main_menu);
 			break;
 			case 2://options
 			global.optionsactive = true;
@@ -42,7 +53,8 @@ if (global.pauseactive) {
 			break;
 			case 3://return to game
 			global.pauseactive = false;
-			scr_resumesfx();
+			global.freezeactors = false;
+			audio_resume_all();
 			v_pausemenu_committed = global.novalue;
 			v_pausemenu_control = true;
 			break;
@@ -55,8 +67,8 @@ if (global.pauseactive) {
 		}
 	}
 } else {
-	if (scr_input_check(true, enum_input.start) && global.canpause && v_pausemenu_control) {
-		scr_pausesfx();
+	if (scr_input_check(true, enum_input.start) && global.canpause) {
+		audio_pause_all();
 		scr_playsfx(snd_pause);
 		global.pauseactive = true;
 		v_pausemenu_control = true;

@@ -1,11 +1,15 @@
-/// @description Insert description here
-// This object needs to be above the pause menu for some reason?
+/// @description
+
+global.soundmenuactive = false;
+depth -= 2;
+
+global.sfx_volume = 0.4;
+global.music_volume = 1;
 
 v_soundmenu[2] = "Music Volume ";
 v_soundmenu[1] = "Effects Volume ";
 v_soundmenu[0] = "Back";
 v_soundmenu_items = array_length_1d(v_soundmenu);
-v_soundmenu_font = f_menu;
 v_soundmenu_itemheight = font_get_size(f_menu);
 v_soundmenu_cursor = 2;
 v_soundmenu_spacer = 1.5;
@@ -30,5 +34,3 @@ v_soundmenu_rectheight = v_soundmenu_rectheight_max;
 v_soundmenu_rectx = 0;
 v_soundmenu_recty = 0;
 v_soundmenu_border = 2;
-
-v_soundmenu_yoffset = 10;

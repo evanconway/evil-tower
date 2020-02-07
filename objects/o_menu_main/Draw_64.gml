@@ -1,8 +1,8 @@
 /// @description Insert description here
 
-v_menu_gui_width = global.gui_width;
-v_menu_gui_height = global.gui_height;
-v_menu_gui_margin = global.gui_height * v_menu_gui_margin_mult;
+v_menu_gui_width = global.resolution_width;
+v_menu_gui_height = global.resolution_height;
+v_menu_gui_margin = global.resolution_height * v_menu_gui_margin_mult;
 v_menu_x = v_menu_gui_width * 0.5;
 v_menu_y_start = v_menu_gui_height + v_menu_gui_margin * v_menu_spacer * v_menu_items;
 v_menu_y_target = v_menu_gui_height - v_menu_gui_margin;
@@ -60,16 +60,16 @@ for (i = 0; i < v_menu_items; i++)//remember that this is drawing bottom up
 		color = c_white;
 	}
 	var xx = v_menu_x;
-	var yy = v_menu_y - v_menu_itemheight * i * v_menu_spacer * global.menu_scale_x;
+	var yy = v_menu_y - v_menu_itemheight * i * v_menu_spacer;
 	#region//shadow
 	if (v_menu_textshadow)//don't delete... might be able to use for blink when option selected
 	{
 		draw_set_color(c_navy);
 		var offset = 1;
-		draw_text_transformed(xx + offset * global.menu_scale_x, yy, txt, global.menu_scale_x, global.menu_scale_y, 0);
-		draw_text_transformed(xx, yy + offset * global.menu_scale_y, txt, global.menu_scale_x, global.menu_scale_y, 0);
-		draw_text_transformed(xx - offset * global.menu_scale_x, yy, txt, global.menu_scale_x, global.menu_scale_y, 0);
-		draw_text_transformed(xx, yy - offset * global.menu_scale_y, txt, global.menu_scale_x, global.menu_scale_y, 0);
+		draw_text_transformed(xx + offset, yy, txt, 1, 1, 0);
+		draw_text_transformed(xx, yy + offset, txt, 1, 1, 0);
+		draw_text_transformed(xx - offset, yy, txt, 1, 1, 0);
+		draw_text_transformed(xx, yy - offset, txt, 1, 1, 0);
 	}
 	#endregion
 	draw_set_color(color);

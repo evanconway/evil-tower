@@ -21,7 +21,7 @@
         "e84cb4be-fb90-4ef6-b029-50119ab423b9"
     ],
     "filterType": "GMScript",
-    "folderName": "object",
+    "folderName": "Object",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
