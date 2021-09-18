@@ -1,5 +1,14 @@
 /// @description Insert description here
 
+// draw my name!
+
+draw_set_font(f_dialog);
+draw_set_alpha(1);
+draw_set_halign(fa_left);
+draw_set_valign(fa_bottom);
+draw_set_color(c_dkgray);
+draw_text(0, global.resolution_height, "By: Evan Conway");
+
 v_menu_gui_width = global.resolution_width;
 v_menu_gui_height = global.resolution_height;
 v_menu_gui_margin = global.resolution_height * v_menu_gui_margin_mult;
@@ -53,11 +62,13 @@ for (i = 0; i < v_menu_items; i++)//remember that this is drawing bottom up
 {
 	var txt = v_menu[i];
 	var cursor = "";
-	var color = c_dkgray;
+	var color = c_dkgray; // should be c_dkgray
+	//var color = c_black; // for screen cap
 	if (v_menu_cursor == i)
 	{
 		cursor = string_insert(">", cursor, 0);
 		color = c_white;
+		//color = c_black; // for screen cap
 	}
 	var xx = v_menu_x;
 	var yy = v_menu_y - v_menu_itemheight * i * v_menu_spacer;

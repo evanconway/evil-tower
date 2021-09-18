@@ -1,8 +1,12 @@
 {
-    "id": "55f70887-8bc3-49b2-8852-91ba80b41761",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "scr_state_iscounting",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "States",
+    "path": "folders/Scripts/States.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "scr_state_iscounting",
+  "tags": [],
+  "resourceType": "GMScript",
 }

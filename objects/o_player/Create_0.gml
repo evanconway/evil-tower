@@ -53,6 +53,8 @@ v_plr_state_air_jump.v_state_sprite = s_plr_air_up_sword;
 v_plr_state_air_jump.v_state_sprite_left = s_plr_air_up_sword_left;
 v_plr_state_air_jump.v_state_air_spritedn = s_plr_air_dn_sword;
 v_plr_state_air_jump.v_state_air_spritedn_left = s_plr_air_dn_sword_left;
+v_plr_state_air_jump.v_state_air_sprite_slide = s_plr_walljump_sword;
+v_plr_state_air_jump.v_state_air_sprite_slide_left = s_plr_walljump_left_sword;
 v_plr_state_air_jump.v_state_air_grv = v_plr_grv;
 
 v_plr_state_air = instance_create_layer(x, y, "Player", o_state_air);
@@ -60,6 +62,8 @@ v_plr_state_air.v_state_sprite = s_plr_air_up_sword;
 v_plr_state_air.v_state_sprite_left = s_plr_air_up_sword_left;
 v_plr_state_air.v_state_air_spritedn = s_plr_air_dn_sword;
 v_plr_state_air.v_state_air_spritedn_left = s_plr_air_dn_sword_left;
+v_plr_state_air.v_state_air_sprite_slide = s_plr_walljump_sword;
+v_plr_state_air.v_state_air_sprite_slide_left = s_plr_walljump_left_sword;
 v_plr_state_air.v_state_air_grv = v_plr_grv;
 
 v_plr_state_wall_stick = instance_create_layer(x, y, "Player", o_state_wall_stick);

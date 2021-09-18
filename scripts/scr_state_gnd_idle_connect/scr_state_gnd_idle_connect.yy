@@ -1,8 +1,12 @@
 {
-    "id": "a47924d4-42a7-4158-96fe-ad1e0018c95d",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "scr_state_gnd_idle_connect",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "gnd",
+    "path": "folders/Scripts/States/gnd.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "scr_state_gnd_idle_connect",
+  "tags": [],
+  "resourceType": "GMScript",
 }

@@ -1,8 +1,12 @@
 {
-    "id": "3a6b087d-c275-4e96-b8c3-1f825126bc19",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "scr_scene_talk_trig",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Scenes",
+    "path": "folders/Scripts/Scenes.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "scr_scene_talk_trig",
+  "tags": [],
+  "resourceType": "GMScript",
 }
