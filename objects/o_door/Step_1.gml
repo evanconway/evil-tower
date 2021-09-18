@@ -13,7 +13,7 @@ if (instance_exists(global.player) && place_meeting(x, y, global.player) && !glo
 	var plr = instance_place(x, y, global.player);
 	if (plr.y == y && 
 	scr_input_check(true, enum_input.up) && 
-	plr.v_act_state_cur == plr.v_act_state_default &&
+	//plr.v_act_state_cur == plr.v_act_state_default &&
 	!instance_exists(o_transition)) {
 		// if we reached this spot, all of those conditions have been met, move through the door
 		scr_transition_door(id);

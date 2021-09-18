@@ -1,8 +1,12 @@
 {
-    "id": "925553ca-4c0d-4955-a07a-145912ee9f3f",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "scr_string_keycheck",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Input",
+    "path": "folders/Scripts/Input.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "scr_string_keycheck",
+  "tags": [],
+  "resourceType": "GMScript",
 }

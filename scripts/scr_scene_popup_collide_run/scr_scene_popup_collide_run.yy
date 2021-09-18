@@ -1,8 +1,12 @@
 {
-    "id": "2b14fc22-03da-445a-a3d1-c1e358dac814",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "scr_scene_popup_collide_run",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Scenes",
+    "path": "folders/Scripts/Scenes.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "scr_scene_popup_collide_run",
+  "tags": [],
+  "resourceType": "GMScript",
 }

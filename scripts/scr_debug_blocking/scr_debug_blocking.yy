@@ -1,8 +1,12 @@
 {
-    "id": "416200ff-1f86-4595-b989-641251ac86fb",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "scr_debug_blocking",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "debug",
+    "path": "folders/Scripts/debug.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "scr_debug_blocking",
+  "tags": [],
+  "resourceType": "GMScript",
 }

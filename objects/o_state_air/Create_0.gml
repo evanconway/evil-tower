@@ -14,3 +14,7 @@ v_state_air_spritedn_left = undefined;
 
 //we use state count for wall slide smoke
 v_state_count_max = 3;
+
+// slide sprites
+v_state_air_sprite_slide = undefined;
+v_state_air_sprite_slide_left = undefined;

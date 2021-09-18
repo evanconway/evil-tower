@@ -1,8 +1,12 @@
 {
-    "id": "f6089be8-f63c-4d03-b174-945ec604da6b",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "scr_intro_checkcontinue",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Input",
+    "path": "folders/Scripts/Input.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "scr_intro_checkcontinue",
+  "tags": [],
+  "resourceType": "GMScript",
 }

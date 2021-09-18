@@ -1,8 +1,12 @@
 {
-    "id": "a1f48099-54f1-4052-b8dd-bd3dd0eff001",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "scr_obj_sprite_nextimage",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Object",
+    "path": "folders/Scripts/Object.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "scr_obj_sprite_nextimage",
+  "tags": [],
+  "resourceType": "GMScript",
 }

@@ -2,13 +2,17 @@
 /// @param obja
 /// @param newx
 /// @param objb
+function scr_obj_move_x_else_approach_obj(argument0, argument1, argument2) {
 
-if (place_meeting(argument0.x + argument1, argument0.y, argument2))
-{
-	scr_obj_approach_x_obj(argument0, argument1, argument2);
-	return false;
-} else
-{
-	argument0.x += argument1;
-	return true;
+	if (place_meeting(argument0.x + argument1, argument0.y, argument2))
+	{
+		scr_obj_approach_x_obj(argument0, argument1, argument2);
+		return false;
+	} else
+	{
+		argument0.x += argument1;
+		return true;
+	}
+
+
 }

@@ -1,8 +1,12 @@
 {
-    "id": "eadb6358-02d7-4e73-b864-5db875b13a63",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "scr_state_addconnect",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "States",
+    "path": "folders/Scripts/States.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "scr_state_addconnect",
+  "tags": [],
+  "resourceType": "GMScript",
 }
