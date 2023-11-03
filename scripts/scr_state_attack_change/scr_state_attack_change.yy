@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "scr_state_attack_change",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "attack",
     "path": "folders/Scripts/States/attack.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "scr_state_attack_change",
-  "tags": [],
-  "resourceType": "GMScript",
 }

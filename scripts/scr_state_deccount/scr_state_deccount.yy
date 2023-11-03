@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "scr_state_deccount",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "States",
     "path": "folders/Scripts/States.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "scr_state_deccount",
-  "tags": [],
-  "resourceType": "GMScript",
 }

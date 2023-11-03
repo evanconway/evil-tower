@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "scr_actcon_release",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "Actcon",
     "path": "folders/Scripts/Actcon.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "scr_actcon_release",
-  "tags": [],
-  "resourceType": "GMScript",
 }

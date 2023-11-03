@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "scr_string_keycheck",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "Input",
     "path": "folders/Scripts/Input.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "scr_string_keycheck",
-  "tags": [],
-  "resourceType": "GMScript",
 }

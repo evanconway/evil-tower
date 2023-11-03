@@ -1,12 +1,11 @@
 {
-  "isDnD": false,
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "scr_state_air_run",
   "isCompatibility": false,
+  "isDnD": false,
   "parent": {
     "name": "air",
     "path": "folders/Scripts/States/air.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "scr_state_air_run",
-  "tags": [],
-  "resourceType": "GMScript",
 }
