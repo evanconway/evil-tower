@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_scene_boss_win_run",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Scenes",
-    "path": "folders/Scripts/Scenes.yy",
+  "$GMScript":"",
+  "%Name":"scr_scene_boss_win_run",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_scene_boss_win_run",
+  "parent":{
+    "name":"Scenes",
+    "path":"folders/Scripts/Scenes.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

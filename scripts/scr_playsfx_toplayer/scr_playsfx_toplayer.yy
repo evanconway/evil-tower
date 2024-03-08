@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_playsfx_toplayer",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Sound",
-    "path": "folders/Scripts/Sound.yy",
+  "$GMScript":"",
+  "%Name":"scr_playsfx_toplayer",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_playsfx_toplayer",
+  "parent":{
+    "name":"Sound",
+    "path":"folders/Scripts/Sound.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

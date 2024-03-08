@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_debug_blocking",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "debug",
-    "path": "folders/Scripts/debug.yy",
+  "$GMScript":"",
+  "%Name":"scr_debug_blocking",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_debug_blocking",
+  "parent":{
+    "name":"debug",
+    "path":"folders/Scripts/debug.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

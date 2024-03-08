@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_state_air_jump_connect",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "air",
-    "path": "folders/Scripts/States/air.yy",
+  "$GMScript":"",
+  "%Name":"scr_state_air_jump_connect",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_state_air_jump_connect",
+  "parent":{
+    "name":"air",
+    "path":"folders/Scripts/States/air.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

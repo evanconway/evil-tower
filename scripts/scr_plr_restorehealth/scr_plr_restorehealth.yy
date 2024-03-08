@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_plr_restorehealth",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Actors",
-    "path": "folders/Scripts/Actors.yy",
+  "$GMScript":"",
+  "%Name":"scr_plr_restorehealth",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_plr_restorehealth",
+  "parent":{
+    "name":"Actors",
+    "path":"folders/Scripts/Actors.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

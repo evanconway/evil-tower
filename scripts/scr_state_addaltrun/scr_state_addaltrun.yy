@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_state_addaltrun",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "States",
-    "path": "folders/Scripts/States.yy",
+  "$GMScript":"",
+  "%Name":"scr_state_addaltrun",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_state_addaltrun",
+  "parent":{
+    "name":"States",
+    "path":"folders/Scripts/States.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

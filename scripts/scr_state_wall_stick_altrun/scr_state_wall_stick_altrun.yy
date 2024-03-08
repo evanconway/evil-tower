@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_state_wall_stick_altrun",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "wall",
-    "path": "folders/Scripts/States/wall.yy",
+  "$GMScript":"",
+  "%Name":"scr_state_wall_stick_altrun",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_state_wall_stick_altrun",
+  "parent":{
+    "name":"wall",
+    "path":"folders/Scripts/States/wall.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

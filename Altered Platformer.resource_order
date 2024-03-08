@@ -1,6 +1,6 @@
 {
-  "FolderOrderSettings": [],
-  "ResourceOrderSettings": [
+  "FolderOrderSettings":[],
+  "ResourceOrderSettings":[
     {"name":"s_slug_giant_example","order":1,"path":"sprites/s_slug_giant_example/s_slug_giant_example.yy",},
     {"name":"s_slug_giant_left_eye","order":3,"path":"sprites/s_slug_giant_left_eye/s_slug_giant_left_eye.yy",},
     {"name":"s_wall","order":5,"path":"sprites/s_wall/s_wall.yy",},

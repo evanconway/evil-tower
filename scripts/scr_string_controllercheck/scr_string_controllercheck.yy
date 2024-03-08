@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_string_controllercheck",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Input",
-    "path": "folders/Scripts/Input.yy",
+  "$GMScript":"",
+  "%Name":"scr_string_controllercheck",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_string_controllercheck",
+  "parent":{
+    "name":"Input",
+    "path":"folders/Scripts/Input.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

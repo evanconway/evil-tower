@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scr_state_defend_continue",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "defend",
-    "path": "folders/Scripts/States/defend.yy",
+  "$GMScript":"",
+  "%Name":"scr_state_defend_continue",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_state_defend_continue",
+  "parent":{
+    "name":"defend",
+    "path":"folders/Scripts/States/defend.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
